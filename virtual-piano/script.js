@@ -1,8 +1,14 @@
 const piano = document.querySelector('.piano');
+const body = document.querySelector('.body');
 const pianoКeys = document.querySelectorAll('.piano-key');
 
 // Play when key on the keyboard pressed
+let isKeydown = false;
 document.addEventListener('keydown', (event) => {
+  if (isKeydown) {
+    return;
+  }
+  isKeydown = true;
   const pianoКey = document.querySelector(`.piano-key[data-letter="${event.code.slice(3,5)}"]`);
   const audio = document.querySelector(`audio[data-letter="${event.code.slice(3,5)}"]`);
   if (!audio) {
@@ -11,14 +17,17 @@ document.addEventListener('keydown', (event) => {
   audio.currentTime = 0;
   audio.play();
   pianoКey.classList.add('piano-key-active');
+  body.classList.add('active-button');
 });
 
 document.addEventListener('keyup', (event) => {
+  isKeydown = false;
   if (!document.querySelector(`.piano-key[data-letter="${event.code.slice(3,5)}"]`)) {
     return;
   }
   const pianoКey = document.querySelector(`.piano-key[data-letter="${event.code.slice(3,5)}"]`);
   pianoКey.classList.remove('piano-key-active');
+  body.classList.remove('active-button');
 });
 
 // Play when left or right mouse down and move
@@ -36,15 +45,18 @@ piano.addEventListener("mousedown", function (event) {
     pianoКeys.forEach(key => {
       if (key.classList.contains('piano-key-active')) {
         key.classList.remove('piano-key-active');
+        body.classList.remove('active-button');
       }
     });
     event.target.classList.add('piano-key-active');
+    body.classList.add('active-button');
   };
 });
 
 window.addEventListener("mouseup", function (event) {
   isMousedown = false;
   event.target.classList.remove('piano-key-active');
+  body.classList.remove('active-button');
 });
 
 window.addEventListener("mousemove", function (event) {
@@ -70,6 +82,14 @@ window.addEventListener("mousemove", function (event) {
   } else {
     return;
   }
+});
+
+piano.addEventListener("mouseout", function (event) {
+  pianoКeys.forEach(key => {
+    if (key.classList.contains('piano-key-active')) {
+      key.classList.remove('piano-key-active');
+    }
+  });
 });
 
 // Change button notes to letters
