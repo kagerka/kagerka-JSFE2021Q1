@@ -169,6 +169,7 @@ body {
   bottom: -45px;
   left: 20px;
   transition: 0.3s;
+  pointer-events: none;
 }
 
 .piano-key::after {
@@ -181,9 +182,9 @@ body {
   color: #CBD5DE;
 }
 
-.piano-key:active::before,
-.piano-key:active::after {
-  color: #fff;
+.piano-key.piano-key-active::before,
+.piano-key.piano-key-active::after {
+  color: #00b4a4;
 }
 
 .piano-key.sharp::before,
