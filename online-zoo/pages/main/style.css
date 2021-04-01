@@ -161,7 +161,7 @@ html {
   background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 500;
+  font-weight: 700;
   cursor: default;
 }
 
@@ -174,7 +174,16 @@ html {
   background: linear-gradient(113.96deg, #f97f4bb2 1.49%, #fe9013b2 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+.header__link.header__link_active:active {
+  background: -o-linear-gradient(336.04deg, #f9804b 1.49%, #fe9013 101.44%);
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  cursor: default;
 }
 
 /* Intro */
@@ -1005,7 +1014,7 @@ html {
   background: linear-gradient(113.96deg, #f97f4bb2 1.49%, #fe9013b2 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .footer__link_active {
@@ -1013,7 +1022,16 @@ html {
   background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 500;
+  font-weight: 700;
+  cursor: default;
+}
+
+.footer__link.footer__link_active:active {
+  background: -o-linear-gradient(336.04deg, #f9804b 1.49%, #fe9013 101.44%);
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
   cursor: default;
 }
 
@@ -1177,10 +1195,14 @@ html {
   color: #ffffff;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid transparent;
 }
 
-.footer__copyright:hover {
+.footer__designer,
+.footer__company {
+  border-bottom: 1px solid transparent;
+}
+.footer__copyright:hover .footer__designer,
+.footer__copyright:hover .footer__company {
   color: #4b9200;
   border-bottom: 1px solid #4b9200;
 }
