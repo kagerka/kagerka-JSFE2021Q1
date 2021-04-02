@@ -185,23 +185,501 @@ html {
   font-weight: 700;
   cursor: default;
 }
+
 /* Main */
 
 .main {
   padding-top: 80px;
+  position: relative;
 }
+
+
+
+/* Sidebar */
+
+.aside-wrapper {
+  position: absolute;
+  height: 100%;
+  padding: 112px 30px 500px 30px;
+}
+
+.zoos-sidebar {
+  position: sticky;
+  top: 30px;
+  left: 30px;
+  bottom: 80px;
+  width: 100px;
+  height: fit-content;
+  padding: 16px 10px;
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  border-radius: 5px;
+}
+
+.zoos-sidebar__animal {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #fe9013;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoos-sidebar__animal:hover {
+  border: 2px solid #4b9200;
+  transition: 0.3s all ease-in-out;
+}
+
+.zoos-sidebar__animal:active {
+  border: 2px solid #3b7201;
+  transition: 0.3s all ease-in-out;
+}
+
+.zoos-sidebar__animal_svg {
+  width: 80px;
+  height: 80px;
+  fill: black;
+  transition: 0.3s all ease-in-out;
+}
+
+.zoos-sidebar__animal:hover .zoos-sidebar__animal_svg {
+  fill: #4b9200;
+}
+
+.zoos-sidebar__animal:active .zoos-sidebar__animal_svg {
+  fill: #3b7201;
+}
+
+.zoos-sidebar__animal.zoos-sidebar__active {
+  border: 2px solid #4b9200;
+}
+
+.zoos-sidebar__active .zoos-sidebar__animal_svg {
+  fill: #4b9200;
+}
+
+.zoos-sidebar__gorilla {
+  width: 55px;
+  height: 47px;
+}
+
+.zoos-sidebar__alligator {
+  width: 64px;
+  height: 30px;
+}
+
+.zoos-sidebar__panda {
+  width: 58px;
+  height: 42px;
+}
+
+.zoos-sidebar__eagle {
+  width: 54px;
+  height: 48px;
+}
+
+.zoos-sidebar__sloth {
+  width: 50px;
+  height: 49px;
+}
+
+.zoos-sidebar__penguin {
+  width: 32px;
+  height: 59px;
+}
+
+.zoos-sidebar__arrow {
+  width: 62px;
+  height: 62px;
+  fill: none;
+  stroke: black;
+  transition: 0.3s all ease-in-out;
+}
+
+.zoos-sidebar__animal:hover .zoos-sidebar__arrow {
+  cursor: pointer;
+  stroke: #4b9200;
+}
+
+.zoos-sidebar__tooltip {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+
+.zoos-sidebar__tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(73, 73, 73);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: 100px;
+}
+
+.zoos-sidebar__active .zoos-sidebar__tooltip-text {
+  visibility: visible;
+}
+
+.zoos-sidebar__tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent rgb(73, 73, 73) transparent transparent;
+}
+
+.zoos-sidebar__tooltip:hover .zoos-sidebar__tooltip-text {
+  visibility: visible;
+}
+
 
 /* Panda camera */
 
-.panda-camera_heading {
+.camera {
+  padding-bottom: 94px;
+
+}
+
+.camera__heading {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 48px;
   line-height: 58px;
   color: #333B41;
-  margin: 0;
+  margin: 40px 0 14px;
   padding: 0;
+}
+
+.camera__video {
+  margin-bottom: 74px;
+}
+
+.camera__item {
+  width: 1162px;
+  height: 652px;
+}
+
+.camera__carousel {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.camera__carousel_item {
+  position: relative;
+}
+
+.camera__carousel_video {
+  width: 268px;
+  height: 210px;
+  overflow: hidden;
+
+}
+
+.camera__carousel_transparent-block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  padding: 9px;
+}
+
+.camera__carousel_live {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 1px 11px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #000000;
+  cursor: default;
+}
+
+.camera__carousel_left-arrow {
+  position: absolute;
+  top: calc(50% - 31px);
+  left: -82px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: -o-linear-gradient(336.04deg, #f9804b 1.49%, #fe9013 101.44%);
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.camera__carousel_left-arrow::before {
+  border-radius: inherit;
+  background: -o-linear-gradient(336.04deg, #4b9200 1.49%, #4b9200 101.44%);
+  background: linear-gradient(113.96deg, #4b9200 1.49%, #4b9200 101.44%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -100;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.camera__carousel_left-arrow::after {
+  border-radius: inherit;
+  background: -o-linear-gradient(336.04deg, #3b7201 1.49%, #3b7201 101.44%);
+  background: linear-gradient(113.96deg, #3b7201 1.49%, #3b7201 101.44%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -100;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.camera__carousel_left-arrow:hover::before {
+  opacity: 1;
+}
+
+.camera__carousel_left-arrow:active::after {
+  opacity: 1;
+}
+
+.camera__carousel_right-arrow {
+  position: absolute;
+  top: calc(50% - 31px);
+  right: -82px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: -o-linear-gradient(336.04deg, #f9804b 1.49%, #fe9013 101.44%);
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.camera__carousel_right-arrow::before {
+  border-radius: inherit;
+  background: -o-linear-gradient(336.04deg, #4b9200 1.49%, #4b9200 101.44%);
+  background: linear-gradient(113.96deg, #4b9200 1.49%, #4b9200 101.44%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -100;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.camera__carousel_right-arrow::after {
+  border-radius: inherit;
+  background: -o-linear-gradient(336.04deg, #3b7201 1.49%, #3b7201 101.44%);
+  background: linear-gradient(113.96deg, #3b7201 1.49%, #3b7201 101.44%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -100;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.camera__carousel_right-arrow:hover::before {
+  opacity: 1;
+}
+
+.camera__carousel_right-arrow:active::after {
+  opacity: 1;
+}
+
+/* Animal info */
+.animal-info {
+  background: url(../../../assets/images/bg-strelitzia1.png) left 0 bottom 0 no-repeat,
+    url(../../../assets/images/bg-leaf1.png) right 0 bottom -94px no-repeat;
+  padding-bottom: 180px;
+}
+
+.animal-info__heading {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 58px;
+  color: #4B9200;
+  margin-bottom: 24px;
+}
+
+.animal-info__info-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 70px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #767474;
+  ;
+}
+
+.animal-info__img {
+  width: 422px;
+  height: 421px;
+}
+
+.animal-info__text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 36px;
+  color: #ABABAB;
+  margin: 0 0 40px;
+}
+
+.animal-info__read-less_button {
+  width: 129px;
+  height: 42px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+  background: #f1f3f2;
+  border: 1px solid #333b41;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+  -webkit-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  margin-top: 20px;
+}
+
+.animal-info__read-less_button:hover {
+  border: 1px solid #4b9200;
+  color: #4b9200;
+}
+
+.animal-info__read-less_button:active {
+  border: 1px solid #3b7201;
+  color: #3b7201;
+}
+
+.animal-info__complete-info {
+  padding-top: 40px;
+}
+
+.animal-info__short-info_title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.animal-info__short-info_text,
+.animal-info__complete-info_text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.animal-info__complete-info_title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin: 30px 0 10px;
+}
+
+.text-link,
+.text-link:visited {
+  color: #4b9200;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: #fe9013;
+}
+
+.text-link:active {
+  color: #f9804b;
+}
+
+/* Zoos animal donate */
+
+.zoos-animal {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 390px;
+  padding-bottom: 60px;
+}
+
+.zoos-animal__panda {
+  background: url(../../../assets/images/zoos-panda.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.zoos-animal__donate-button {
+  margin: 0 auto;
 }
 
 /* Footer */
