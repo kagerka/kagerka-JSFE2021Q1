@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetStory online</title>
+  <link rel="stylesheet" href="../../../normalize/normalize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page">
+  <h1 class="hidden">PetStory Online</h1>
+  <header class="header">
+    <div class="wrapper">
+      <div class="header__wrapper">
+
+        <div class="header__logo">
+          <a href="../../main/index.html" class="header__logo-link"><img src="../../../assets/icons/logo.svg"
+              alt="PetStory online logo" class="header__logo-pic"></a>
+        </div>
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="../../main/index.html" class="header__link">About</a>
+            </li>
+            <li class="header__item">
+              <a href="../../map/map.html" class="header__link">Map</a>
+            </li>
+            <li class="header__item">
+              <div class="header__link header__link_active">Zoos</div>
+            </li>
+            <li class="header__item">
+              <a href="#!" class="header__link">Contact us</a>
+            </li>
+            <li class="header__item">
+              <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank"
+                class="header__link">Designed by ©</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="aside-wrapper">
+      <aside class="zoos-sidebar">
+        <div class="zoos-sidebar__tooltip">
+          <a href="../gorilla/gorilla.html">
+            <div class="zoos-sidebar__animal">
+              <span class="zoos-sidebar__tooltip-text">Gorilla</span>
+              <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
+                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div class="zoos-sidebar__tooltip">
+          <div class="zoos-sidebar__animal zoos-sidebar__active">
+            <span class="zoos-sidebar__tooltip-text">Alligator</span>
+            <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
+              <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="zoos-sidebar__tooltip">
+          <a href="../panda/panda.html">
+            <div class="zoos-sidebar__animal">
+              <span class="zoos-sidebar__tooltip-text">Panda</span>
+              <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
+                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div class="zoos-sidebar__tooltip">
+          <a href="../eagle/eagle.html">
+            <div class="zoos-sidebar__animal">
+              <span class="zoos-sidebar__tooltip-text">Eagle</span>
+              <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
+                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div class="zoos-sidebar__tooltip">
+          <a href="#!">
+            <div class="zoos-sidebar__animal">
+              <span class="zoos-sidebar__tooltip-text">Sloth</span>
+              <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
+                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div class="zoos-sidebar__tooltip">
+          <a href="#!">
+            <div class="zoos-sidebar__animal">
+              <span class="zoos-sidebar__tooltip-text">Penguin</span>
+              <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
+                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div class="zoos-sidebar__animal">
+          <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
+            <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
+          </svg>
+        </div>
+      </aside>
+    </div>
+    <div class="zoos-wrapper">
+      <section class="camera">
+        <div class="wrapper">
+          <h2 class="camera__heading">Alligator camera</h2>
+
+          <div class="camera__video">
+            <iframe class="camera__item" src="https://www.youtube.com/embed/Vqzg8JakhjI" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="camera__carousel">
+
+            <a href="" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg" alt=""></a>
+            <a href="" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg" alt=""></a>
+
+            <div class="camera__carousel_item">
+              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/Vqzg8JakhjI"
+                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/Vqzg8JakhjI?autoplay=1'><img src='//img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg' srcset='//img.youtube.com/vi/Vqzg8JakhjI/mqdefault.jpg 320w, //img.youtube.com/vi/Vqzg8JakhjI/hqdefault.jpg 480w, //img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg 1307w'></a>"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="camera__carousel_item">
+              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/Vqzg8JakhjI"
+                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/Vqzg8JakhjI?autoplay=1'><img src='//img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg' srcset='//img.youtube.com/vi/Vqzg8JakhjI/mqdefault.jpg 320w, //img.youtube.com/vi/Vqzg8JakhjI/hqdefault.jpg 480w, //img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg 1307w'></a>"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="camera__carousel_item">
+              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/Vqzg8JakhjI"
+                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/Vqzg8JakhjI?autoplay=1'><img src='//img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg' srcset='//img.youtube.com/vi/Vqzg8JakhjI/mqdefault.jpg 320w, //img.youtube.com/vi/Vqzg8JakhjI/hqdefault.jpg 480w, //img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg 1307w'></a>"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="camera__carousel_item">
+              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/Vqzg8JakhjI"
+                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/Vqzg8JakhjI?autoplay=1'><img src='//img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg' srcset='//img.youtube.com/vi/Vqzg8JakhjI/mqdefault.jpg 320w, //img.youtube.com/vi/Vqzg8JakhjI/hqdefault.jpg 480w, //img.youtube.com/vi/Vqzg8JakhjI/maxresdefault.jpg 1307w'></a>"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="animal-info">
+        <div class="wrapper">
+          <h2 class="animal-info__heading">Alligator</h2>
+
+          <div class="animal-info__info-card">
+            <div class="animal-info__pic">
+              <img src="../../../assets/images/alligator.jpg" alt="" class="animal-info__img">
+            </div>
+            <div class="animal-info__content">
+              <p class="animal-info__text">Alligators differ from other members of the crocodile family in having a <a href="https://en.wikipedia.org/wiki/Alligator" target="_blank" class="text-link">wider snout</a>; their eyes are more dorsal (at the top of the head). Large alligators' eyes glow red; small alligators' eyes glow green. Alligators can be spotted in the dark by this sign.</p>
+              <a href="../../donate/donate.html" class="btn animal-info__button">Feed a friend now</a>
+            </div>
+          </div>
+
+          <div class="animal-info__complete-info">
+            <div class="animal-info__short-info">
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Diet:</span> Carnivore (Fish, lizards, <a href="https://en.wikipedia.org/wiki/Alligator" target="_blank" class="text-link">snakes</a>, mice)</p>
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Florida, United States of America <a href="https://en.wikipedia.org/wiki/Alligator" target="_blank" class="text-link">[VIEW
+                  MAP]</a></p>
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Habitat:</span>
+                Alligators live mostly in fresh brackish water, in marshes, canals, and lakes</p>
+            </div>
+            <h3 class="animal-info__complete-info_title">General Information:</h3>
+            <p class="animal-info__complete-info_text">Alligators are large, semi-aquatic, carnivorous reptiles with four paws and a huge tail that is half the length of an animal, helps them move around in water used to make water pools in the dry seasons (alligator holes), used as weapons, and stores fat that helps them overwinter. Alligators are cold-blooded; their bodies do not produce heat. They get it by basking in the sun.</p>
+            <h3 class="animal-info__complete-info_title">Physical features and characteristics:</h3>
+            <p class="animal-info__complete-info_text">There are two types of alligators: the American alligator, which grows to 19 feet (3.5 m) long and up to 600 pounds (270 kg), and the Chinese alligator, which grows to 6 feet (1.8 m) long.</p>
+            <p class="animal-info__complete-info_text">Having four paws, they swim very well, mainly using their tail to move through the water and, to a lesser extent, using their webbed feet.</p>
+            <p class="animal-info__complete-info_text">Alligators are stooping (as are many reptiles); they walk in a flat-footed manner. On land, they can move relatively quickly, but only in short bursts.  Different species have <a href="https://en.wikipedia.org/wiki/Alligator" target="_blank" class="text-link">different speeds</a>, which also depends on the type of movement (crawling, paddling, swimming). Alligators are the fastest crocodiles on earth, they can move at speeds of up to 17 km per hour. They swim at a speed of about 10 km per hour. Crawling, the animal can travel 5-10 km per hour.</p>
+            <h3 class="animal-info__complete-info_title">Lifestyle and reproduction:</h3>
+            <p class="animal-info__complete-info_text">Alligators are usually solitary animals. They live 30 to 35 years in the wild, and up to 50 years in captivity.  These animals have a wide range of calls and vocalizations. These calls are used in mating, defining territory, and distress calls (babies grunt to alert their mother when in danger), etc.</p>
+            <p class="animal-info__complete-info_text">Alligators breed in the spring from April to May. One month after noisy mating and bonding rituals, the female lays up to 50 eggs in a large (three feet high and six feet wide) nest, which is made of dirt, leaves, and twigs on non-wet ground. Alligators do not incubate their <a href="https://en.wikipedia.org/wiki/Alligator" target="_blank" class="text-link">eggs</a> so as not to crush them. The vegetation that rots in the nest keeps the future babies warm.</p>
+            <p class="animal-info__complete-info_text">The temperature in the nest determines the sex of the chicks. If the eggs were incubated at 93 degrees Fahrenheit (34 degrees Celsius), the embryo develops as a male; temperatures below 86 degrees Fahrenheit (30 degrees Celsius) result in a female embryo. The would-be mother alligator guards the nest from predators. The eggs hatch after 2 months, producing chicks about 6 inches long (15 cm). A group of babies (called a pod) are protected by the female for a year.</p>
+
+            <h3 class="animal-info__complete-info_title">Habitat:</h3>
+            <p class="animal-info__complete-info_text">Alligators live mostly in fresh brackish water, in marshes, canals, and lakes. The American alligator is found only in the southeastern United States, the Chinese alligator is found in the lower basin of the Yangtze River that flows in China.</p>
+            <h3 class="animal-info__complete-info_title">Diet:</h3>
+            <p class="animal-info__complete-info_text">Alligators are awake and feed mostly at night. Younger ones eat insects, shrimp, snails, fish, tadpoles, and frogs. Adults eat fish, birds, turtles, reptiles, and mammals. They swallow their prey whole. Their conical teeth are used to catch their prey without tearing it to pieces. The animal has about 80 teeth; a lost tooth recovers quickly.</p>
+            <button type="submit" class="animal-info__read-less_button">Read Less</button>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="zoos-animal zoos-animal__alligator">
+        <a href="../../donate/donate.html" class="btn zoos-animal__donate-button">Donate</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+
+
+      <div class="footer__logo">
+        <a href="../../main/index.html" class="footer__logo-link"><img src="../../../assets/icons/logo.svg"
+            alt="PetStory online logo" class="footer__logo-pic"></a>
+      </div>
+
+      <a href="../../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
+
+      <div class="footer__socials socials">
+        <ul class="socials__list">
+          <li class="socials__item">
+            <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#facebook"></use>
+              </svg>Facebook</a>
+          </li>
+          <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
+              <svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#twitter"></use>
+              </svg>Twitter</a>
+          </li>
+          <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
+              <svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#instagram"></use>
+              </svg>Instagram</a>
+          </li>
+          <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
+              <svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#youtube"></use>
+              </svg>YouTube</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__menu">
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="../../main/index.html" class="footer__link">About</a>
+          </li>
+          <li class="footer__item"><a href="../../map/map.html" class="footer__link">Map</a></li>
+          <li class="footer__item">
+            <div class="footer__link footer__link_active">Zoos</div>
+          </li>
+          <li class="footer__item"><a href="#!" class="footer__link">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__subscribe subscribe">
+        <h3 class="subscribe__title">Subscribe to our news</h3>
+        <form class="subscribe__form">
+          <input type="email" placeholder="Enter your email" class="subscribe__input">
+          <button type="submit" class="subscribe__submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="footer__copyright">
+        <div class="footer__designer">Designed by Alisa Samborskaya</div>
+        <div class="footer__company">©RSSchool & ©Yem Digital 2021</div>
+      </div>
+
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
