@@ -232,13 +232,23 @@ html {
   border: 1px solid #4B9200;
 }
 .map__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   padding-top: 103px;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
 }
 
@@ -246,7 +256,9 @@ html {
   width: 1085px;
   height: 717px;
 }
-
+.map__world-map_mozilla {
+  display: none;
+}
 .map__pin-china-1 {
   position: absolute;
   top: 53.4%;
@@ -402,6 +414,8 @@ html {
   font-size: 0.875rem;
   background: #ffffff;
   border: 1px solid #000000;
+  -webkit-transition: 0.5s all;
+  -o-transition: 0.5s all;
   transition: 0.5s all;
 }
 
@@ -449,7 +463,9 @@ html {
   left: calc(50% - 30px);
   width: 10px;
   height: 10px;
-  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
   border-right: 1px solid #000000;
   border-bottom: 1px solid #000000;
 }
@@ -487,6 +503,8 @@ html {
   padding: 4px 16px;
   outline: none;
   cursor: pointer;
+  -webkit-transition: 0.5s all;
+  -o-transition: 0.5s all;
   transition: 0.5s all;
 }
 
@@ -504,7 +522,7 @@ html {
 .footer__wrapper {
   display: -ms-grid;
   display: grid;
-  grid-template-areas:
+      grid-template-areas:
     "footer__logo . footer__subscribe"
     "footer__button . ."
     "footer__socials footer__menu footer__copyright";
