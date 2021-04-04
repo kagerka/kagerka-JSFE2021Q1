@@ -258,7 +258,13 @@ html {
 .zoos-sidebar__active .zoos-sidebar__animal_svg {
   fill: #4b9200;
 }
+.zoos-sidebar__animal:active.zoos-sidebar__active {
+  border: 2px solid #4b9200;
+}
 
+.zoos-sidebar__active:active .zoos-sidebar__animal_svg {
+  fill: #4b9200;
+}
 .zoos-sidebar__gorilla {
   width: 55px;
   height: 47px;

@@ -400,7 +400,17 @@ html {
   top: 61.2%;
   left: 25.27%;
 }
-
+.map__tooltip_transparent-border {
+  position: absolute;
+  top: -30px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  z-index: -1;
+}
+.map__tooltip--panda .map__tooltip_transparent-border {
+  top: -20px;
+}
 .map__tooltip {
   position: absolute;
   display: none;
@@ -420,7 +430,7 @@ html {
 }
 
 .map__tooltip--panda {
-  top: 120%;
+  top: 130%;
   left: -280%;
 }
 
@@ -503,6 +513,7 @@ html {
   padding: 4px 16px;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
   -webkit-transition: 0.5s all;
   -o-transition: 0.5s all;
   transition: 0.5s all;
