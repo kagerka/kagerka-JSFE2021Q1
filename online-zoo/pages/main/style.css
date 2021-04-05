@@ -1238,7 +1238,6 @@ html {
   box-sizing: border-box;
   position: absolute;
   left: calc(50% - 443px);
-  /* top: calc(50% - 269px); */
   top: calc(50% - 269px);
   margin: 0 auto;
   width: 886px;
