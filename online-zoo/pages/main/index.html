@@ -8,7 +8,7 @@
   <title>PetStory online</title>
   <link rel="stylesheet" href="../../normalize/normalize.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" type="image/png" href="../../favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="../../favicon.png" />
 </head>
 
 <body class="page">
@@ -44,9 +44,9 @@
       </div>
     </div>
   </header>
-  
+
   <main class="main">
-    
+
     <section class="intro">
       <div class="wrapper intro__wrapper">
         <div class="intro__ellipse"></div>
@@ -405,7 +405,9 @@
 
       <div class="footer__menu">
         <ul class="footer__list">
-          <li class="footer__item"><div class="footer__link footer__link_active">About</div></li>
+          <li class="footer__item">
+            <div class="footer__link footer__link_active">About</div>
+          </li>
           <li class="footer__item"><a href="../map/map.html" class="footer__link">Map</a></li>
           <li class="footer__item"><a href="../zoos/panda/panda.html" class="footer__link">Zoos</a></li>
           <li class="footer__item"><a href="#!" class="footer__link">Contact us</a></li>
@@ -415,8 +417,7 @@
       <div class="footer__subscribe subscribe">
         <h3 class="subscribe__title">Subscribe to our news</h3>
         <form class="subscribe__form">
-          <input type="email" placeholder="Enter your email"
-              class="subscribe__input">
+          <input type="email" placeholder="Enter your email" class="subscribe__input">
           <button type="submit" class="subscribe__submit">Submit</button>
         </form>
       </div>
@@ -428,6 +429,32 @@
 
     </div>
   </footer>
+
+  <div class="overlay hidden">
+    <div class="feedback">
+      <div class="feedback__feedback-field">
+        <form class="feedback__form">
+          <input class="feedback__form_input" name="feedback-name" id="feedback-name" type="text"
+            placeholder="Full Name">
+          <input class="feedback__form_input" name="feedback-email" id="feedback-email" type="text"
+            placeholder="Enter your email*">
+          <textarea class="feedback__form_textarea" name="feedback-text" id="feedback-text"
+            placeholder="What would you like to say?"></textarea>
+          <button class="feedback__submit-button" type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="feedback__comment-field">
+        <div class="feedback__close-button_wrapper">
+          <object class="feedback__close-button" type="image/svg+xml"
+            data="../../assets/icons/feedback-close.svg"></object>
+        </div>
+        <object class="feedback__comment-icon" type="image/svg+xml"
+          data="../../assets/icons/comment-icon.svg"></object>
+        <p class="feedback__comment-info">Leave Us a Comment</p>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
