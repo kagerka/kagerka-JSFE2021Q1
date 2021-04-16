@@ -18,13 +18,16 @@
       <div class="header__wrapper">
 
         <div class="header__logo">
-          <a href="index.html" class="header__logo-link"><img src="../../assets/icons/logo.svg"
-              alt="PetStory online logo" class="header__logo-pic"></a>
+          <a href="index.html" class="header__logo-link">
+            <img src="../../assets/icons/logo.svg" alt="PetStory online logo" class="header__logo-pic">
+          </a>
         </div>
         <nav class="header__nav">
+          <a href="index.html" class="header__logo-link header__logo-link_burger"><img
+              src="../../assets/icons/logo1.svg" alt="PetStory online logo" class="header__logo-pic_burger-menu"></a>
           <ul class="header__list">
             <li class="header__item">
-              <div class="header__link header__link_active">About</div>
+              <div class="header__link">About</div>
             </li>
             <li class="header__item">
               <a href="../map/map.html" class="header__link">Map</a>
@@ -35,12 +38,24 @@
             <li class="header__item">
               <a href="#!" class="header__link">Contact us</a>
             </li>
+            <li class="header__item header__item_hidden">
+              <a href="../donate/donate.html" class="header__link">Donate</a>
+            </li>
             <li class="header__item">
               <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank"
                 class="header__link">Designed by ©</a>
             </li>
           </ul>
+          <div class="header__nav-close">
+            <span class="header__nav-close-line"></span>
+            <span class="header__nav-close-line"></span>
+          </div>
         </nav>
+        <div class="header__burger burger">
+          <span class="burger__line burger__line-first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
       </div>
     </div>
   </header>
@@ -48,12 +63,16 @@
   <main class="main">
 
     <section class="intro">
-      <div class="wrapper intro__wrapper">
-        <div class="intro__ellipse"></div>
-        <div class="intro__content">
-          <h2 class="intro__heading">Watch your <span class="intro__heading_color">favorite</span> animal online</h2>
-          <a href="../zoos/panda/panda.html" class="btn intro__button">Watch online</a>
+      <div class="wrapper">
+        <div class="intro__wrapper">
+          <div class="intro__ellipse"></div>
+          <div class="intro__content">
+            <h2 class="intro__heading">Watch your <span class="intro__heading_color">favorite</span> animal online</h2>
+            <!-- <a href="../zoos/panda/panda.html" class="btn intro__button">Watch online</a> -->
+          </div>
         </div>
+        <a href="../zoos/panda/panda.html" class="btn intro__button">Watch online</a>
+
       </div>
     </section>
 
@@ -77,10 +96,13 @@
 
       <div class="wrapper animals-cards__wrapper">
 
-        <a href="#!" class="animals-cards__left-arrow"><img src="../../assets/icons/arrow-left.svg" alt=""></a>
-        <a href="#!" class="animals-cards__right-arrow"><img src="../../assets/icons/arrow-right.svg" alt=""></a>
+        <div class="animals-cards__arrows-wrapper">
+          <a href="#!" class="animals-cards__left-arrow"><img
+              src="../../assets/icons/arrow-left.svg" alt=""></a>
+          <a href="#!" class="animals-cards__right-arrow"><img src="../../assets/icons/arrow-right.svg" alt=""></a>
+        </div>
 
-        <div class="animals-cards__card">
+        <a href="../zoos/panda/panda.html" class="animals-cards__card">
           <div class="animals-cards__pic-border">
             <img src="../../assets/images/slider-pic-1.jpg" alt="" class="animals-cards__pic">
             <div class="animals-cards__text-slider">
@@ -97,9 +119,9 @@
               <img src="../../assets/icons/banana-bamboo.svg" alt="" class="animals-cards__food-icon">
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="animals-cards__card">
+        <a href="../zoos/eagle/eagle.html" class="animals-cards__card">
           <div class="animals-cards__pic-border">
             <img src="../../assets/images/slider-pic-2.jpg" alt="" class="animals-cards__pic">
             <div class="animals-cards__text-slider">
@@ -116,9 +138,9 @@
               <img src="../../assets/icons/meet-fish.svg" alt="" class="animals-cards__food-icon">
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="animals-cards__card">
+        <a href="../zoos/gorilla/gorilla.html" class="animals-cards__card">
           <div class="animals-cards__pic-border">
             <img src="../../assets/images/slider-pic-3.jpg" alt="" class="animals-cards__pic">
             <div class="animals-cards__text-slider">
@@ -135,9 +157,9 @@
               <img src="../../assets/icons/banana-bamboo.svg" alt="" class="animals-cards__food-icon">
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="animals-cards__card">
+        <a href="#!" class="animals-cards__card">
           <div class="animals-cards__pic-border">
             <img src="../../assets/images/slider-pic-4.jpg" alt="" class="animals-cards__pic">
             <div class="animals-cards__text-slider">
@@ -154,9 +176,9 @@
               <img src="../../assets/icons/banana-bamboo.svg" alt="" class="animals-cards__food-icon">
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="animals-cards__card">
+        <a href="#!" class="animals-cards__card">
           <div class="animals-cards__pic-border">
             <img src="../../assets/images/slider-pic-5.jpg" alt="" class="animals-cards__pic">
             <div class="animals-cards__text-slider">
@@ -173,9 +195,9 @@
               <img src="../../assets/icons/meet-fish.svg" alt="" class="animals-cards__food-icon">
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="animals-cards__card">
+        <a href="#!" class="animals-cards__card">
           <div class="animals-cards__pic-border">
             <img src="../../assets/images/slider-pic-6.jpg" alt="" class="animals-cards__pic">
             <div class="animals-cards__text-slider">
@@ -192,7 +214,7 @@
               <img src="../../assets/icons/meet-fish.svg" alt="" class="animals-cards__food-icon">
             </div>
           </div>
-        </div>
+        </a>
 
       </div>
       <a href="../map/map.html" class="btn animals-cards__button">Choose your favorite</a>
@@ -205,8 +227,7 @@
         <p class="pick-and-feed__subtitle">We know the animals bring you joy, and in these extraordinary times, we’re
           glad.</p>
         <p class="pick-and-feed__text"><strong>During a time when the COVID-19 epidemic is touching all of our lives,
-            we’re proud and glad that people around the world find joy in <span
-              style="display:none">PatStory</span>.</strong></p>
+            we’re proud and glad that people around the world find joy in <span class="pick-and-feed__text_hidden">PatStory</span>.</strong></p>
         <p class="pick-and-feed__text">Even though the zoo has reopened, we need you now more than ever to help us deal
           with these problems. Please consider a gift to our <a href="../donate/donate.html"
             class="pick-and-feed__link">Emergency Support
@@ -214,7 +235,10 @@
 
         <h3 class="pick-and-feed__heading_h3">How it works</h3>
         <div class="pick-and-feed__cards">
-
+          <div class="pick-and-feed__arrow-wrapper">
+            <img src="../../assets/icons/arrow-green.svg" alt="" class="pick-and-feed__arrow-first">
+            <img src="../../assets/icons/arrow-green.svg" alt="" class="pick-and-feed__arrow-second">
+          </div>
           <div class="pick-and-feed__item">
             <div class="pick-and-feed__icon">
               <img src="../../assets/icons/pay.svg" alt="">
@@ -372,8 +396,12 @@
 
 
       <div class="footer__logo">
-        <a href="index.html" class="footer__logo-link"><img src="../../assets/icons/logo.svg" alt="PetStory online logo"
-            class="footer__logo-pic"></a>
+        <a href="index.html" class="footer__logo-link">
+          <img src="../../assets/icons/logo.svg" alt="PetStory online logo"
+            class="footer__logo-pic">
+            <img src="../../assets/icons/logo2.svg" alt="PetStory online logo"
+            class="footer__logo-pic_mobile">
+        </a>
       </div>
 
       <a href="../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
@@ -383,22 +411,22 @@
           <li class="socials__item">
             <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#facebook"></use>
-              </svg>Facebook</a>
+              </svg><span class="socials__social-text">Facebook</span></a>
           </li>
           <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#twitter"></use>
-              </svg>Twitter</a>
+              </svg><span class="socials__social-text">Twitter</span></a>
           </li>
           <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#instagram"></use>
-              </svg>Instagram</a>
+              </svg><span class="socials__social-text">Instagram</span></a>
           </li>
           <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#youtube"></use>
-              </svg>YouTube</a>
+              </svg><span class="socials__social-text">YouTube</span></a>
           </li>
         </ul>
       </div>
@@ -448,8 +476,7 @@
           <object class="feedback__close-button" type="image/svg+xml"
             data="../../assets/icons/feedback-close.svg"></object>
         </div>
-        <object class="feedback__comment-icon" type="image/svg+xml"
-          data="../../assets/icons/comment-icon.svg"></object>
+        <object class="feedback__comment-icon" type="image/svg+xml" data="../../assets/icons/comment-icon.svg"></object>
         <p class="feedback__comment-info">Leave Us a Comment</p>
       </div>
     </div>
