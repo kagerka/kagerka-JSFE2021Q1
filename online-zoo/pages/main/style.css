@@ -2008,6 +2008,7 @@ html {
   .header__logo-pic {
     height: 30px;
     width: 47px;
+    border: none;
   }
 
   .header__logo-pic.header__active-burger-menu {
