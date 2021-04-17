@@ -8,7 +8,7 @@
   <title>PetStory online</title>
   <link rel="stylesheet" href="../../normalize/normalize.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" type="image/png" href="../../favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="../../favicon.png" />
 </head>
 
 <body class="page">
@@ -22,6 +22,8 @@
               alt="PetStory online logo" class="header__logo-pic"></a>
         </div>
         <nav class="header__nav">
+          <a href="index.html" class="header__logo-link header__logo-link_burger"><img
+              src="../../assets/icons/logo1.svg" alt="PetStory online logo" class="header__logo-pic_burger-menu"></a>
           <ul class="header__list">
             <li class="header__item">
               <a href="../main/index.html" class="header__link">About</a>
@@ -40,7 +42,16 @@
                 class="header__link">Designed by ©</a>
             </li>
           </ul>
+          <div class="header__nav-close">
+            <span class="header__nav-close-line"></span>
+            <span class="header__nav-close-line"></span>
+          </div>
         </nav>
+        <div class="header__burger burger">
+          <span class="burger__line burger__line-first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
       </div>
     </div>
   </header>
@@ -49,89 +60,104 @@
     <section class="map">
       <h2 class="hidden">PetStory online map</h2>
       <div class="map__wrapper">
-        <object class="map__world-map_mozilla" type="image/svg+xml" data="../../assets/icons/map.svg">
-          Your browser does not support SVG
-       </object>
-        <svg class="map__world-map">
-          <use xlink:href="../../assets/icons/map.svg#map"></use>
-        </svg>
 
-        <div class="map__location-name map__location-name--china">China</div>
-        <div class="map__pin-tooltip map__pin-china-1">
-          <svg class="map__pin">
-            <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
-          </svg>
-          <div class="map__tooltip map__tooltip--panda">
-            <span class="map__tooltip_transparent-border"></span>
-            <p class="map__tooltip--text">Panda<br>
-             China</p>
-            <a href="../zoos/panda/panda.html" class="map__tooltip-button">Watch online</a>
+        <div class="map__world-map_wrapper">
+
+          <div class="map__map-elements_wrapper">
+            <div class="map__location-name map__location-name--china">China</div>
+            <div class="map__pin-tooltip map__pin-china-1">
+              <svg class="map__pin">
+                <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
+              </svg>
+              <div class="map__tooltip map__tooltip--panda">
+                <span class="map__tooltip_transparent-border"></span>
+                <p class="map__tooltip--text">Panda<br>
+                  China</p>
+                <a href="../zoos/panda/panda.html" class="map__tooltip-button">Watch online</a>
+              </div>
+            </div>
+
+            <div class="map__pin-tooltip map__pin-china-2">
+              <svg class="map__pin">
+                <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
+              </svg>
+              <div class="map__tooltip map__tooltip--pandas">
+                <span class="map__tooltip_transparent-border"></span>
+                <p class="map__tooltip--text">Pandas<br>
+                  China</p>
+                <a href="../zoos/panda/panda.html" class="map__tooltip-button">Watch online</a>
+              </div>
+            </div>
+
+            <div class="map__location-name map__location-name--congo">Congo</div>
+            <div class="map__pin-tooltip map__pin-congo">
+              <svg class="map__pin">
+                <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
+              </svg>
+              <div class="map__tooltip map__tooltip--gorilla">
+                <span class="map__tooltip_transparent-border"></span>
+                <p class="map__tooltip--text">Gorilla<br>
+                  Congo</p>
+                <a href="../zoos/gorilla/gorilla.html" class="map__tooltip-button">Watch online</a>
+              </div>
+            </div>
+
+            <div class="map__location-name map__location-name--united-states">United States</div>
+            <div class="map__location-name map__location-name--los-angeles">Los Angeles</div>
+            <div class="map__pin-tooltip map__pin-usa--los-angeles">
+              <svg class="map__pin">
+                <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
+              </svg>
+              <div class="map__tooltip map__tooltip--eagles">
+                <span class="map__tooltip_transparent-border"></span>
+                <p class="map__tooltip--text">Eagles<br>
+                  Los Angeles, USA</p>
+                <a href="../zoos/eagle/eagle.html" class="map__tooltip-button">Watch online</a>
+              </div>
+            </div>
+
+            <div class="map__location-name map__location-name--florida">Florida</div>
+            <div class="map__pin-tooltip map__pin-usa--florida">
+              <svg class="map__pin">
+                <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
+              </svg>
+              <div class="map__tooltip map__tooltip--alligator">
+                <span class="map__tooltip_transparent-border"></span>
+                <p class="map__tooltip--text">Alligators<br>
+                  Florida, USA</p>
+                <a href="../zoos/alligator/alligator.html" class="map__tooltip-button">Watch online</a>
+              </div>
+            </div>
+
           </div>
+
+          <object class="map__world-map_mozilla" type="image/svg+xml" data="../../assets/icons/map.svg">
+            Your browser does not support SVG
+          </object>
+          <svg class="map__world-map">
+            <use xlink:href="../../assets/icons/map.svg#map"></use>
+          </svg>
+          
         </div>
 
-        <div class="map__pin-tooltip map__pin-china-2">
-          <svg class="map__pin">
-            <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
-          </svg>
-          <div class="map__tooltip map__tooltip--pandas">
-            <span class="map__tooltip_transparent-border"></span>
-            <p class="map__tooltip--text">Pandas<br>
-             China</p>
-            <a href="../zoos/panda/panda.html" class="map__tooltip-button">Watch online</a>
-          </div>
-        </div>
 
-        <div class="map__location-name map__location-name--congo">Congo</div>
-        <div class="map__pin-tooltip map__pin-congo">
-          <svg class="map__pin">
-            <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
-          </svg>
-          <div class="map__tooltip map__tooltip--gorilla">
-            <span class="map__tooltip_transparent-border"></span>
-            <p class="map__tooltip--text">Gorilla<br>
-             Congo</p>
-            <a href="../zoos/gorilla/gorilla.html" class="map__tooltip-button">Watch online</a>
-          </div>
-        </div>
 
-        <div class="map__location-name map__location-name--united-states">United States</div>
-        <div class="map__location-name map__location-name--los-angeles">Los Angeles</div>
-        <div class="map__pin-tooltip map__pin-usa--los-angeles">
-          <svg class="map__pin">
-            <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
-          </svg>
-          <div class="map__tooltip map__tooltip--eagles">
-            <span class="map__tooltip_transparent-border"></span>
-            <p class="map__tooltip--text">Eagles<br>
-             Los Angeles, USA</p>
-            <a href="../zoos/eagle/eagle.html" class="map__tooltip-button">Watch online</a>
-          </div>
-        </div>
-
-        <div class="map__location-name map__location-name--florida">Florida</div>
-        <div class="map__pin-tooltip map__pin-usa--florida">
-          <svg class="map__pin">
-            <use xlink:href="../../assets/icons/map-pin.svg#map-pin"></use>
-          </svg>
-          <div class="map__tooltip map__tooltip--alligator">
-            <span class="map__tooltip_transparent-border"></span>
-            <p class="map__tooltip--text">Alligators<br>
-              Florida, USA</p>
-              <a href="../zoos/alligator/alligator.html" class="map__tooltip-button">Watch online</a>
-          </div>
-        </div>
 
       </div>
 
-      <svg class="map__map-plus">
-        <use xlink:href="../../assets/icons/plus-minus.svg#map-plus"></use>
-      </svg>
 
-      <svg class="map__map-minus">
-        <use xlink:href="../../assets/icons/plus-minus.svg#map-minus"></use>
-      </svg>
+      <div class="map__map-buttons_wrapper">
+        <div class="map__map-buttons">
+          <svg class="map__map-plus">
+            <use xlink:href="../../assets/icons/plus-minus.svg#map-plus"></use>
+          </svg>
 
-
+          <svg class="map__map-minus">
+            <use xlink:href="../../assets/icons/plus-minus.svg#map-minus"></use>
+          </svg>
+        </div>
+      </div>
+      
     </section>
   </main>
 
@@ -139,8 +165,10 @@
     <div class="wrapper footer__wrapper">
 
       <div class="footer__logo">
-        <a href="../main/index.html" class="footer__logo-link"><img src="../../assets/icons/logo.svg" alt="PetStory online logo"
-            class="footer__logo-pic"></a>
+        <a href="../main/index.html" class="footer__logo-link">
+          <img src="../../assets/icons/logo.svg" alt="PetStory online logo" class="footer__logo-pic">
+          <img src="../../assets/icons/logo2.svg" alt="PetStory online logo" class="footer__logo-pic_mobile">
+        </a>
       </div>
 
       <a href="../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
@@ -150,22 +178,22 @@
           <li class="socials__item">
             <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#facebook"></use>
-              </svg>Facebook</a>
+              </svg><span class="socials__social-text">Facebook</span></a>
           </li>
           <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#twitter"></use>
-              </svg>Twitter</a>
+              </svg><span class="socials__social-text">Twitter</span></a>
           </li>
           <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#instagram"></use>
-              </svg>Instagram</a>
+              </svg><span class="socials__social-text">Instagram</span></a>
           </li>
           <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#youtube"></use>
-              </svg>YouTube</a>
+              </svg><span class="socials__social-text">YouTube</span></a>
           </li>
         </ul>
       </div>
@@ -173,7 +201,9 @@
       <div class="footer__menu">
         <ul class="footer__list">
           <li class="footer__item"><a href="../main/index.html" class="footer__link">About</a></li>
-          <li class="footer__item"><div class="footer__link footer__link_active">Map</div></li>
+          <li class="footer__item">
+            <div class="footer__link footer__link_active">Map</div>
+          </li>
           <li class="footer__item"><a href="../zoos/panda/panda.html" class="footer__link">Zoos</a></li>
           <li class="footer__item"><a href="#!" class="footer__link">Contact us</a></li>
         </ul>
@@ -182,8 +212,7 @@
       <div class="footer__subscribe subscribe">
         <h3 class="subscribe__title">Subscribe to our news</h3>
         <form class="subscribe__form">
-          <input type="email" placeholder="Enter your email"
-              class="subscribe__input">
+          <input type="email" placeholder="Enter your email" class="subscribe__input">
           <button type="submit" class="subscribe__submit">Submit</button>
         </form>
       </div>
