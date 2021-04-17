@@ -571,9 +571,12 @@ html {
   column-gap: 70px;
   padding-bottom: 14px;
   border-bottom: 1px solid #767474;
-  ;
 }
-
+.animal-info__content {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
 .animal-info__img {
   width: 422px;
   height: 421px;
@@ -588,7 +591,9 @@ html {
   color: #ABABAB;
   margin: 0 0 40px;
 }
-
+.animal-info__button {
+  margin-bottom: 42px;
+}
 .animal-info__read-less_button {
   width: 129px;
   height: 42px;
