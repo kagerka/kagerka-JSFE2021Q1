@@ -8,7 +8,7 @@
   <title>PetStory online</title>
   <link rel="stylesheet" href="../../../normalize/normalize.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" type="image/png" href="../../../favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
 </head>
 
 <body class="page">
@@ -46,7 +46,7 @@
   </header>
 
   <main class="main">
-    <div class="aside-wrapper">
+    <!-- <div class="aside-wrapper">
       <aside class="zoos-sidebar">
         <div class="zoos-sidebar__tooltip">
           <a href="../gorilla/gorilla.html">
@@ -112,10 +112,77 @@
           </svg>
         </div>
       </aside>
-    </div>
+    </div> -->
     <div class="zoos-wrapper">
       <section class="camera">
-        <div class="wrapper">
+        <div class="camera__wrapper wrapper">
+          <div class="aside-wrapper">
+            <aside class="zoos-sidebar">
+              <div class="zoos-sidebar__tooltip">
+                <a href="../gorilla/gorilla.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Gorilla</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../alligator/alligator.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Alligator</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <div class="zoos-sidebar__animal zoos-sidebar__active">
+                  <span class="zoos-sidebar__tooltip-text">Panda</span>
+                  <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
+                    <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../eagle/eagle.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Eagle</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Sloth</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Penguin</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__animal">
+                <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
+                  <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
+                </svg>
+              </div>
+            </aside>
+          </div>
           <h2 class="camera__heading">Panda camera</h2>
 
           <div class="camera__video">
@@ -127,43 +194,53 @@
 
           <div class="camera__carousel">
 
-            <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg" alt=""></a>
-            <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg" alt=""></a>
-
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/OObOQ2GElhA?autoplay=1'><img src='//img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg' srcset='//img.youtube.com/vi/OObOQ2GElhA/mqdefault.jpg 320w, //img.youtube.com/vi/OObOQ2GElhA/hqdefault.jpg 480w, //img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <div class="animals-cards__arrows-wrapper">
+              <div>
+                <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg"
+                    alt=""></a>
+              </div>
+              <div>
+                <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg"
+                    alt=""></a>
+              </div>
             </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/OObOQ2GElhA?autoplay=1'><img src='//img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg' srcset='//img.youtube.com/vi/OObOQ2GElhA/mqdefault.jpg 320w, //img.youtube.com/vi/OObOQ2GElhA/hqdefault.jpg 480w, //img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+            <!-- <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg" alt=""></a>
+            <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg"
+                alt=""></a> -->
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/OObOQ2GElhA?autoplay=1'><img src='//img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg' srcset='//img.youtube.com/vi/OObOQ2GElhA/mqdefault.jpg 320w, //img.youtube.com/vi/OObOQ2GElhA/hqdefault.jpg 480w, //img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+            <div class="camera__carousel_wrapper">
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/OObOQ2GElhA?autoplay=1'><img src='//img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg' srcset='//img.youtube.com/vi/OObOQ2GElhA/mqdefault.jpg 320w, //img.youtube.com/vi/OObOQ2GElhA/hqdefault.jpg 480w, //img.youtube.com/vi/OObOQ2GElhA/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/OObOQ2GElhA"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
             </div>
 
           </div>
@@ -180,8 +257,10 @@
               <img src="../../../assets/images/giant-panda.jpg" alt="" class="animal-info__img">
             </div>
             <div class="animal-info__content">
-              <p class="animal-info__text">Giant pandas are very <a href="https://en.wikipedia.org/wiki/Giant_panda" target="_blank" class="text-link">unusual animals</a> that
-                eat almost exclusively <a href="https://en.wikipedia.org/wiki/Giant_panda#Diet" target="_blank" class="text-link">bamboo</a>, which
+              <p class="animal-info__text">Giant pandas are very <a href="https://en.wikipedia.org/wiki/Giant_panda"
+                  target="_blank" class="text-link">unusual animals</a> that
+                eat almost exclusively <a href="https://en.wikipedia.org/wiki/Giant_panda#Diet" target="_blank"
+                  class="text-link">bamboo</a>, which
                 is very low in nutrients. Because of this, they have many unique adaptations for their low-energy
                 lifestyle. Giant pandas are solitary, with males and females coming together only briefly to mate.
                 Habitat
@@ -194,17 +273,21 @@
           <div class="animal-info__complete-info">
             <div class="animal-info__short-info">
               <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Diet:</span> Herbivore
-                (They also are offered nutritious high-fiber biscuits and fruits such as apples or <a href="https://en.wikipedia.org/wiki/Giant_panda#Diet" target="_blank"
-                  class="text-link">sweet potatoes</a>)</p>
+                (They also are offered nutritious high-fiber biscuits and fruits such as apples or <a
+                  href="https://en.wikipedia.org/wiki/Giant_panda#Diet" target="_blank" class="text-link">sweet
+                  potatoes</a>)</p>
               <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Eastern
-                Asia <a href="https://en.wikipedia.org/wiki/Giant_panda#Subspecies" target="_blank"  class="text-link">[VIEW MAP]</a></p>
+                Asia <a href="https://en.wikipedia.org/wiki/Giant_panda#Subspecies" target="_blank"
+                  class="text-link">[VIEW MAP]</a></p>
               <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Habitat:</span>
                 Forests
-                (Simulation of the <a href="https://en.wikipedia.org/wiki/Giant_panda#Subspecies" target="_blank" class="text-link">natural environment</a>)</p>
+                (Simulation of the <a href="https://en.wikipedia.org/wiki/Giant_panda#Subspecies" target="_blank"
+                  class="text-link">natural environment</a>)</p>
             </div>
             <h3 class="animal-info__complete-info_title">General Information:</h3>
-            <p class="animal-info__complete-info_text">Giant pandas are bears and are members of the <a href="https://en.wikipedia.org/wiki/Giant_panda" target="_blank"
-                class="text-link">Order Carnivora</a>. They are unique
+            <p class="animal-info__complete-info_text">Giant pandas are bears and are members of the <a
+                href="https://en.wikipedia.org/wiki/Giant_panda" target="_blank" class="text-link">Order Carnivora</a>.
+              They are unique
               because, although they evolved among the mostly carnivorous bear species of the world, their diet is
               vegetarian. Despite the availability of other plants, they feed almost exclusively on bamboo.</p>
             <p class="animal-info__complete-info_text">Giant pandas communicate with one another in dense bamboo forests
@@ -216,7 +299,8 @@
               biology
               of the giant panda. They have extremely
               powerful jaws and associated muscles to crunch through the woody stems of bamboo. Each hand bears a
-              <a href="https://en.wikipedia.org/wiki/Giant_panda#Description" target="_blank" class="text-link">specialized metacarpal bone</a> in the wrist that functions as a thumb
+              <a href="https://en.wikipedia.org/wiki/Giant_panda#Description" target="_blank"
+                class="text-link">specialized metacarpal bone</a> in the wrist that functions as a thumb
               would
               in humans, to allow them to grasp
               the circular bamboo stalks. While other herbivorous animals, such as antelope, zebras, or rabbits, have
@@ -227,7 +311,8 @@
               has been only partially digested. The low nutrient value of their food and their low digestive efficiency
               results in an animal that is constrained to a low-metabolism. This lifestyle explains why giant pandas
               sleep
-              so often and why they eat such <a href="https://en.wikipedia.org/wiki/Giant_panda#Description" target="_blank" class="text-link">enormous</a> amounts of bamboo.</p>
+              so often and why they eat such <a href="https://en.wikipedia.org/wiki/Giant_panda#Description"
+                target="_blank" class="text-link">enormous</a> amounts of bamboo.</p>
             <p class="animal-info__complete-info_text">Individuals do not travel long distances, and males will
               establish
               territories that are not particularly
@@ -242,7 +327,9 @@
               are not unusual, a mother will typically only rear one cub. Adults are solitary, with mating pairings
               being
               quite brief. The tiny cubs are altricial, or not born in an advanced state of development, and are
-              completely helpless, blind and deaf, and without the fur <a href="https://en.wikipedia.org/wiki/Giant_panda#Behavior" target="_blank" class="text-link">necessary</a> to
+              completely helpless, blind and deaf, and without the fur <a
+                href="https://en.wikipedia.org/wiki/Giant_panda#Behavior" target="_blank"
+                class="text-link">necessary</a> to
               regulate their own body temperatures.
               As a result, maternal care is extensive. Cubs do not begin eating bamboo until they are around a year old.
             </p>
@@ -252,13 +339,15 @@
             </p>
             <h3 class="animal-info__complete-info_title">Habitat:</h3>
             <p class="animal-info__complete-info_text">Their preferred cool and wet bamboo forests are found at <a
-                href="https://en.wikipedia.org/wiki/Giant_panda#Subspecies" target="_blank"class="text-link">elevations</a> between 5,000 and 10,000 feet. Cubs are
+                href="https://en.wikipedia.org/wiki/Giant_panda#Subspecies" target="_blank"
+                class="text-link">elevations</a> between 5,000 and 10,000 feet. Cubs are
               raised in rocky crevices, dead trees, or caves.</p>
             <h3 class="animal-info__complete-info_title">Diet:</h3>
             <p class="animal-info__complete-info_text">Our animal care professionals offer each adult or subadult giant
               panda about 80 pounds of various bamboo
               species per day, and they generally select and consume only about third of that. They also are offered
-              nutritious <a href="https://en.wikipedia.org/wiki/Giant_panda#Diet" target="_blank"class="text-link">high-fiber biscuits</a> and fruits such as apples or sweet
+              nutritious <a href="https://en.wikipedia.org/wiki/Giant_panda#Diet" target="_blank"
+                class="text-link">high-fiber biscuits</a> and fruits such as apples or sweet
               potatoes.</p>
             <button type="submit" class="animal-info__read-less_button">Read Less</button>
           </div>
