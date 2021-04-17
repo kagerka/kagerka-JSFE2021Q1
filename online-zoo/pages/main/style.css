@@ -2211,7 +2211,8 @@ html {
   .animals-cards__wrapper {
     grid-template-columns: 1fr;
     overflow: hidden;
-    max-height: 1388px;
+    /* max-height: 1388px; */
+    height: auto;
     padding-right: 26px;
   }
 
@@ -2333,7 +2334,7 @@ html {
     position: relative;
     transform: rotate(84deg);
     top: 192px;
-    left: 130px;
+    left: 138px;
     width: 89px;
     height: 29px;
   }
@@ -2342,7 +2343,7 @@ html {
     position: relative;
     transform: rotate(84deg);
     top: 440px;
-    left: 40px;
+    left: 48px;
     width: 89px;
     height: 29px;
   }
