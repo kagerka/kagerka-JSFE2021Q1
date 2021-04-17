@@ -125,6 +125,11 @@ html {
   line-height: 0;
 }
 
+.header__logo-pic {
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+}
+
 .header__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1205,6 +1210,7 @@ html {
   .header__logo-pic {
     height: 30px;
     width: 47px;
+    border: none;
   }
 
   .header__logo-pic.header__active-burger-menu {
