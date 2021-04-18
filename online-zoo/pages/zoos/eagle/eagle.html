@@ -8,7 +8,7 @@
   <title>PetStory online</title>
   <link rel="stylesheet" href="../../../normalize/normalize.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" type="image/png" href="../../../favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
 </head>
 
 <body class="page">
@@ -22,6 +22,8 @@
               alt="PetStory online logo" class="header__logo-pic"></a>
         </div>
         <nav class="header__nav">
+          <a href="../../main/index.html" class="header__logo-link header__logo-link_burger"><img
+              src="../../../assets/icons/logo1.svg" alt="PetStory online logo" class="header__logo-pic_burger-menu"></a>
           <ul class="header__list">
             <li class="header__item">
               <a href="../../main/index.html" class="header__link">About</a>
@@ -35,87 +37,102 @@
             <li class="header__item">
               <a href="#!" class="header__link">Contact us</a>
             </li>
+            <li class="header__item header__item_hidden">
+              <a href="../donate/donate.html" class="header__link">Donate</a>
+            </li>
             <li class="header__item">
               <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank"
                 class="header__link">Designed by ©</a>
             </li>
           </ul>
+          <div class="header__nav-close">
+            <span class="header__nav-close-line"></span>
+            <span class="header__nav-close-line"></span>
+          </div>
         </nav>
+        <div class="header__burger burger">
+          <span class="burger__line burger__line-first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="main">
-    <div class="aside-wrapper">
-      <aside class="zoos-sidebar">
-        <div class="zoos-sidebar__tooltip">
-          <a href="../gorilla/gorilla.html">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Gorilla</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="../alligator/alligator.html">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Alligator</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="../panda/panda.html">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Panda</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <div class="zoos-sidebar__animal zoos-sidebar__active">
-            <span class="zoos-sidebar__tooltip-text">Eagle</span>
-            <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
-              <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
-            </svg>
-          </div>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="#!">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Sloth</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="#!">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Penguin</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__animal">
-          <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
-            <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
-          </svg>
-        </div>
-      </aside>
-    </div>
+
     <div class="zoos-wrapper">
       <section class="camera">
-        <div class="wrapper">
+        <div class="camera__wrapper wrapper">
+          <div class="aside-wrapper">
+            <aside class="zoos-sidebar">
+              <div class="zoos-sidebar__tooltip">
+                <a href="../gorilla/gorilla.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Gorilla</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../alligator/alligator.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Alligator</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../panda/panda.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Panda</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../eagle/eagle.html">
+                  <div class="zoos-sidebar__animal zoos-sidebar__active">
+                    <span class="zoos-sidebar__tooltip-text">Eagle</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Sloth</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Penguin</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__animal">
+                <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
+                  <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
+                </svg>
+              </div>
+            </aside>
+          </div>
           <h2 class="camera__heading">Eagle camera</h2>
 
           <div class="camera__video">
@@ -127,43 +144,49 @@
 
           <div class="camera__carousel">
 
-            <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg" alt=""></a>
-            <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg" alt=""></a>
-
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0; object-position: -90px;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/eTAsANPVqB8?autoplay=1'><img src='//img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg' srcset='//img.youtube.com/vi/eTAsANPVqB8/mqdefault.jpg 320w, //img.youtube.com/vi/eTAsANPVqB8/hqdefault.jpg 480w, //img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <div class="camera__carousel_arrows-wrapper">
+              <div>
+                <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg"
+                    alt=""></a>
+              </div>
+              <div>
+                <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg"
+                    alt=""></a>
+              </div>
             </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0; object-position: -90px;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/eTAsANPVqB8?autoplay=1'><img src='//img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg' srcset='//img.youtube.com/vi/eTAsANPVqB8/mqdefault.jpg 320w, //img.youtube.com/vi/eTAsANPVqB8/hqdefault.jpg 480w, //img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+            <div class="camera__carousel_wrapper">
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0; object-position: -90px;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/eTAsANPVqB8?autoplay=1'><img src='//img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg' srcset='//img.youtube.com/vi/eTAsANPVqB8/mqdefault.jpg 320w, //img.youtube.com/vi/eTAsANPVqB8/hqdefault.jpg 480w, //img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0; object-position: -90px;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/eTAsANPVqB8?autoplay=1'><img src='//img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg' srcset='//img.youtube.com/vi/eTAsANPVqB8/mqdefault.jpg 320w, //img.youtube.com/vi/eTAsANPVqB8/hqdefault.jpg 480w, //img.youtube.com/vi/eTAsANPVqB8/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
             </div>
 
           </div>
@@ -172,7 +195,7 @@
       </section>
 
       <section class="animal-info">
-        <div class="wrapper">
+        <div class="wrapper animal-info__wrapper">
           <h2 class="animal-info__heading">Eagle</h2>
 
           <div class="animal-info__info-card">
@@ -187,11 +210,13 @@
 
           <div class="animal-info__complete-info">
             <div class="animal-info__short-info">
-              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Diet:</span> Carnivore (Fish, lizards, snakes, mice)</p>
-              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Eurasia and Africa <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank"
-                  class="text-link">[VIEW MAP]</a></p>
+              <p class="animal-info__short-info_text animal-info__short-info_diet"><span
+                  class="animal-info__short-info_title animal-info__short-info_diet-title">Diet:</span> <span
+                  class="animal-info__short-info_diet-text">Carnivore (Fish, lizards, snakes, mice)</span></p>
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Eurasia and Africa <a href="../../map/map.html"
+                class="text-link">[VIEW MAP]</a></p>
               <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Habitat:</span>
-                Mountainous or semi-open landscapes (Simulation of the natural environment) </p>
+                Mountainous or semi-open landscapes (Simulation of the natural environment)</p>
             </div>
             <h3 class="animal-info__complete-info_title">General Information:</h3>
             <p class="animal-info__complete-info_text">Eagles choose a mate for life. They <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">build large</a> and strong nests, using branches. They lay two eggs each. While the female incubates them, the male takes care of her feeding. The hatched offspring can be seen immediately, and are covered with down. The nature of the predator forces the chicks from a young age to fight for their survival. Often one can observe the larger chick trying to push the younger brother out of the nest. Sometimes it may even kill it by fighting for food. In cases where there is enough food, several chicks grow in the nests.</p>
@@ -223,8 +248,10 @@
 
 
       <div class="footer__logo">
-        <a href="../../main/index.html" class="footer__logo-link"><img src="../../../assets/icons/logo.svg"
-            alt="PetStory online logo" class="footer__logo-pic"></a>
+        <a href="../../main/index.html" class="footer__logo-link">
+          <img src="../../../assets/icons/logo.svg" alt="PetStory online logo" class="footer__logo-pic">
+          <img src="../../../assets/icons/logo2.svg" alt="PetStory online logo" class="footer__logo-pic_mobile">
+        </a>
       </div>
 
       <a href="../../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
@@ -234,22 +261,22 @@
           <li class="socials__item">
             <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#facebook"></use>
-              </svg>Facebook</a>
+              </svg><span class="socials__social-text">Facebook</span></a>
           </li>
           <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#twitter"></use>
-              </svg>Twitter</a>
+              </svg><span class="socials__social-text">Twitter</span></a>
           </li>
           <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#instagram"></use>
-              </svg>Instagram</a>
+              </svg><span class="socials__social-text">Instagram</span></a>
           </li>
           <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#youtube"></use>
-              </svg>YouTube</a>
+              </svg><span class="socials__social-text">YouTube</span></a>
           </li>
         </ul>
       </div>

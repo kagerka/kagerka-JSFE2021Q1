@@ -8,7 +8,7 @@
   <title>PetStory online</title>
   <link rel="stylesheet" href="../../../normalize/normalize.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" type="image/png" href="../../../favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
 </head>
 
 <body class="page">
@@ -22,6 +22,8 @@
               alt="PetStory online logo" class="header__logo-pic"></a>
         </div>
         <nav class="header__nav">
+          <a href="../../main/index.html" class="header__logo-link header__logo-link_burger"><img
+              src="../../../assets/icons/logo1.svg" alt="PetStory online logo" class="header__logo-pic_burger-menu"></a>
           <ul class="header__list">
             <li class="header__item">
               <a href="../../main/index.html" class="header__link">About</a>
@@ -35,87 +37,102 @@
             <li class="header__item">
               <a href="#!" class="header__link">Contact us</a>
             </li>
+            <li class="header__item header__item_hidden">
+              <a href="../donate/donate.html" class="header__link">Donate</a>
+            </li>
             <li class="header__item">
               <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank"
                 class="header__link">Designed by ©</a>
             </li>
           </ul>
+          <div class="header__nav-close">
+            <span class="header__nav-close-line"></span>
+            <span class="header__nav-close-line"></span>
+          </div>
         </nav>
+        <div class="header__burger burger">
+          <span class="burger__line burger__line-first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="main">
-    <div class="aside-wrapper">
-      <aside class="zoos-sidebar">
-        <div class="zoos-sidebar__tooltip">
-          <div class="zoos-sidebar__animal zoos-sidebar__active">
-            <span class="zoos-sidebar__tooltip-text">Gorilla</span>
-            <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
-              <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
-            </svg>
-          </div>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="../alligator/alligator.html">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Alligator</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="../panda/panda.html">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Panda</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="../eagle/eagle.html">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Eagle</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="#!">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Sloth</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__tooltip">
-          <a href="#!">
-            <div class="zoos-sidebar__animal">
-              <span class="zoos-sidebar__tooltip-text">Penguin</span>
-              <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
-                <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="zoos-sidebar__animal">
-          <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
-            <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
-          </svg>
-        </div>
-      </aside>
-    </div>
+
     <div class="zoos-wrapper">
       <section class="camera">
-        <div class="wrapper">
+        <div class="camera__wrapper wrapper">
+          <div class="aside-wrapper">
+            <aside class="zoos-sidebar">
+              <div class="zoos-sidebar__tooltip">
+                <a href="../gorilla/gorilla.html">
+                  <div class="zoos-sidebar__animal zoos-sidebar__active">
+                    <span class="zoos-sidebar__tooltip-text">Gorilla</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../alligator/alligator.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Alligator</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../panda/panda.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Panda</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../eagle/eagle.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Eagle</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Sloth</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Penguin</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__animal">
+                <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
+                  <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
+                </svg>
+              </div>
+            </aside>
+          </div>
           <h2 class="camera__heading">Gorilla camera</h2>
 
           <div class="camera__video">
@@ -127,43 +144,49 @@
 
           <div class="camera__carousel">
 
-            <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg" alt=""></a>
-            <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg" alt=""></a>
-
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/rgXWDk7rh4w?autoplay=1'><img src='//img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg' srcset='//img.youtube.com/vi/rgXWDk7rh4w/mqdefault.jpg 320w, //img.youtube.com/vi/rgXWDk7rh4w/hqdefault.jpg 480w, //img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <div class="camera__carousel_arrows-wrapper">
+              <div>
+                <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg"
+                    alt=""></a>
+              </div>
+              <div>
+                <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg"
+                    alt=""></a>
+              </div>
             </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/rgXWDk7rh4w?autoplay=1'><img src='//img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg' srcset='//img.youtube.com/vi/rgXWDk7rh4w/mqdefault.jpg 320w, //img.youtube.com/vi/rgXWDk7rh4w/hqdefault.jpg 480w, //img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+            <div class="camera__carousel_wrapper">
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/rgXWDk7rh4w?autoplay=1'><img src='//img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg' srcset='//img.youtube.com/vi/rgXWDk7rh4w/mqdefault.jpg 320w, //img.youtube.com/vi/rgXWDk7rh4w/hqdefault.jpg 480w, //img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
 
-            <div class="camera__carousel_item">
-              <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
-              <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
-                srcdoc="<style>html, body, a, img {display: block;  height: 100%; overflow: hidden; margin: 0; padding: 0;} a:before, a:after {position: absolute; content: ''; left: 50%; top: 50%;} a:before {margin: -4.9% 0 0 -7%; background: rgba(31,31,30,.8); padding-top: 9.8%; width: 14%; border-radius: 16% / 27%;} a:after {margin: -1.9vw 0 0 -1vw; border: 2vw solid transparent; border-left: 3.8vw solid #fff;} a:hover:before {background: #FF0000;}</style><a href='http://www.youtube-nocookie.com/embed/rgXWDk7rh4w?autoplay=1'><img src='//img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg' srcset='//img.youtube.com/vi/rgXWDk7rh4w/mqdefault.jpg 320w, //img.youtube.com/vi/rgXWDk7rh4w/hqdefault.jpg 480w, //img.youtube.com/vi/rgXWDk7rh4w/maxresdefault.jpg 1307w'></a>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/rgXWDk7rh4w"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
             </div>
 
           </div>
@@ -172,7 +195,7 @@
       </section>
 
       <section class="animal-info">
-        <div class="wrapper">
+        <div class="wrapper animal-info__wrapper">
           <h2 class="animal-info__heading">Western Lowland Gorilla</h2>
 
           <div class="animal-info__info-card">
@@ -180,32 +203,84 @@
               <img src="../../../assets/images/lowland-gorilla.jpg" alt="" class="animal-info__img">
             </div>
             <div class="animal-info__content">
-              <p class="animal-info__text">Western lowland gorillas live in troops led by a dominant silverback, several adult females, and their offspring.
-                There are two species of gorilla, each containing two subspecies. The two species are eastern and western, and the four sub-species are <a href="https://en.wikipedia.org/wiki/Cross_River_gorilla" class="text-link">Cross River</a> and <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla" class="text-link">Western</a> Lowland (are sub-species of the Western species) and Grauer’s and Mountain (are sub-species of the Eastern species).</p>
+              <p class="animal-info__text">Western lowland gorillas live in troops led by a dominant silverback, several
+                adult females, and their offspring.
+                There are two species of gorilla, each containing two subspecies. The two species are eastern and
+                western, and the four sub-species are <a href="https://en.wikipedia.org/wiki/Cross_River_gorilla"
+                  class="text-link">Cross River</a> and <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla"
+                  class="text-link">Western</a> Lowland (are sub-species of the Western species) and Grauer’s and
+                Mountain (are sub-species of the Eastern species).</p>
               <a href="../../donate/donate.html" class="btn animal-info__button">Feed a friend now</a>
             </div>
           </div>
 
           <div class="animal-info__complete-info">
             <div class="animal-info__short-info">
-              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Diet:</span> Herbivore (We provide a medley of fruits and vegetables to our western <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Diet" target="_blank" class="text-link">lowland gorillas</a>)</p>
-              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Western Africa <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Habitat" target="_blank"
-                  class="text-link">[VIEW MAP]</a></p>
+              <p class="animal-info__short-info_text animal-info__short-info_diet"><span
+                  class="animal-info__short-info_title animal-info__short-info_diet-title">Diet:</span> <span
+                  class="animal-info__short-info_diet-text">Herbivore (We provide a medley of fruits and vegetables to
+                  our western <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Diet" target="_blank"
+                    class="text-link">lowland gorillas</a>)</span></p>
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Western
+                Africa <a href="../../map/map.html" class="text-link">[VIEW MAP]</a></p>
               <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Habitat:</span>
                 Rainforests (Simulation of the natural environment)</p>
             </div>
             <h3 class="animal-info__complete-info_title">General Information:</h3>
-            <p class="animal-info__complete-info_text">There are two species of gorilla, each containing two subspecies. The two species are eastern and western, and the four sub-species are <a href="https://en.wikipedia.org/wiki/Cross_River_gorilla" class="text-link">Cross River</a> and <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla" class="text-link">Western</a> Lowland (are sub-species of the Western species) and Grauer’s and Mountain (are sub-species of the Eastern species). Western gorillas can be distinguished from other gorilla <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Description" target="_blank" class="text-link">subspecies</a> by their brownish-gray hair, auburn-colored crests and overall smaller size. Eastern gorillas tend to be black in color and larger in size. In all gorillas, males develop silver coloration along their backs as they mature. The species is diurnal, which means they are active during the day, and of all the great apes, gorillas are the most terrestrial. This means that they primarily live on the ground, although they do <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Ecology" target="_blank" class="text-link">occasionally climb trees</a> to feed and nest. They are also able to stand on two legs for short periods of time.</p>
+            <p class="animal-info__complete-info_text">There are two species of gorilla, each containing two subspecies.
+              The two species are eastern and western, and the four sub-species are <a
+                href="https://en.wikipedia.org/wiki/Cross_River_gorilla" class="text-link">Cross River</a> and <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla" class="text-link">Western</a> Lowland (are
+              sub-species of the Western species) and Grauer’s and Mountain (are sub-species of the Eastern species).
+              Western gorillas can be distinguished from other gorilla <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Description" target="_blank"
+                class="text-link">subspecies</a> by their brownish-gray hair, auburn-colored crests and overall smaller
+              size. Eastern gorillas tend to be black in color and larger in size. In all gorillas, males develop silver
+              coloration along their backs as they mature. The species is diurnal, which means they are active during
+              the day, and of all the great apes, gorillas are the most terrestrial. This means that they primarily live
+              on the ground, although they do <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Ecology"
+                target="_blank" class="text-link">occasionally climb trees</a> to feed and nest. They are also able to
+              stand on two legs for short periods of time.</p>
             <h3 class="animal-info__complete-info_title">Physical features and characteristics:</h3>
-            <p class="animal-info__complete-info_text">Gorillas are the largest of all primates and reach physical maturity between 12 and 15 years of age. Males can be between 350 and 450 pounds, almost twice as much as females, weighing in between <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Description" target="_blank" class="text-link">150</a> and <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Description" target="_blank" class="text-link">250</a> pounds. Males stand between 5.5 to 6 feet tall. Females are a bit smaller, standing between 4’7” to 4’11”. The males’ heads are large and pointed due to the sagittal crest that forms the back of the top of the head. This crest serves as the foundation for attachment of a great number of jaw muscle fibers, which allows for the chewing power needed to process tough vegetation.</p>
-            <p class="animal-info__complete-info_text">The vision and perception of western lowland gorillas is similar to that of humans. Gorillas have a prominent brow ridge, small, flat ears, and hear about the same as humans. The nose is broad, flat and fleshy. The wrinkles on a gorilla’s nose, known as a noseprint, are like human fingerprints, and every individual’s noseprint is unique. Researchers use these noseprints as identification markers in their studies, both in zoological settings and in the wild.</p>
-            <p class="animal-info__complete-info_text">Gorillas have 32 teeth, including sharp canines used for defense and breaking through vegetation. Their molars have complicated patterns of cups and ridges that facilitate chewing of tough plant fibers.</p>
-            <p class="animal-info__complete-info_text">Gorillas’ faces, hands, and feet are bare, but the rest of their bodies are covered with short, thin hair. Gorilla hands and feet are large, with leathery palms and soles, and broad, flat nails Their hands are very dexterous and can pick up small, delicate objects. Like their hands, their feet have opposable thumbs and toes. Like all apes, gorillas’ arms are longer than their legs—a feature that allows them to walk on all fours. They are called “knuckle-walkers,” meaning that they walk on the knuckles of their forelimbs and the soles of their hind limbs. This form of locomotion develops calluses on the knuckles, preserving the sensitivity of the fingertips necessary for <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Intelligence" target="_blank" class="text-link">manipulating</a> smaller objects.</p>
+            <p class="animal-info__complete-info_text">Gorillas are the largest of all primates and reach physical
+              maturity between 12 and 15 years of age. Males can be between 350 and 450 pounds, almost twice as much as
+              females, weighing in between <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Description"
+                target="_blank" class="text-link">150</a> and <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Description" target="_blank"
+                class="text-link">250</a> pounds. Males stand between 5.5 to 6 feet tall. Females are a bit smaller,
+              standing between 4’7” to 4’11”. The males’ heads are large and pointed due to the sagittal crest that
+              forms the back of the top of the head. This crest serves as the foundation for attachment of a great
+              number of jaw muscle fibers, which allows for the chewing power needed to process tough vegetation.</p>
+            <p class="animal-info__complete-info_text">The vision and perception of western lowland gorillas is similar
+              to that of humans. Gorillas have a prominent brow ridge, small, flat ears, and hear about the same as
+              humans. The nose is broad, flat and fleshy. The wrinkles on a gorilla’s nose, known as a noseprint, are
+              like human fingerprints, and every individual’s noseprint is unique. Researchers use these noseprints as
+              identification markers in their studies, both in zoological settings and in the wild.</p>
+            <p class="animal-info__complete-info_text">Gorillas have 32 teeth, including sharp canines used for defense
+              and breaking through vegetation. Their molars have complicated patterns of cups and ridges that facilitate
+              chewing of tough plant fibers.</p>
+            <p class="animal-info__complete-info_text">Gorillas’ faces, hands, and feet are bare, but the rest of their
+              bodies are covered with short, thin hair. Gorilla hands and feet are large, with leathery palms and soles,
+              and broad, flat nails Their hands are very dexterous and can pick up small, delicate objects. Like their
+              hands, their feet have opposable thumbs and toes. Like all apes, gorillas’ arms are longer than their
+              legs—a feature that allows them to walk on all fours. They are called “knuckle-walkers,” meaning that they
+              walk on the knuckles of their forelimbs and the soles of their hind limbs. This form of locomotion
+              develops calluses on the knuckles, preserving the sensitivity of the fingertips necessary for <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Intelligence" target="_blank"
+                class="text-link">manipulating</a> smaller objects.</p>
             <h3 class="animal-info__complete-info_title">Lifestyle and reproduction:</h3>
-            <p class="animal-info__complete-info_text">Gorillas tend to be shy, peaceful creatures; they are not normally aggressive to other animals unless provoked. However, if they are provoked, they can be dangerous. They can demonstrate aggression by charging towards perceived intruders. Typically, they will not actually hit the intruder, but rush past, turn and then charge again.</p>
-            <p class="animal-info__complete-info_text">Gorillas use a combination of vocalizations, visual signals and scents to communicate. They are considered relatively quiet compared to other primates, but do have at least <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Conservation" target="_blank" class="text-link">25 recognized</a> vocalizations, including:</p>
-            <ul class="animal-info__complete-info_text">
-              <li>Hooting: Can carry for a mile through the forest and is usually accompanied by display behavior such as chest beating, strutting, and vegetation slapping</li>
+            <p class="animal-info__complete-info_text">Gorillas tend to be shy, peaceful creatures; they are not
+              normally aggressive to other animals unless provoked. However, if they are provoked, they can be
+              dangerous. They can demonstrate aggression by charging towards perceived intruders. Typically, they will
+              not actually hit the intruder, but rush past, turn and then charge again.</p>
+            <p class="animal-info__complete-info_text animal-info__complete-info_text-list">Gorillas use a combination
+              of vocalizations, visual signals and scents to communicate. They are considered relatively quiet compared
+              to other primates, but do have at least <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Conservation" target="_blank"
+                class="text-link">25 recognized</a> vocalizations, including:</p>
+            <ul class="animal-info__complete-info_text animal-info__complete-info_list">
+              <li>Hooting: Can carry for a mile through the forest and is usually accompanied by display behavior such
+                as chest beating, strutting, and vegetation slapping</li>
               <li>Screams: Sounds of alarm or warning</li>
               <li>Belches: Deep rumblings of contentment, comfort, or well-being</li>
               <li>Sharp Grunts: Used when discipline is required</li>
@@ -213,19 +288,71 @@
               <li>Bark Grunt: Aggression</li>
               <li>Chuckles: Playfulness</li>
             </ul>
-            <p class="animal-info__complete-info_text">Infants have three distinct vocalizations; these are similar to the cries of a human baby. They will typically cry when hurt or frightened, resulting in an immediate response from the mother.</p>
-            <p class="animal-info__complete-info_text">Dominant males also have a distinctive smell that they use to communicate with other troops and to maintain contact with their own troop. Perhaps the most recognizable behavior performed by gorillas is chest-beating. It is primarily done by male gorillas at the end of a display meant to intimidate intruding males or predators. The sound can be heard for long distances. Females will chest-beat infrequently; they will typically beat their hands against the insides of their thighs. Chest-beating can also indicate playful behavior, however, especially in the young. Young gorillas play much like humans do, playing tag and doing somersaults.</p>
-            <p class="animal-info__complete-info_text">Western lowland gorillas live in family groups known as troops. These troops can consist of 5 to 30 individuals, although the average size is 11. The group is led by a dominant silverback male and contains several adult females and their young. The females will typically bond with the silverback, but not necessarily with each other. The silverback will remain dominant for as long as he can defeat competing males.</p>
-            <p class="animal-info__complete-info_text">There are several younger, blackback males that remain in the group until they are capable of challenging the silverback. These young males are often driven out of the troop to live a solitary life or to live in a smaller group with other bachelors until they establish their own troops. If a dominant silverback is displaced, the new dominant male will typically kill the infants in the troop, sending the females prematurely into reproductive cycling. This increases the male’s chances of siring offspring, as his time as the dominant male is uncertain. As such, females consider a male’s ability to fight paramount to their offspring’s survival.</p>
-            <p class="animal-info__complete-info_text">On maturing, females will also leave their natal group to join a lone male or another small group. This is vital to prevent inbreeding and to protect the gene pool.</p>
-            <p class="animal-info__complete-info_text">Nesting typically occurs in the late afternoon, with the gorillas bedding down for the night at sundown. The females and their offspring will build nests of leaves and branches, while the dominant silverback will settle at the base of the tree, in order to protect his family. At Zoo Atlanta, while the gorillas are outside, their indoor areas are thoroughly cleaned; the walls and floors are scrubbed with <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Relationship_with_humans" target="_blank" class="text-link">disinfectant</a>. The gorillas are offered hay in their indoor area at night and nest with this material, replicating natural behavior.</p>
-            <p class="animal-info__complete-info_text">In a troop, the single silverback male will mate with the females, siring all the offspring of the troop. Females generally reach reproductive maturity between 7 and 8 years of age, with males reaching maturity later, around 10 years of age, due to competition. The potential breeding season is year-round and gestation typically takes 256 days, or about 8.5 months. Labor can last anywhere from one to 4 hours. Babies are usually born singly; twins are rare. Newborns weigh between 3 and 5 pounds and are weaned around 2 to 3 years of age, but can be dependent on their mothers for up to 4 years. The average interval between births for a female gorilla is four to six years.</p>
+            <p class="animal-info__complete-info_text">Infants have three distinct vocalizations; these are similar to
+              the cries of a human baby. They will typically cry when hurt or frightened, resulting in an immediate
+              response from the mother.</p>
+            <p class="animal-info__complete-info_text">Dominant males also have a distinctive smell that they use to
+              communicate with other troops and to maintain contact with their own troop. Perhaps the most recognizable
+              behavior performed by gorillas is chest-beating. It is primarily done by male gorillas at the end of a
+              display meant to intimidate intruding males or predators. The sound can be heard for long distances.
+              Females will chest-beat infrequently; they will typically beat their hands against the insides of their
+              thighs. Chest-beating can also indicate playful behavior, however, especially in the young. Young gorillas
+              play much like humans do, playing tag and doing somersaults.</p>
+            <p class="animal-info__complete-info_text">Western lowland gorillas live in family groups known as troops.
+              These troops can consist of 5 to 30 individuals, although the average size is 11. The group is led by a
+              dominant silverback male and contains several adult females and their young. The females will typically
+              bond with the silverback, but not necessarily with each other. The silverback will remain dominant for as
+              long as he can defeat competing males.</p>
+            <p class="animal-info__complete-info_text">There are several younger, blackback males that remain in the
+              group until they are capable of challenging the silverback. These young males are often driven out of the
+              troop to live a solitary life or to live in a smaller group with other bachelors until they establish
+              their own troops. If a dominant silverback is displaced, the new dominant male will typically kill the
+              infants in the troop, sending the females prematurely into reproductive cycling. This increases the male’s
+              chances of siring offspring, as his time as the dominant male is uncertain. As such, females consider a
+              male’s ability to fight paramount to their offspring’s survival.</p>
+            <p class="animal-info__complete-info_text">On maturing, females will also leave their natal group to join a
+              lone male or another small group. This is vital to prevent inbreeding and to protect the gene pool.</p>
+            <p class="animal-info__complete-info_text">Nesting typically occurs in the late afternoon, with the gorillas
+              bedding down for the night at sundown. The females and their offspring will build nests of leaves and
+              branches, while the dominant silverback will settle at the base of the tree, in order to protect his
+              family. At Zoo Atlanta, while the gorillas are outside, their indoor areas are thoroughly cleaned; the
+              walls and floors are scrubbed with <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Relationship_with_humans" target="_blank"
+                class="text-link">disinfectant</a>. The gorillas are offered hay in their indoor area at night and nest
+              with this material, replicating natural behavior.</p>
+            <p class="animal-info__complete-info_text">In a troop, the single silverback male will mate with the
+              females, siring all the offspring of the troop. Females generally reach reproductive maturity between 7
+              and 8 years of age, with males reaching maturity later, around 10 years of age, due to competition. The
+              potential breeding season is year-round and gestation typically takes 256 days, or about 8.5 months. Labor
+              can last anywhere from one to 4 hours. Babies are usually born singly; twins are rare. Newborns weigh
+              between 3 and 5 pounds and are weaned around 2 to 3 years of age, but can be dependent on their mothers
+              for up to 4 years. The average interval between births for a female gorilla is four to six years.</p>
 
             <h3 class="animal-info__complete-info_title">Habitat:</h3>
-            <p class="animal-info__complete-info_text">Western lowland gorillas prefer the tall, lush tropical forest of west and central Africa. The herbs, shrubs and vines that make up its diet grow best where the open canopy allows plenty of light to reach the forest floor. These tropical forests also contain a much higher diversity of arboreal substrates and foods, in particular fruit, than mountainous habitats. Western lowland gorillas live primarily on the ground and build sleeping nests on the ground or in the trees for the night.</p>
+            <p class="animal-info__complete-info_text">Western lowland gorillas prefer the tall, lush tropical forest of
+              west and central Africa. The herbs, shrubs and vines that make up its diet grow best where the open canopy
+              allows plenty of light to reach the forest floor. These tropical forests also contain a much higher
+              diversity of arboreal substrates and foods, in particular fruit, than mountainous habitats. Western
+              lowland gorillas live primarily on the ground and build sleeping nests on the ground or in the trees for
+              the night.</p>
             <h3 class="animal-info__complete-info_title">Diet:</h3>
-            <p class="animal-info__complete-info_text">Western lowland gorillas are primarily herbivorous, feeding on plant parts including seeds, leaves, stems, shoots, roots and flowers; however, they prefer fruit whenever it’s in season. Occasionally they will eat insects, such as termites or ants, as a supplement to their diet when they are readily available. Due to their dietary preferences, western lowland gorillas spend a lot of their time in and around trees, especially fruit trees. Even large males can sometimes be found up in the trees, but they are careful to stay near a main trunk or on larger branches that are able to support their weight. Younger, lighter gorillas may climb higher in trees, even swinging freely from branch to branch. Gorillas never completely strip vegetation from a single area; rather, the rapid regrowth of the vegetation they consume allows them to stay within a reasonable confined home range for extended periods of time.</p>
-            <p class="animal-info__complete-info_text">Here at Zoo, we provide a medley of fruits and vegetables to our western lowland gorillas. These include apples, oranges, bananas, raisins, sweet potatoes, cabbage, collards, and primate chow. In the morning, vegetables and fruit are chopped up and scattered around the habitat. From there, the gorillas come outside and forage for their food as they would in the wild. Browse foods including bamboo, banana leaves, mulberry, elm and willow are also <a href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Habitat" target="_blank" class="text-link">scattered</a> in their habitat.</p>
+            <p class="animal-info__complete-info_text">Western lowland gorillas are primarily herbivorous, feeding on
+              plant parts including seeds, leaves, stems, shoots, roots and flowers; however, they prefer fruit whenever
+              it’s in season. Occasionally they will eat insects, such as termites or ants, as a supplement to their
+              diet when they are readily available. Due to their dietary preferences, western lowland gorillas spend a
+              lot of their time in and around trees, especially fruit trees. Even large males can sometimes be found up
+              in the trees, but they are careful to stay near a main trunk or on larger branches that are able to
+              support their weight. Younger, lighter gorillas may climb higher in trees, even swinging freely from
+              branch to branch. Gorillas never completely strip vegetation from a single area; rather, the rapid
+              regrowth of the vegetation they consume allows them to stay within a reasonable confined home range for
+              extended periods of time.</p>
+            <p class="animal-info__complete-info_text">Here at Zoo, we provide a medley of fruits and vegetables to our
+              western lowland gorillas. These include apples, oranges, bananas, raisins, sweet potatoes, cabbage,
+              collards, and primate chow. In the morning, vegetables and fruit are chopped up and scattered around the
+              habitat. From there, the gorillas come outside and forage for their food as they would in the wild. Browse
+              foods including bamboo, banana leaves, mulberry, elm and willow are also <a
+                href="https://en.wikipedia.org/wiki/Western_lowland_gorilla#Habitat" target="_blank"
+                class="text-link">scattered</a> in their habitat.</p>
             <button type="submit" class="animal-info__read-less_button">Read Less</button>
           </div>
 
@@ -244,8 +371,10 @@
 
 
       <div class="footer__logo">
-        <a href="../../main/index.html" class="footer__logo-link"><img src="../../../assets/icons/logo.svg"
-            alt="PetStory online logo" class="footer__logo-pic"></a>
+        <a href="../../main/index.html" class="footer__logo-link">
+          <img src="../../../assets/icons/logo.svg" alt="PetStory online logo" class="footer__logo-pic">
+          <img src="../../../assets/icons/logo2.svg" alt="PetStory online logo" class="footer__logo-pic_mobile">
+        </a>
       </div>
 
       <a href="../../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
@@ -255,22 +384,22 @@
           <li class="socials__item">
             <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#facebook"></use>
-              </svg>Facebook</a>
+              </svg><span class="socials__social-text">Facebook</span></a>
           </li>
           <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#twitter"></use>
-              </svg>Twitter</a>
+              </svg><span class="socials__social-text">Twitter</span></a>
           </li>
           <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#instagram"></use>
-              </svg>Instagram</a>
+              </svg><span class="socials__social-text">Instagram</span></a>
           </li>
           <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../../assets/icons/socials.svg#youtube"></use>
-              </svg>YouTube</a>
+              </svg><span class="socials__social-text">YouTube</span></a>
           </li>
         </ul>
       </div>
