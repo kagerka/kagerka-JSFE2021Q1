@@ -22,6 +22,8 @@
               alt="PetStory online logo" class="header__logo-pic"></a>
         </div>
         <nav class="header__nav">
+          <a href="../../main/index.html" class="header__logo-link header__logo-link_burger"><img
+            src="../../assets/icons/logo1.svg" alt="PetStory online logo" class="header__logo-pic_burger-menu"></a>
           <ul class="header__list">
             <li class="header__item">
               <a href="../main/index.html" class="header__link">About</a>
@@ -35,12 +37,24 @@
             <li class="header__item">
               <a href="#!" class="header__link">Contact us</a>
             </li>
+            <li class="header__item header__item_hidden">
+              <a href="../donate/donate.html" class="header__link">Donate</a>
+            </li>
             <li class="header__item">
               <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank"
                 class="header__link">Designed by ©</a>
             </li>
           </ul>
+          <div class="header__nav-close">
+            <span class="header__nav-close-line"></span>
+            <span class="header__nav-close-line"></span>
+          </div>
         </nav>
+        <div class="header__burger burger">
+          <span class="burger__line burger__line-first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
       </div>
     </div>
   </header>
@@ -77,84 +91,84 @@
               </svg>
             </div>
             <div class="donate__panda">
-              <svg class="donate__panda_svg">
-                <use xlink:href="../../assets/icons/donate-panda.svg#donate-panda"></use>
-              </svg>
+              <img src="../../assets/icons/donate-panda.svg" alt=""class="donate__panda_svg" >
             </div>
           </div>
           <div class="donate__donate-amount">
-            <span>Amount</span>
-            <div class="donate__background"><span class="donate__line"></span></div>
-            <form class="donate__form">
-
-              <div class="donate__radio-buttons">
-                <label class="donate__labels_label" for="donate__5000">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__5000" value="5000">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__5000">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>5000</span>
-                </label>
-                <label class="donate__labels_label" for="donate__2000">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__2000" value="2000">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__2000">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>2000</span>
-                </label>
-                <label class="donate__labels_label" for="donate__1000">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__1000" value="1000">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__1000">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>1000</span>
-                </label>
-                <label class="donate__labels_label" for="donate__500">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__500" value="500">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__500">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>500</span>
-                </label>
-                <label class="donate__labels_label" for="donate__250">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__250" value="250">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__250">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>250</span>
-                </label>
-                <label class="donate__labels_label" for="donate__100">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__100" value="100">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__100">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>100</span>
-                </label>
-                <label class="donate__labels_label" for="donate__50">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__50" value="50">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__50">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>50</span>
-                </label>
-                <label class="donate__labels_label" for="donate__25">
-                  <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__25" value="25">
-                  <span class="donate__radio-buttons_span"></span>
-                  <span class="donate__dollars donate__25">
-                    <svg class="donate__dollars_svg">
-                      <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
-                    </svg>25</span>
-                </label>
-              </div>
-
-            </form>
+            <span class="donate__donate-amount_title">Amount</span>
+<div class="donate__line_wrapper">
+              <div class="donate__background"><span class="donate__line"></span></div>
+              <form class="donate__form">
+  
+                <div class="donate__radio-buttons">
+                  <label class="donate__labels_label donate__line_5000" for="donate__5000">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__5000" value="5000">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__5000">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>5000</span>
+                  </label>
+                  <label class="donate__labels_label donate__line_2000" for="donate__2000">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__2000" value="2000">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__2000">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>2000</span>
+                  </label>
+                  <label class="donate__labels_label donate__line_1000" for="donate__1000">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__1000" value="1000">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__1000">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>1000</span>
+                  </label>
+                  <label class="donate__labels_label" for="donate__500">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__500" value="500">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__500">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>500</span>
+                  </label>
+                  <label class="donate__labels_label" for="donate__250">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__250" value="250">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__250">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>250</span>
+                  </label>
+                  <label class="donate__labels_label" for="donate__100">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__100" value="100">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__100">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>100</span>
+                  </label>
+                  <label class="donate__labels_label" for="donate__50">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__50" value="50">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__50">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>50</span>
+                  </label>
+                  <label class="donate__labels_label" for="donate__25">
+                    <input class="donate__radio-buttons_input" type="radio" name="amount" id="donate__25" value="25">
+                    <span class="donate__radio-buttons_span"></span>
+                    <span class="donate__dollars donate__25">
+                      <svg class="donate__dollars_svg">
+                        <use xlink:href="../../assets/icons/dollar.svg#dollar"></use>
+                      </svg>25</span>
+                  </label>
+                </div>
+  
+              </form>
+</div>
 
             <form class="donate__another-amount">
               <input class="donate__another-amount_input" type="number" min="1" max="9999" placeholder="Another amount">
@@ -188,8 +202,10 @@
 
 
       <div class="footer__logo">
-        <a href="../main/index.html" class="footer__logo-link"><img src="../../assets/icons/logo.svg"
-            alt="PetStory online logo" class="footer__logo-pic"></a>
+        <a href="../main/index.html" class="footer__logo-link">
+          <img src="../../assets/icons/logo.svg" alt="PetStory online logo" class="footer__logo-pic">
+          <img src="../../assets/icons/logo2.svg" alt="PetStory online logo" class="footer__logo-pic_mobile">
+        </a>
       </div>
 
       <a href="../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
@@ -199,22 +215,22 @@
           <li class="socials__item">
             <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#facebook"></use>
-              </svg>Facebook</a>
+              </svg><span class="socials__social-text">Facebook</span></a>
           </li>
           <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#twitter"></use>
-              </svg>Twitter</a>
+              </svg><span class="socials__social-text">Twitter</span></a>
           </li>
           <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#instagram"></use>
-              </svg>Instagram</a>
+              </svg><span class="socials__social-text">Instagram</span></a>
           </li>
           <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
               <svg class="socials__pic">
                 <use xlink:href="../../assets/icons/socials.svg#youtube"></use>
-              </svg>YouTube</a>
+              </svg><span class="socials__social-text">YouTube</span></a>
           </li>
         </ul>
       </div>
