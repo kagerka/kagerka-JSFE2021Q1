@@ -1141,6 +1141,7 @@ html {
   .header__logo-pic {
     height: 30px;
     width: 47px;
+    border: none;
   }
 
   .header__logo-pic.header__active-burger-menu {
@@ -1261,10 +1262,6 @@ html {
   }
 
   /* header */
-
-  .header__logo-pic {
-    border: none;
-  }
 
   .header__nav-close {
     right: 10px;
@@ -2311,5 +2308,46 @@ html {
   .header__logo-link.header__logo-link_burger {
     display: none;
   }
+  .animal-info__short-info_diet-title {
+    display: inline-block;
+    margin-right: 9px;
+  }
+  .animal-info__complete-info_title {
+    margin-top: 36px;
+    margin-bottom: 10px;
+  }
+  .animal-info__complete-info_title:nth-of-type(2) {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .animal-info__complete-info_title:nth-of-type(3) {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .animal-info__complete-info_title:nth-of-type(4) {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .animal-info__complete-info_title:nth-of-type(5) {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .footer__list {
+    position: relative;
+    top: -10px;
+  }
 
+  .socials__list {
+    position: relative;
+    top: -6px;
+  }
+
+  .socials__item {
+    margin-bottom: 2px;
+  }
+
+  .footer__copyright {
+    position: relative;
+    top: -7px;
+  }
 }

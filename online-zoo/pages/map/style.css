@@ -400,28 +400,28 @@ html {
 }
 
 .map__location-name--china {
-  top: 57.72%;
-  left: 70.79%;
+  top: 50.5%;
+  left: 71.1%;
 }
 
 .map__location-name--congo {
-  top: 71.5%;
-  left: 52%;
+  top: 66.5%;
+  left: 52.3%;
 }
 
 .map__location-name--united-states {
-  top: 53.9%;
-  left: 13.4%;
+  top: 46.2%;
+  left: 13.6%;
 }
 
 .map__location-name--los-angeles {
-  top: 58.4%;
-  left: 14.85%;
+  top: 51.4%;
+  left: 15.1%;
 }
 
 .map__location-name--florida {
-  top: 61.2%;
-  left: 25.27%;
+  top: 54.6%;
+  left: 25.5%;
 }
 
 .map__tooltip_transparent-border {
@@ -1805,5 +1805,20 @@ html {
 
   .map__world-map {
     height: 714px;
+  }
+  .footer__list {
+    position: relative;
+    top: -10px;
+  }
+  .socials__list {
+    position: relative;
+    top: -4px;
+  }
+  .socials__item {
+    margin-bottom: 2px;
+  }
+  .footer__copyright {
+    position: relative;
+    top: -7px;
   }
 }

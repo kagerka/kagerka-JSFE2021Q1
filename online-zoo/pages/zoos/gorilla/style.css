@@ -2327,6 +2327,23 @@ html {
     display: none;
   }
 
+  .footer__list {
+    position: relative;
+    top: -10px;
+  }
 
+  .socials__list {
+    position: relative;
+    top: -6px;
+  }
+
+  .socials__item {
+    margin-bottom: 2px;
+  }
+
+  .footer__copyright {
+    position: relative;
+    top: -7px;
+  }
 
 }
