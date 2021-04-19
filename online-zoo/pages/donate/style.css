@@ -2315,4 +2315,7 @@ html {
     position: relative;
     top: -8px;
   }
+  .footer__logo-pic_mobile {
+    display: none;
+  }
 }
