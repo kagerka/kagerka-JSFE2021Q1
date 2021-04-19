@@ -704,7 +704,9 @@ html {
   margin-bottom: 20px;
   margin-top: 0;
 }
-
+.animal-info__short-info_text {
+  margin-bottom: 22px;
+}
 .animal-info__complete-info_title {
   font-family: Roboto;
   font-style: normal;
@@ -712,7 +714,7 @@ html {
   font-size: 24px;
   line-height: 29px;
   color: #000000;
-  margin: 30px 0 10px;
+  margin: 40px 0 22px;
 }
 
 .text-link,
@@ -1874,7 +1876,7 @@ html {
   }
 
   .animal-info {
-    padding-bottom: 140px;
+    padding-bottom: 148px;
     background: url(../../../assets/images/bg-strelitzia1.png) left 0 bottom 0 / 144px no-repeat,
       url(../../../assets/images/bg-leaf1.png) right -2px bottom -70px / 128px no-repeat;
   }
@@ -1953,7 +1955,9 @@ html {
     margin-top: 34px;
     margin-bottom: 20px;
   }
-
+  .animal-info__read-less_button {
+    margin-top: 12px;
+  }
   /* footer */
 
   .footer {
@@ -2276,6 +2280,9 @@ html {
   .footer__list {
     width: 100%;
     margin: 0 28px 0 0;
+    position: relative;
+    top: 2px;
+    left: 12px;
   }
 
   .socials__item {

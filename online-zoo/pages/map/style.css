@@ -562,7 +562,7 @@ html {
 .map__map-buttons {
   position: sticky;
   bottom: 0;
-  padding-bottom: 20px;
+  padding-bottom: 14px;
 }
 
 .map__map-plus {
@@ -1771,6 +1771,9 @@ html {
   .footer__list {
     width: 100%;
     margin: 0 28px 0 0;
+    position: relative;
+    top: 2px;
+    left: 12px;
   }
 
   .socials__item {

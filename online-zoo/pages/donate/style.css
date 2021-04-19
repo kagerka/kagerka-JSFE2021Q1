@@ -237,7 +237,7 @@ html {
 
 .intro {
   width: 100%;
-  height: 466px;
+  height: 386px;
   background: url(../../assets/images/intro-pic.jpg) no-repeat top 44% center;
   background-size: cover;
 }
@@ -2350,5 +2350,19 @@ html {
   .header__logo-link.header__logo-link_burger {
     display: none;
   }
-
+  .footer__list {
+    position: relative;
+    top: -10px;
+  }
+  .socials__list {
+    position: relative;
+    top: -8px;
+  }
+  .socials__item {
+    margin-bottom: 2px;
+  }
+  .footer__copyright {
+    position: relative;
+    top: -8px;
+  }
 }

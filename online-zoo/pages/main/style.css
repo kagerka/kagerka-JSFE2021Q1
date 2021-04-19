@@ -1872,8 +1872,11 @@ html {
     width: 100%;
     height: 104px;
     margin-bottom: 20px;
+    padding: 8px 14px 20px;
   }
-
+  .testimonials__item-header {
+    column-gap: 6px;
+  }
   .testimonials__item:last-child {
     display: none;
   }
@@ -2333,12 +2336,15 @@ html {
     width: 100%;
     height: 104px;
     margin-bottom: 20px;
+    padding: 12px 13px 20px;
   }
 
   .testimonials__item:last-child {
     display: none;
   }
-
+  .testimonials__item-header {
+    column-gap: 8px;
+  }
   .testimonials__content {
     height: 38px;
     overflow: hidden;
