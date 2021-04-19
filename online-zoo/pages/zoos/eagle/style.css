@@ -692,6 +692,7 @@ html {
   line-height: 29px;
   color: #000000;
 }
+
 .animal-info__short-info_diet {
   display: block;
   padding-bottom: 4px;
@@ -1147,6 +1148,7 @@ html {
   .header__logo-pic {
     height: 30px;
     width: 47px;
+    border: none;
   }
 
   .header__logo-pic.header__active-burger-menu {
@@ -1267,10 +1269,6 @@ html {
   }
 
   /* header */
-
-  .header__logo-pic {
-    border: none;
-  }
 
   .header__nav-close {
     right: 10px;
@@ -2312,6 +2310,7 @@ html {
   .header__logo-link.header__logo-link_burger {
     display: none;
   }
+
   .footer__list {
     position: relative;
     top: -10px;
