@@ -46,7 +46,6 @@ function drawImage() {
     } else {
       diff = diffH;
     }
-    console.log(diffW, previewHeight);
     const ctx = canvas.getContext("2d");
     ctx.filter = `blur(${diff * blurValue}px) invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueValue}deg)`;
     ctx.drawImage(img, 0, 0);
@@ -134,7 +133,7 @@ next.addEventListener('click', (event) => {
   }
 
   img.onload = function () {
-    console.log(`picture is loaded: ${pic}`);
+    // console.log(`picture is loaded: ${pic}`);
   };
   img.src = url + daytime + pic;
   drawImage();
