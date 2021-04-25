@@ -499,7 +499,7 @@ html {
 
 .animals-cards__arrows-wrapper {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
 }
 
 .animals-cards__left-arrow {
@@ -1666,11 +1666,10 @@ html {
   }
 
   .intro__button {
-    width: 100%;
     position: relative;
     left: 0;
     bottom: -6px;
-    margin: 0;
+    margin: 0 auto;
   }
 
   /* about */
@@ -1769,6 +1768,7 @@ html {
 
   .animals-cards__card:hover .animals-cards__pic {
     filter: none;
+    transform: none;
   }
 
   /* pick and feed */
