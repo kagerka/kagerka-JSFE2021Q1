@@ -146,12 +146,17 @@ output {
   background-color: #00c9b7;
 }
 
-.btn-active {
+.btn-active,
+.btn-load--input.btn-active + .btn-load {
   background-color: #00b4a4;
+  color: #fff;
 }
 
-.btn-active:hover {
+
+.btn-active:hover,
+.btn-load--input.btn-active:hover + .btn-load {
   background-color: #00c9b7;
+  color: #fff;
 }
 
 .btn-load {
@@ -167,8 +172,8 @@ output {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   cursor: pointer;
 }
 
