@@ -16,8 +16,7 @@ let invertValue;
 let sepiaValue;
 let saturateValue;
 let hueValue;
-
-drawImage();
+let lastPic;
 
 // Canvas
 
@@ -101,10 +100,12 @@ reset.addEventListener('click', (event) => {
 });
 
 // Next picture
-
+let pic;
 next.addEventListener('click', (event) => {
+  console.log(pic);
+  
   let url = 'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/';
-  let pic;
+
   let date = new Date();
   let hour = date.getHours();
   let daytime;
@@ -123,7 +124,15 @@ next.addEventListener('click', (event) => {
   }
 
   if (images.indexOf(imgName) === -1) {
-    pic = images[0];
+    if (lastPic) {
+      if (images.indexOf(lastPic) === (images.length - 1)) {
+        pic = images[0];
+      } else {
+        pic = images[images.indexOf(lastPic) + 1];;
+      }
+    } else {
+      pic = images[0];
+    }
   } else {
     if (images.indexOf(imgName) === (images.length - 1)) {
       pic = images[0];
@@ -133,7 +142,7 @@ next.addEventListener('click', (event) => {
   }
 
   img.onload = function () {
-    // console.log(`picture is loaded: ${pic}`);
+    console.log(`picture is loaded: ${pic}`);
   };
   img.src = url + daytime + pic;
   drawImage();
@@ -142,6 +151,8 @@ next.addEventListener('click', (event) => {
 // Load picture
 
 load.addEventListener('change', function () {
+  lastPic = pic;
+  console.log(lastPic);
   const file = load.files[0];
   const reader = new FileReader();
   reader.onloadend = () => {
@@ -154,6 +165,7 @@ load.addEventListener('change', function () {
     img.src = '';
   }
   load.value = '';
+  return lastPic;
 });
 
 // Save picture
