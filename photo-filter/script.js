@@ -102,8 +102,6 @@ reset.addEventListener('click', (event) => {
 // Next picture
 let pic;
 next.addEventListener('click', (event) => {
-  console.log(pic);
-  
   let url = 'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/';
 
   let date = new Date();
@@ -142,7 +140,7 @@ next.addEventListener('click', (event) => {
   }
 
   img.onload = function () {
-    console.log(`picture is loaded: ${pic}`);
+    // console.log(`picture is loaded: ${pic}`);
   };
   img.src = url + daytime + pic;
   drawImage();
@@ -152,7 +150,6 @@ next.addEventListener('click', (event) => {
 
 load.addEventListener('change', function () {
   lastPic = pic;
-  console.log(lastPic);
   const file = load.files[0];
   const reader = new FileReader();
   reader.onloadend = () => {
