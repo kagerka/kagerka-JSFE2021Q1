@@ -18,6 +18,8 @@ let saturateValue;
 let hueValue;
 let lastPic;
 
+drawImage();
+
 // Canvas
 
 function filterValues() {
