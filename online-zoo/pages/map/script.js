@@ -1,3 +1,5 @@
+// Pin active
+
 const pins = document.querySelectorAll('.map__pin');
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('map__pin')) {
@@ -47,3 +49,120 @@ if (window.innerWidth <= 999) {
     });
   }
 }
+
+// Map move
+
+const mapWrap = document.querySelector('.map__wrapper');
+const mapPicElem = document.querySelector('.map__world-map_wrapper');
+const header = document.querySelector('.header');
+const footer = document.querySelector('.footer');
+
+mapPicElem.onmousedown = function(event) {
+
+  let shiftX = event.clientX - mapPicElem.getBoundingClientRect().left;
+  let shiftY = event.clientY + 80 - mapPicElem.getBoundingClientRect().top;
+
+  moveAt(event.pageX, event.pageY);
+
+  function moveAt(pageX, pageY) {
+    mapPicElem.style.left = pageX - shiftX + 'px';
+    mapPicElem.style.top = pageY - shiftY + 'px';
+  }
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+    if (event.pageX >= mapWrap.offsetWidth || event.pageX <= 0) {
+      document.removeEventListener('mousemove', onMouseMove);
+    }
+    footer.onmouseenter = function() {
+      document.removeEventListener('mousemove', onMouseMove);
+      mapPicElem.onmouseup = null;
+    };
+    header.onmouseenter = function() {
+      document.removeEventListener('mousemove', onMouseMove);
+      mapPicElem.onmouseup = null;
+    };
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+
+  mapPicElem.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    mapPicElem.onmouseup = null;
+  };
+
+};
+
+mapPicElem.ondragstart = function() {
+  return false;
+};
+
+
+
+
+// Map zoom
+
+const zoomIn = document.querySelector('.map__map-plus');
+const zoomOut = document.querySelector('.map__map-minus');
+const mapPic = document.querySelector('.map__world-map');
+const mapElem = document.querySelector('.map__map-elements_wrapper');
+const body = document.querySelector('.page');
+
+zoomIn.addEventListener('click', () => {
+
+  if (mapPicElem.offsetWidth <= mapWrap.offsetWidth * 2) {
+
+    const prevWidth = mapPicElem.offsetWidth;
+    const prevHeight = mapPicElem.offsetHeight;
+    mapPicElem.style.width = `${mapPicElem.offsetWidth * 1.25}px`;
+    mapPicElem.style.height = `${mapPicElem.offsetHeight * 1.25}px`;
+    const nextWidth = mapPicElem.offsetWidth;
+    const nextHeight = mapPicElem.offsetHeight;
+    const topPos = mapPicElem.offsetTop || 0;
+    const leftPos = mapPicElem.offsetLeft || 0;
+    const topPosElem = mapElem.offsetTop;
+    const leftPosElem = mapElem.offsetLeft;
+    
+
+    mapPicElem.style.left = `${leftPos - ((nextWidth - prevWidth) / 2)}px`;
+    mapPicElem.style.top = `${topPos - ((nextHeight - prevHeight) / 2)}px`;
+    if (body.offsetWidth >= 1600) {
+      mapElem.style.left = `${(leftPosElem + 8)}px`;
+      mapElem.style.top = `${(topPosElem + 14)}px`;
+    } else if (body.offsetWidth < 1600) {
+      mapElem.style.left = `${(leftPosElem + 6)}px`;
+      mapElem.style.top = `${(topPosElem + 10)}px`;
+    }
+
+  }
+
+});
+
+zoomOut.addEventListener('click', () => {
+
+  if (mapPicElem.offsetWidth >= mapWrap.offsetWidth || mapPicElem.offsetHeight >= mapWrap.offsetHeight) {
+
+    const prevWidth = mapPicElem.offsetWidth;
+    const prevHeight = mapPicElem.offsetHeight;
+    mapPicElem.style.width = `${mapPicElem.offsetWidth / 1.25}px`;
+    mapPicElem.style.height = `${mapPicElem.offsetHeight / 1.25}px`;
+    const nextWidth = mapPicElem.offsetWidth;
+    const nextHeight = mapPicElem.offsetHeight;
+    const topPos = mapPicElem.offsetTop || 0;
+    const leftPos = mapPicElem.offsetLeft || 0;
+    const topPosElem = mapElem.offsetTop;
+    const leftPosElem = mapElem.offsetLeft;
+
+    mapPicElem.style.left = `${leftPos + ((prevWidth - nextWidth) / 2)}px`;
+    mapPicElem.style.top = `${topPos + ((prevHeight - nextHeight) / 2)}px`;
+    if (body.offsetWidth >= 1600) {
+      mapElem.style.left = `${(leftPosElem - 8)}px`;
+      mapElem.style.top = `${(topPosElem - 14)}px`;
+    } else if (body.offsetWidth < 1600) {
+      mapElem.style.left = `${(leftPosElem - 6)}px`;
+      mapElem.style.top = `${(topPosElem - 10)}px`;
+    }
+
+  }
+
+});
