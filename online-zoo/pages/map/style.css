@@ -234,9 +234,10 @@ html {
   margin: 0 auto;
   height: 1018px;
   background: #eaf7fe;
-  position: relative;
   padding-top: 80px;
-
+  overflow: hidden;
+  cursor: grab;
+  z-index: 1;
 }
 
 .map__wrapper {
@@ -247,14 +248,18 @@ html {
   position: relative;
   width: 100%;
   height: 938px;
-  max-width: 1160px;
   overflow: hidden;
 }
 
 .map__world-map_wrapper {
   position: absolute;
-  width: 100%;
-  max-width: 1083px;
+  width: 938px;
+  height: 618px;
+  /* max-width: 1083px; */
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .map__map-elements_wrapper {
@@ -262,16 +267,19 @@ html {
   width: 100%;
   height: 100%;
   z-index: 10;
+  /* left: calc(50% - 469px);
+  top: calc(50% - 309px); */
 }
 
 .map__world-map {
-  position: relative;
-  width: 1085px;
-  height: 717px;
+  /* position: relative;
+  width: 1085px; */
+  position: absolute;
+  height: 100%;
   width: 100%;
-  object-fit: cover;
-  margin-top: -9px;
-  margin-left: 4px;
+  /* left: calc(50% - 469px);
+  top: calc(50% - 309px); */
+  /* object-fit: cover; */
 }
 
 .map__world-map_mozilla {
@@ -282,8 +290,8 @@ html {
   width: fit-content;
   height: fit-content;
   position: relative;
-  top: 45.7%;
-  left: 79.1%;
+  top: 45.5%;
+  left: 78.5%;
 }
 
 .map__pin-china-1::before {
@@ -299,8 +307,8 @@ html {
 
 .map__pin-china-2 {
   position: absolute;
-  top: 52.2%;
-  left: 78.6%;
+  top: 53.2%;
+  left: 77.6%;
 }
 
 .map__pin-china-2::before {
@@ -316,8 +324,8 @@ html {
 
 .map__pin-congo {
   position: absolute;
-  top: 64%;
-  left: 50.25%;
+  top: 64.4%;
+  left: 49.9%;
 }
 
 .map__pin-congo::before {
@@ -361,8 +369,8 @@ html {
 
 .map__pin-usa--florida {
   position: absolute;
-  top: 51.9%;
-  left: 23.5%;
+  top: 52.3%;
+  left: 23.2%;
 }
 
 .map__pin-usa--florida::before {
@@ -386,42 +394,6 @@ html {
 
 .map__pin_active {
   fill: #fe9013;
-}
-
-.map__location-name {
-  position: absolute;
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-  text-align: center;
-  color: #4f5352;
-}
-
-.map__location-name--china {
-  top: 50.5%;
-  left: 71.1%;
-}
-
-.map__location-name--congo {
-  top: 66.5%;
-  left: 52.3%;
-}
-
-.map__location-name--united-states {
-  top: 46.2%;
-  left: 13.6%;
-}
-
-.map__location-name--los-angeles {
-  top: 51.4%;
-  left: 15.1%;
-}
-
-.map__location-name--florida {
-  top: 54.6%;
-  left: 25.5%;
 }
 
 .map__tooltip_transparent-border {
@@ -563,6 +535,7 @@ html {
   position: sticky;
   bottom: 0;
   padding-bottom: 14px;
+  z-index: 10;
 }
 
 .map__map-plus {
@@ -1403,20 +1376,22 @@ html {
 
   .map {
     height: 508px;
+    padding-top: 34px;
   }
 
   .map__wrapper {
-    width: 640px;
+    /* width: 640px; */
     height: 474px;
   }
 
   .map__world-map {
-    top: -23px;
-    left: 19px;
     width: 597px;
     height: 394px;
   }
-
+  .map__world-map_wrapper {
+    width: 597px;
+    height: 394px;
+  }
   .map__map-elements_wrapper {
     z-index: 1;
   }
@@ -1427,8 +1402,8 @@ html {
   }
 
   .map__pin-china-1 {
-    top: 39%;
-    left: 77%;
+    top: 46%;
+    left: 79%;
   }
 
   .map__pin-china-1::before {
@@ -1439,8 +1414,8 @@ html {
   }
 
   .map__pin-china-2 {
-    top: 45.7%;
-    left: 76.5%;
+    top: 53.5%;
+    left: 78.5%;
   }
 
   .map__pin-china-2::before {
@@ -1451,7 +1426,7 @@ html {
   }
 
   .map__pin-congo {
-    top: 57.5%;
+    top: 65%;
     left: 50.1%;
   }
 
@@ -1463,8 +1438,8 @@ html {
   }
 
   .map__pin-usa--los-angeles {
-    top: 42.9%;
-    left: 15.4%;
+    top: 49.8%;
+    left: 12.5%;
   }
 
   .map__pin-usa--los-angeles::before {
@@ -1482,8 +1457,8 @@ html {
   }
 
   .map__pin-usa--florida {
-    top: 45.5%;
-    left: 25.3%;
+    top: 53.2%;
+    left: 23.2%;
   }
 
   .map__pin-usa--florida::before {
@@ -1499,28 +1474,28 @@ html {
   }
 
   .map__location-name--china {
-    top: 43.8%;
+    top: 51%;
     left: 69.6%;
   }
 
   .map__location-name--congo {
-    top: 60%;
-    left: 52.2%;
+    top: 67%;
+    left: 52.8%;
   }
 
   .map__location-name--united-states {
-    top: 39.5%;
-    left: 16.2%;
+    top: 46.8%;
+    left: 14%;
   }
 
   .map__location-name--los-angeles {
-    top: 44.7%;
-    left: 17.6%;
+    top: 52%;
+    left: 15%;
   }
 
   .map__location-name--florida {
-    top: 48%;
-    left: 27.3%;
+    top: 55.5%;
+    left: 25.5%;
   }
 
   .map__map-buttons_wrapper {
@@ -1623,17 +1598,12 @@ html {
   .map {
     height: 827px;
   }
-
   .map__wrapper {
-    width: 1000px;
     height: 747px;
   }
-
-  .map__world-map {
-    top: 33px;
-    left: 28px;
+  .map__world-map_wrapper {
     width: 942px;
-    height: 620px;
+    height: 747px;
   }
 
   .map__pin {
@@ -1642,8 +1612,8 @@ html {
   }
 
   .map__pin-china-1 {
-    top: 50.9%;
-    left: 77.3%;
+    top: 46%;
+    left: 78.9%;
   }
 
   .map__pin-china-1::before {
@@ -1654,8 +1624,8 @@ html {
   }
 
   .map__pin-china-2 {
-    top: 57.4%;
-    left: 76.8%;
+    top: 53.4%;
+    left: 77.8%;
   }
 
   .map__pin-china-2::before {
@@ -1666,8 +1636,8 @@ html {
   }
 
   .map__pin-congo {
-    top: 69.4%;
-    left: 50.3%;
+    top: 62.8%;
+    left: 50%;
   }
 
   .map__pin-congo::before {
@@ -1678,8 +1648,8 @@ html {
   }
 
   .map__pin-usa--los-angeles {
-    top: 55%;
-    left: 15.1%;
+    top: 50.1%;
+    left: 12.8%;
   }
 
   .map__pin-usa--los-angeles::before {
@@ -1697,8 +1667,8 @@ html {
   }
 
   .map__pin-usa--florida {
-    top: 57.3%;
-    left: 25.1%;
+    top: 52.8%;
+    left: 23.3%;
   }
 
   .map__pin-usa--florida::before {
@@ -1708,35 +1678,7 @@ html {
     left: -6px;
   }
 
-  .map__location-name {
-    font-size: 12.9861px;
-    line-height: 16px;
-  }
 
-  .map__location-name--china {
-    top: 55.8%;
-    left: 69.9%;
-  }
-
-  .map__location-name--congo {
-    top: 71.7%;
-    left: 52.2%;
-  }
-
-  .map__location-name--united-states {
-    top: 51.6%;
-    left: 16%;
-  }
-
-  .map__location-name--los-angeles {
-    top: 56.8%;
-    left: 17.3%;
-  }
-
-  .map__location-name--florida {
-    top: 60%;
-    left: 27.1%;
-  }
 
   /* footer */
 
@@ -1784,7 +1726,6 @@ html {
 
 }
 
-@media screen and (min-width: 1160px) and (max-width: 1599px) {}
 
 /* ---------------- */
 /*      1600px      */
@@ -1797,15 +1738,7 @@ html {
     display: none;
   }
 
-  /* map */
 
-  .map__wrapper {
-    height: 938px;
-  }
-
-  .map__world-map {
-    height: 714px;
-  }
   .footer__list {
     position: relative;
     top: -10px;
