@@ -36,11 +36,11 @@ if (window.innerWidth <= 999) {
 const body = document.querySelector('.page');
 const readMore = document.querySelector('.animal-info__read-less_button');
 const animalInfo = document.querySelector('.animal-info__complete-info');
-let readLess = false;
+let readLess = true;
 
 readMore.addEventListener('click', () => {
   if (!readLess) {
-    animalInfo.style.overflow = 'hidden';
+    animalInfo.style.height = '300px';
     readMore.innerHTML = 'Read More';
     readLess = true;
     if (body.offsetWidth >= 1000) {
@@ -52,7 +52,6 @@ readMore.addEventListener('click', () => {
     }
   } else {
     animalInfo.style.height = 'auto';
-    animalInfo.style.overflow = 'visible';
     readMore.innerHTML = 'Read Less';
     readLess = false;
   }
@@ -74,8 +73,18 @@ let hideItems = 1;
 
 arrowLeft.addEventListener('click', (e) => {
   index = index - hideItems;
-  if (index < 0) {
-    index = carouselItems.length - 4;
+  if (body.offsetWidth >= 1600) {
+    if (index < 0) {
+      index = carouselItems.length - 4;
+    }
+  } else if (body.offsetWidth >= 1000 && body.offsetWidth < 1600) {
+    if (index < 0) {
+      index = carouselItems.length - 2;
+    }
+  }  else if (body.offsetWidth >= 640 && body.offsetWidth < 1000) {
+    if (index < 0) {
+      index = carouselItems.length - 2;
+    }
   }
   
   videoCarouselWrap.scrollTo((carouselItemsWidth + gap) * index, 0);
@@ -84,8 +93,18 @@ arrowLeft.addEventListener('click', (e) => {
 
 arrowRight.addEventListener('click', () => {
   index = index + hideItems;
-  if (index > carouselItems.length - 4) {
-    index = 0;
+  if (body.offsetWidth >= 1600) {
+    if (index > carouselItems.length - 4) {
+      index = 0;
+    }
+  } else if (body.offsetWidth >= 1000 && body.offsetWidth < 1600) {
+    if (index > carouselItems.length - 2) {
+      index = 0;
+    }
+  } else if (body.offsetWidth >= 640 && body.offsetWidth < 1000) {
+    if (index > carouselItems.length - 2) {
+      index = 0;
+    }
   }
   videoCarouselWrap.scrollTo((carouselItemsWidth + gap) * index, 0);
 

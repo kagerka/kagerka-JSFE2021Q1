@@ -243,7 +243,7 @@ html {
   top: 80px;
   left: 0;
   height: 85%;
-  padding: 112px 30px 0 30px;
+  padding: 112px 30px 112px 30px;
 }
 
 .zoos-sidebar {
@@ -609,6 +609,8 @@ html {
 
 .animal-info__complete-info {
   padding-top: 40px;
+  height: 305px;
+  overflow: hidden;
 }
 
 .animal-info__short-info_title {
@@ -1327,7 +1329,9 @@ html {
     min-height: 68px;
     overflow: hidden;
   }
-
+  .camera__carousel_item:nth-of-type(n+5) {
+    display: none;
+  }
   .camera__carousel_video {
     width: 100%;
     height: 100%;

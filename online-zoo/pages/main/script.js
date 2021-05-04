@@ -132,7 +132,7 @@ const delay = () => {
   timeout = setTimeout(() => {
     clearInterval(interval);
     interval = setInterval(testimonialsFunc, 10000);
-  }, 40000);
+  }, 30000);
 };
 
 testimonials.addEventListener('click', delay);

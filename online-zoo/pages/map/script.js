@@ -107,10 +107,13 @@ const zoomOut = document.querySelector('.map__map-minus');
 const mapPic = document.querySelector('.map__world-map');
 const mapElem = document.querySelector('.map__map-elements_wrapper');
 const body = document.querySelector('.page');
+const startWidth = mapPicElem.offsetWidth;
+const topPos = mapPicElem.offsetTop || 0;
+const leftPos = mapPicElem.offsetLeft || 0;
 
 zoomIn.addEventListener('click', () => {
 
-  if (mapPicElem.offsetWidth <= mapWrap.offsetWidth * 2) {
+  if (mapPicElem.offsetWidth <= startWidth * 2) {
 
     const prevWidth = mapPicElem.offsetWidth;
     const prevHeight = mapPicElem.offsetHeight;
@@ -118,19 +121,16 @@ zoomIn.addEventListener('click', () => {
     mapPicElem.style.height = `${mapPicElem.offsetHeight * 1.25}px`;
     const nextWidth = mapPicElem.offsetWidth;
     const nextHeight = mapPicElem.offsetHeight;
-    const topPos = mapPicElem.offsetTop || 0;
-    const leftPos = mapPicElem.offsetLeft || 0;
     const topPosElem = mapElem.offsetTop;
     const leftPosElem = mapElem.offsetLeft;
-    
 
     mapPicElem.style.left = `${leftPos - ((nextWidth - prevWidth) / 2)}px`;
     mapPicElem.style.top = `${topPos - ((nextHeight - prevHeight) / 2)}px`;
     if (body.offsetWidth >= 1600) {
-      mapElem.style.left = `${(leftPosElem + 8)}px`;
-      mapElem.style.top = `${(topPosElem + 14)}px`;
+      mapElem.style.left = `${(leftPosElem + 5)}px`;
+      mapElem.style.top = `${(topPosElem + 10)}px`;
     } else if (body.offsetWidth < 1600) {
-      mapElem.style.left = `${(leftPosElem + 6)}px`;
+      mapElem.style.left = `${(leftPosElem + 5)}px`;
       mapElem.style.top = `${(topPosElem + 10)}px`;
     }
 
@@ -140,7 +140,7 @@ zoomIn.addEventListener('click', () => {
 
 zoomOut.addEventListener('click', () => {
 
-  if (mapPicElem.offsetWidth >= mapWrap.offsetWidth || mapPicElem.offsetHeight >= mapWrap.offsetHeight) {
+  if (mapPicElem.offsetWidth > startWidth) {
 
     const prevWidth = mapPicElem.offsetWidth;
     const prevHeight = mapPicElem.offsetHeight;
@@ -148,18 +148,16 @@ zoomOut.addEventListener('click', () => {
     mapPicElem.style.height = `${mapPicElem.offsetHeight / 1.25}px`;
     const nextWidth = mapPicElem.offsetWidth;
     const nextHeight = mapPicElem.offsetHeight;
-    const topPos = mapPicElem.offsetTop || 0;
-    const leftPos = mapPicElem.offsetLeft || 0;
     const topPosElem = mapElem.offsetTop;
     const leftPosElem = mapElem.offsetLeft;
 
-    mapPicElem.style.left = `${leftPos + ((prevWidth - nextWidth) / 2)}px`;
-    mapPicElem.style.top = `${topPos + ((prevHeight - nextHeight) / 2)}px`;
+    mapPicElem.style.left = `${leftPos - ((prevWidth - nextWidth) / 2)}px`;
+    mapPicElem.style.top = `${topPos - ((prevHeight - nextHeight) / 2)}px`;
     if (body.offsetWidth >= 1600) {
-      mapElem.style.left = `${(leftPosElem - 8)}px`;
-      mapElem.style.top = `${(topPosElem - 14)}px`;
+      mapElem.style.left = `${(leftPosElem - 5)}px`;
+      mapElem.style.top = `${(topPosElem - 10)}px`;
     } else if (body.offsetWidth < 1600) {
-      mapElem.style.left = `${(leftPosElem - 6)}px`;
+      mapElem.style.left = `${(leftPosElem - 5)}px`;
       mapElem.style.top = `${(topPosElem - 10)}px`;
     }
 
