@@ -18,6 +18,83 @@ document.addEventListener('click', (event) => {
   }
 });
 
+// tooltip
+
+const china1 = document.querySelector('.map__pin-china-1');
+const panda = document.querySelector('.map__tooltip--panda');
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('map__pin-china-1')) {
+    if (panda.classList.contains('map__tooltip_active')) {
+      panda.classList.remove('map__tooltip_active');
+    } else {
+      panda.classList.add('map__tooltip_active');
+    }
+  } else {
+    panda.classList.remove('map__tooltip_active');
+  }
+});
+
+const china2 = document.querySelector('.map__pin-china-2');
+const pandas = document.querySelector('.map__tooltip--pandas');
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('map__pin-china-2')) {
+    if (pandas.classList.contains('map__tooltip_active')) {
+      pandas.classList.remove('map__tooltip_active');
+    } else {
+      pandas.classList.add('map__tooltip_active');
+    }
+  } else {
+    pandas.classList.remove('map__tooltip_active');
+  }
+});
+
+const congo = document.querySelector('.map__pin-congo');
+const gorilla = document.querySelector('.map__tooltip--gorilla');
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('map__pin-congo')) {
+    if (gorilla.classList.contains('map__tooltip_active')) {
+      gorilla.classList.remove('map__tooltip_active');
+    } else {
+      gorilla.classList.add('map__tooltip_active');
+    }
+  } else {
+    gorilla.classList.remove('map__tooltip_active');
+  }
+});
+
+const los = document.querySelector('.map__pin-usa--los-angeles');
+const eagles = document.querySelector('.map__tooltip--eagles');
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('map__pin-usa--los-angeles')) {
+    if (eagles.classList.contains('map__tooltip_active')) {
+      eagles.classList.remove('map__tooltip_active');
+    } else {
+      eagles.classList.add('map__tooltip_active');
+    }
+  } else {
+    eagles.classList.remove('map__tooltip_active');
+  }
+});
+
+const florida = document.querySelector('.map__pin-usa--florida');
+const alligator = document.querySelector('.map__tooltip--alligator');
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('map__pin-usa--florida')) {
+    if (alligator.classList.contains('map__tooltip_active')) {
+      alligator.classList.remove('map__tooltip_active');
+    } else {
+      alligator.classList.add('map__tooltip_active');
+    }
+  } else {
+    alligator.classList.remove('map__tooltip_active');
+  }
+});
+
 // burger menu
 
 const burgerItem = document.querySelector('.burger');
