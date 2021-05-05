@@ -236,7 +236,6 @@ html {
   background: #eaf7fe;
   padding-top: 80px;
   overflow: hidden;
-  cursor: grab;
   z-index: 1;
 }
 
@@ -261,7 +260,12 @@ html {
   -webkit-user-select: none;
   user-select: none;
 }
-
+.map__world-map_wrapper:hover {
+  cursor: grab;
+}
+.map__world-map_wrapper:active {
+  cursor: grabbing;
+}
 .map__map-elements_wrapper {
   position: absolute;
   width: 100%;
