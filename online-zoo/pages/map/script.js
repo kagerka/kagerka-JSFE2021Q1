@@ -1,97 +1,98 @@
-// Pin active
-
-const pins = document.querySelectorAll('.map__pin');
-document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('map__pin')) {
-    pins.forEach(key => {
-      if (key.classList.contains('map__pin_active')) {
-        key.classList.remove('map__pin_active');
-      }
-    });
-    event.target.classList.add('map__pin_active');
-  } else {
-    pins.forEach(key => {
-      if (key.classList.contains('map__pin_active')) {
-        key.classList.remove('map__pin_active');
-      }
-    });
-  }
-});
-
 // tooltip
 
 const china1 = document.querySelector('.map__pin-china-1');
 const panda = document.querySelector('.map__tooltip--panda');
+const pinPanda = document.querySelector('.map__pin-china-1 .map__pin')
 
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('map__pin-china-1')) {
+  if (event.target.classList.contains('map__pin-china-1') || event.target.classList.contains('map__pin_china-1')) {
     if (panda.classList.contains('map__tooltip_active')) {
       panda.classList.remove('map__tooltip_active');
+      pinPanda.classList.remove('map__pin_active');
     } else {
       panda.classList.add('map__tooltip_active');
+      pinPanda.classList.add('map__pin_active');
     }
   } else {
     panda.classList.remove('map__tooltip_active');
+    pinPanda.classList.remove('map__pin_active');
   }
+
 });
 
 const china2 = document.querySelector('.map__pin-china-2');
 const pandas = document.querySelector('.map__tooltip--pandas');
+const pinPandas = document.querySelector('.map__pin-china-2 .map__pin')
 
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('map__pin-china-2')) {
+  if (event.target.classList.contains('map__pin-china-2') || event.target.classList.contains('map__pin_china-2')) {
     if (pandas.classList.contains('map__tooltip_active')) {
       pandas.classList.remove('map__tooltip_active');
+      pinPandas.classList.remove('map__pin_active');
     } else {
       pandas.classList.add('map__tooltip_active');
+      pinPandas.classList.add('map__pin_active');
     }
   } else {
     pandas.classList.remove('map__tooltip_active');
+    pinPandas.classList.remove('map__pin_active');
   }
 });
 
 const congo = document.querySelector('.map__pin-congo');
 const gorilla = document.querySelector('.map__tooltip--gorilla');
+const pinGorilla = document.querySelector('.map__pin-congo .map__pin')
 
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('map__pin-congo')) {
+  if (event.target.classList.contains('map__pin-congo') || event.target.classList.contains('map__pin_congo')) {
     if (gorilla.classList.contains('map__tooltip_active')) {
       gorilla.classList.remove('map__tooltip_active');
+      pinGorilla.classList.remove('map__pin_active');
     } else {
       gorilla.classList.add('map__tooltip_active');
+      pinGorilla.classList.add('map__pin_active');
     }
   } else {
     gorilla.classList.remove('map__tooltip_active');
+    pinGorilla.classList.remove('map__pin_active');
   }
 });
 
 const los = document.querySelector('.map__pin-usa--los-angeles');
 const eagles = document.querySelector('.map__tooltip--eagles');
+const pinEagles = document.querySelector('.map__pin-usa--los-angeles .map__pin')
 
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('map__pin-usa--los-angeles')) {
+  if (event.target.classList.contains('map__pin-usa--los-angeles') || event.target.classList.contains('map__pin_usa--los-angeles')) {
     if (eagles.classList.contains('map__tooltip_active')) {
       eagles.classList.remove('map__tooltip_active');
+      pinEagles.classList.remove('map__pin_active');
     } else {
       eagles.classList.add('map__tooltip_active');
+      pinEagles.classList.add('map__pin_active');
     }
   } else {
     eagles.classList.remove('map__tooltip_active');
+    pinEagles.classList.remove('map__pin_active');
   }
 });
 
 const florida = document.querySelector('.map__pin-usa--florida');
 const alligator = document.querySelector('.map__tooltip--alligator');
+const pinAlligator = document.querySelector('.map__pin-usa--florida .map__pin')
 
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('map__pin-usa--florida')) {
+  if (event.target.classList.contains('map__pin-usa--florida') || event.target.classList.contains('map__pin_usa--florida')) {
     if (alligator.classList.contains('map__tooltip_active')) {
       alligator.classList.remove('map__tooltip_active');
+      pinAlligator.classList.remove('map__pin_active');
     } else {
       alligator.classList.add('map__tooltip_active');
+      pinAlligator.classList.add('map__pin_active');
     }
   } else {
     alligator.classList.remove('map__tooltip_active');
+    pinAlligator.classList.remove('map__pin_active');
   }
 });
 
