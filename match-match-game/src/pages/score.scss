@@ -1,0 +1,50 @@
+.score {
+  width: 1000px;
+  height: 802px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+  }
+
+  &__player_info {
+    display: flex;
+    align-items: center;
+
+  }
+  &__player_name {
+    margin-bottom: 6px;
+  }
+  &__player_email {
+    font-weight: normal;
+    font-size: 12px;
+  }
+  &__player_pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url(../../public/images/avatars/kagerka__avatar.png) center / 40px 40px no-repeat;
+    margin-right: 16px;
+  }
+  &__player_score > span {
+    color: #2196f3;
+  }
+}

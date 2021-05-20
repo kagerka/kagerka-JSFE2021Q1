@@ -1,0 +1,46 @@
+.settings {
+  width: 1000px;
+  height: 802px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+  }
+
+  &__item>select {
+    width: 250px;
+    height: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.6);
+    border: 0;
+    outline: 0;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #E5E5E5;
+    padding: 6px;
+  }
+  &__item>select>option {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
