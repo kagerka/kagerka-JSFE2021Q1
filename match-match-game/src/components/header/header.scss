@@ -6,26 +6,3 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-
-.logo {
-  width: 80px;
-  height: 40px;
-  cursor: pointer;
-
-  &__top,
-  &__bottom {
-    height: 50%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__bottom {
-    background-color: #fff;
-    color: #2196f3;
-  }
-}
