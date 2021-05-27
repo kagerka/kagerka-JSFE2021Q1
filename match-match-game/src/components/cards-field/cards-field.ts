@@ -1,6 +1,8 @@
 import './cards-field.scss';
 import { BaseComponent } from '../base-components';
 import { Card } from '../card/card';
+import { Counter } from '../counter/counter';
+import { ClickCount } from '../game/click_count';
 
 const SHOW_TIME = 1;
 
@@ -21,6 +23,8 @@ export class CardsField extends BaseComponent {
     this.cards.forEach((card) => this.element.appendChild(card.element));
     setTimeout(() => {
       this.cards.forEach((card) => card.flipToBack());
-    }, SHOW_TIME * 1000);
+      new Counter(this.element).countTime();
+      new ClickCount().clickCounter();
+    }, SHOW_TIME * 30000);
   }
 }
