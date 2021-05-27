@@ -4,11 +4,17 @@ import { Header } from './components/header/header';
 import { AboutPage } from './pages/about';
 import { ScorePage } from './pages/score';
 import { SettingsPage } from './pages/settings';
+import { IndexedDB } from './components/indexeddb/indexeddb';
+// import { GameField } from './components/game-field';
+// import { ClickCount } from './components/game/click_count';
 
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
 window.onload = () => {
+  // new GameField(appElement).start();
+  // new ClickCount().clickCounter();
+  // new ScorePage(appElement).render();
   new Header(appElement).render();
   new App(appElement).render();
 
@@ -62,7 +68,7 @@ window.onload = () => {
 
   const menuItems = document.querySelectorAll('.menu__item');
 
-  menuItems?.forEach((item) => item.addEventListener('click', (event) => {
+  menuItems?.forEach((item) => item.addEventListener('click', () => {
     setTimeout(() => {
       for (let i = 0; i < menuItems.length; i++) {
         menuItems[i].classList.remove('active');
@@ -75,4 +81,5 @@ window.onload = () => {
   }));
 
   window.addEventListener('popstate', router);
+  new IndexedDB().render();
 };
