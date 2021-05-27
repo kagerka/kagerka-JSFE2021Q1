@@ -2,6 +2,7 @@ import './header_game.scss';
 import { BaseComponent } from '../../base-components';
 import { RegisterForm } from './register_form/register_form';
 import { ScorePage } from '../../../pages/score';
+import { GameField } from '../../game-field';
 
 export class HeaderGame extends BaseComponent {
   constructor(private readonly rootElement: HTMLElement) {
@@ -10,20 +11,20 @@ export class HeaderGame extends BaseComponent {
   }
 
   render(): HTMLElement {
-    let isRegistered = false;
     new HeaderGame(this.element).notRegistered();
     new RegisterForm(this.element).render();
     const registerForm = document.querySelector('.overlay');
 
     registerForm?.addEventListener('click', (event) => {
       if (event.target) {
-        if ((event.target as Element).classList.contains('overlay') || (event.target as Element).classList.contains('cancel')) {
-          isRegistered = false;
-        }
         if ((event.target as Element).classList.contains('add-user')) {
-          isRegistered = true;
           this.element.innerHTML = '';
           new HeaderGame(this.element).registered();
+          const stopGameButton = document.querySelector('.game__stop-game_button');
+          if (stopGameButton && !stopGameButton?.classList.contains('start-game')) {
+            stopGameButton.innerHTML = 'START GAME';
+            stopGameButton.classList.add('start-game');
+          }
         }
       }
     });
@@ -40,17 +41,28 @@ export class HeaderGame extends BaseComponent {
 
   registered(): HTMLElement {
     this.element.innerHTML = `
-      <div class="game__stop-game_button">STOP GAME</div>
+      <div class="game__stop-game_button">START GAME</div>
       <div class="game__user"></div>
     `;
     const stopGameButton = document.querySelector('.game__stop-game_button');
     const main = document.querySelector('.game-field');
+
     stopGameButton?.addEventListener('click', () => {
       if (main) {
-        main.innerHTML = '';
-        new ScorePage(main as HTMLElement).render();
+        if (!stopGameButton?.classList.contains('start-game')) {
+          main.innerHTML = '';
+          new ScorePage(main as HTMLElement).render();
+          stopGameButton.innerHTML = 'START GAME';
+          stopGameButton.classList.add('start-game');
+        } else {
+          main.innerHTML = '';
+          new GameField(main as HTMLElement).start();
+          stopGameButton.innerHTML = 'STOP GAME';
+          stopGameButton.classList.remove('start-game');
+        }
       }
     });
+
     return this.element;
   }
 }
