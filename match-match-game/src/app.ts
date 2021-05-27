@@ -1,8 +1,6 @@
-// import { Game } from './components/game/game';
-// import { ImageCategoryModel } from './models/image-category-model';
 import { BaseComponent } from './components/base-components';
 import { AboutPage } from './pages/about';
-import { GameField } from './components/game-field';
+import { ValidateForm } from './components/header/header_game/register_form/validate';
 
 export class App extends BaseComponent {
   private readonly main: HTMLElement;
@@ -24,18 +22,30 @@ export class App extends BaseComponent {
     const registerForm = document.querySelector('.overlay');
 
     registerButton?.addEventListener('click', () => {
-        registerForm?.classList.remove('hidden');
+      registerForm?.classList.remove('hidden');
     });
+
+    new ValidateForm().validate();
 
     registerForm?.addEventListener('click', (event) => {
       if (event.target) {
-        if ((event.target as Element).classList.contains('overlay') || (event.target as Element).classList.contains('cancel')) {
+        if ((event.target as Element).classList.contains('overlay')) {
+          registerForm.classList.add('hidden');
+        } else if ((event.target as Element).classList.contains('cancel')) {
+          const inputs = registerForm.querySelectorAll('input');
+          if (inputs) {
+            for (let i = 0; i < inputs.length; i++) {
+              inputs[i].value = '';
+              document.querySelector('.first-name.validate-field.correct')?.classList.add('hidden');
+              document.querySelector('.first-name.validate-field.incorrect')?.classList.remove('hidden');
+            }
+          }
           registerForm.classList.add('hidden');
         }
         if ((event.target as Element).classList.contains('add-user')) {
           registerForm.classList.add('hidden');
           this.element.innerHTML = '';
-          new GameField(this.element).start();
+          new AboutPage(this.element).render();
         }
       }
     });
