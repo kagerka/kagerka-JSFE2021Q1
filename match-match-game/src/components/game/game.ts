@@ -25,9 +25,10 @@ export class Game extends BaseComponent {
       .concat(images)
       .map((url) => new Card(url))
       .sort(() => Math.random() - 0.5);
-
     cards.forEach((card) => {
-      card.element.addEventListener('click', () => this.cardHandler(card));
+      card.element.addEventListener('click', () => {
+        this.cardHandler(card);
+      });
     });
     this.cardsField.addCards(cards);
   }
@@ -36,7 +37,6 @@ export class Game extends BaseComponent {
     if (this.isAnimation) return;
     if (!card.isFlipped) return;
     this.isAnimation = true;
-
     await card.flipToFront();
 
     if (!this.activeCard) {
@@ -44,9 +44,35 @@ export class Game extends BaseComponent {
       this.isAnimation = false;
       return;
     }
+
     if (this.activeCard.image !== card.image) {
+      this.activeCard.element
+        .getElementsByTagName('div')[0]
+        .getElementsByTagName('div')[0]
+        .classList.add('incorrect');
+      card.element
+        .getElementsByTagName('div')[0]
+        .getElementsByTagName('div')[0]
+        .classList.add('incorrect');
       await delay(FLIP_DELAY);
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
+      this.activeCard.element
+        .getElementsByTagName('div')[0]
+        .getElementsByTagName('div')[0]
+        .classList.remove('incorrect');
+      card.element
+        .getElementsByTagName('div')[0]
+        .getElementsByTagName('div')[0]
+        .classList.remove('incorrect');
+    } else {
+      this.activeCard.element
+        .getElementsByTagName('div')[0]
+        .getElementsByTagName('div')[0]
+        .classList.add('correct');
+      card.element
+        .getElementsByTagName('div')[0]
+        .getElementsByTagName('div')[0]
+        .classList.add('correct');
     }
     this.activeCard = undefined;
     this.isAnimation = false;
