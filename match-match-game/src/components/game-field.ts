@@ -1,5 +1,6 @@
 import { Game } from './game/game';
 import { ImageCategoryModel } from '../models/image-category-model';
+import { Counter } from './counter/counter';
 
 export class GameField {
   private readonly game: Game;
@@ -10,6 +11,7 @@ export class GameField {
   }
 
   async start(): Promise<void> {
+    new Counter(this.rootElement).render();
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
     const cat = categories[0];
