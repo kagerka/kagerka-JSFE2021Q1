@@ -12,11 +12,11 @@ export class ScoreItem extends BaseComponent {
   render(): HTMLElement {
     const scorePlayers = document.querySelector('.score__players');
     if (!window.indexedDB) {
-      console.log('Your browser doesn\'t support IndexedDB');
+      // console.log('Your browser doesn\'t support IndexedDB');
     }
     const request = indexedDB.open('kagerka', 1);
-    request.onerror = (event) => {
-      console.error(`Database error: ${event.target}`);
+    request.onerror = () => {
+      // console.error(`Database error: ${event.target}`);
     };
 
     function displayData() {
@@ -44,13 +44,13 @@ export class ScoreItem extends BaseComponent {
           scorePlayers?.appendChild(listItem);
           cursor.continue();
         } else {
-          console.log('all data displayed');
+          // console.log('all data displayed');
         }
       };
     }
 
     request.onsuccess = () => {
-      const db = request.result;
+      // const db = request.result;
       displayData();
     };
 
