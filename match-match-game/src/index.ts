@@ -30,9 +30,6 @@ window.onload = () => {
           if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
-          for (let i = 1; i < 100; i++) {
-            clearTimeout(i);
-          }
         },
       },
       {
@@ -43,9 +40,6 @@ window.onload = () => {
           if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
-          for (let i = 1; i < 100; i++) {
-            clearTimeout(i);
-          }
         },
       },
       {
@@ -56,9 +50,6 @@ window.onload = () => {
           if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
-          for (let i = 1; i < 100; i++) {
-            clearTimeout(i);
-          }
         },
       },
     ];
