@@ -5,16 +5,11 @@ import { AboutPage } from './pages/about';
 import { ScorePage } from './pages/score';
 import { SettingsPage } from './pages/settings';
 import { IndexedDB } from './components/indexeddb/indexeddb';
-// import { GameField } from './components/game-field';
-// import { ClickCount } from './components/game/click_count';
 
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
 window.onload = () => {
-  // new GameField(appElement).start();
-  // new ClickCount().clickCounter();
-  // new ScorePage(appElement).render();
   new Header(appElement).render();
   new App(appElement).render();
 
@@ -33,18 +28,30 @@ window.onload = () => {
         path: '#/about',
         view: () => {
           new AboutPage(main).render();
+          const stopGameButton = document.querySelector('.game__stop-game_button');
+          if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
+          stopGameButton?.classList.add('start-game');
+          stopGameButton?.classList.remove('stop-game');
         },
       },
       {
         path: '#/score',
         view: () => {
           new ScorePage(main).render();
+          const stopGameButton = document.querySelector('.game__stop-game_button');
+          if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
+          stopGameButton?.classList.add('start-game');
+          stopGameButton?.classList.remove('stop-game');
         },
       },
       {
         path: '#/settings',
         view: () => {
           new SettingsPage(main).render();
+          const stopGameButton = document.querySelector('.game__stop-game_button');
+          if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
+          stopGameButton?.classList.add('start-game');
+          stopGameButton?.classList.remove('stop-game');
         },
       },
     ];
