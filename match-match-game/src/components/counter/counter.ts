@@ -40,7 +40,6 @@ export class Counter extends BaseComponent {
       if (seconds) seconds.innerHTML = pad(numOfSeconds) as string;
     }
 
-    const stopButton = document.querySelector('.stop-game');
     function startTimer() {
       interval = setInterval(incrementTimer, 1000);
     }
@@ -48,7 +47,6 @@ export class Counter extends BaseComponent {
       clearInterval(interval);
       new IndexedDB().render();
     }
-    stopButton?.addEventListener('click', stopTimer);
 
     const cardField = document.querySelector('.cards-field');
     cardField?.addEventListener('transitionend', () => {
@@ -66,6 +64,8 @@ export class Counter extends BaseComponent {
         }
       }
     });
+    const stopButton = document.querySelector('.stop-game');
+    stopButton?.addEventListener('click', stopTimer);
     startTimer();
     return this.element;
   }
