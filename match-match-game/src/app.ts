@@ -38,8 +38,18 @@ export class App extends BaseComponent {
               inputs[i].value = '';
               document.querySelector('.first-name.validate-field.correct')?.classList.add('hidden');
               document.querySelector('.first-name.validate-field.incorrect')?.classList.remove('hidden');
+              document.querySelector('.last-name.validate-field.correct')?.classList.add('hidden');
+              document.querySelector('.last-name.validate-field.incorrect')?.classList.remove('hidden');
+              document.querySelector('.email.validate-field.correct')?.classList.add('hidden');
+              document.querySelector('.email.validate-field.incorrect')?.classList.remove('hidden');
             }
           }
+          const fnameErrorField = document.getElementById('reg-form-fname-error-msg');
+          const lnameErrorField = document.getElementById('reg-form-lname-error-msg');
+          const emailErrorField = document.getElementById('reg-form-email-error-msg');
+          if (fnameErrorField) fnameErrorField.innerHTML = '';
+          if (lnameErrorField) lnameErrorField.innerHTML = '';
+          if (emailErrorField) emailErrorField.innerHTML = '';
           registerForm.classList.add('hidden');
         }
         if ((event.target as Element).classList.contains('add-user')) {
