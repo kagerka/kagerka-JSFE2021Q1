@@ -1,41 +1,37 @@
 export class IndexedDB {
-  render() {
+  render(): unknown {
     if (!window.indexedDB) {
-      console.log('Your browser doesn\'t support IndexedDB');
+      // console.log('Your browser doesn\'t support IndexedDB');
     }
 
     const request = indexedDB.open('kagerka', 1);
-    request.onerror = (event) => {
-      console.error(`Database error: ${event.target}`);
+    request.onerror = () => {
     };
 
-    request.onsuccess = () => {
-    };
+    request.onsuccess = () => {};
 
     request.onupgradeneeded = (event) => {
       const db = (event.target as IDBOpenDBRequest)?.result;
       const store = db.createObjectStore('Contacts', { autoIncrement: true });
-      const email = store.createIndex('email', 'email', { unique: true });
-      const firstName = store.createIndex('firstName', 'firstName', { unique: false });
-      const lastName = store.createIndex('lastName', 'lastName', { unique: false });
-      const score = store.createIndex('score', 'score', { unique: false });
+      store.createIndex('email', 'email', { unique: true });
+      store.createIndex('firstName', 'firstName', { unique: false });
+      store.createIndex('lastName', 'lastName', { unique: false });
+      store.createIndex('score', 'score', { unique: false });
     };
 
     function insertContact(db: IDBDatabase, contact: unknown) {
       const txn = db.transaction('Contacts', 'readwrite');
       const store = txn.objectStore('Contacts');
       const query = store.put(contact);
-      query.onsuccess = function (event) {
-        console.log(event);
+      query.onsuccess = () => {
       };
-      query.onerror = function (event) {
-        console.log('error');
+      query.onerror = () => {
       };
-      txn.oncomplete = function () {
+      txn.oncomplete = () => {
         db.close();
       };
     }
-    // (количество сравнений - количество ошибочных сравнений) * 100 - (время прошедшее с начала в секундах) * 10.
+
     function updateScore(db: IDBDatabase) {
       const transaction = db.transaction('Contacts', 'readwrite');
       const objectStore = transaction.objectStore('Contacts');
@@ -44,24 +40,23 @@ export class IndexedDB {
       const clickDiff = document.getElementById('clickDiffField')?.innerText;
       let score = 0;
       if (mins && sec && clickDiff) {
-        score = (+clickDiff * 100) - ((+mins * 60) + +sec) * 10;
+        score = +clickDiff * 100 - (+mins * 60 + +sec) * 10;
         if (score < 0) {
           score = 0;
         }
       }
-      objectStore.openCursor().onsuccess = function (event) {
+      objectStore.openCursor().onsuccess = (event) => {
         const cursor = (<IDBRequest>event.target).result;
         const count = objectStore.count();
         let countNum = 0;
-        count.onsuccess = function () {
+        count.onsuccess = () => {
           countNum = count.result;
           if (cursor) {
             if (cursor.key === countNum) {
               const updateData = cursor.value;
               updateData.score = score;
               const requestUpd = cursor.update(updateData);
-              requestUpd.onsuccess = function () {
-                console.log('score updated');
+              requestUpd.onsuccess = () => {
               };
             }
             cursor.continue();
@@ -76,10 +71,15 @@ export class IndexedDB {
       const addScoreBtn = document.querySelector('.congrat-btn');
 
       addUserBtn?.addEventListener('click', () => {
-        const email = (document.querySelector('input[name="email"]') as HTMLInputElement)?.value;
-        const firstName = (document.querySelector('input[name="first-name"]') as HTMLInputElement)?.value;
-        const lastName = (document.querySelector('input[name="last-name"]') as HTMLInputElement)?.value;
-        const score = 0;
+        const email = (
+          document.querySelector('input[name="email"]') as HTMLInputElement
+        )?.value;
+        const firstName = (
+          document.querySelector('input[name="first-name"]') as HTMLInputElement
+        )?.value;
+        const lastName = (
+          document.querySelector('input[name="last-name"]') as HTMLInputElement
+        )?.value;
         insertContact(db, {
           email,
           firstName,
