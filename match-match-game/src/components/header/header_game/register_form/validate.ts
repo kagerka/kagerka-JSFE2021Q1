@@ -5,14 +5,12 @@ export class ValidateForm extends BaseComponent {
     const fNameErrorMsg = document.getElementById('reg-form-fname-error-msg');
     const lNameErrorMsg = document.getElementById('reg-form-lname-error-msg');
     const emailErrorMsg = document.getElementById('reg-form-email-error-msg');
-
     const addUserButton = document.querySelector('.add-user');
     if (addUserButton) {
       addUserButton.setAttribute('disabled', 'disabled');
     }
     let isValid = false;
     let isValidFirstName = false;
-
     const firstName = document.querySelector('input[name="first-name"]') as HTMLInputElement;
     firstName?.addEventListener('input', () => {
       const firstNameValueAll = firstName.value.split('');
@@ -30,11 +28,14 @@ export class ValidateForm extends BaseComponent {
       } else {
         document.querySelector('.first-name.validate-field.correct')?.classList.add('hidden');
         document.querySelector('.first-name.validate-field.incorrect')?.classList.remove('hidden');
-        if (fNameErrorMsg) fNameErrorMsg.innerText = 'Your first name should include only letters, numbers and spaces. No special characters are allowed.';
+        if (fNameErrorMsg) {
+          fNameErrorMsg.innerText = `
+            Your first name should include only letters, numbers and spaces. No special characters are allowed.
+          `;
+        }
         isValidFirstName = false;
       }
     });
-
     let isValidLastName = false;
     const lastName = document.querySelector('input[name="last-name"]') as HTMLInputElement;
     lastName?.addEventListener('input', () => {
@@ -53,17 +54,20 @@ export class ValidateForm extends BaseComponent {
       } else {
         document.querySelector('.last-name.validate-field.correct')?.classList.add('hidden');
         document.querySelector('.last-name.validate-field.incorrect')?.classList.remove('hidden');
-        if (lNameErrorMsg) lNameErrorMsg.innerText = 'Your last name should include only letters, numbers and spaces. No special characters are allowed.';
+        if (lNameErrorMsg) {
+          lNameErrorMsg.innerText = `
+            Your last name should include only letters, numbers and spaces. No special characters are allowed.
+          `;
+        }
         isValidLastName = false;
       }
     });
-
     let isValidEmail = false;
     const email = document.querySelector('input[name="email"]') as HTMLInputElement;
     const emailPattern = /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/;
     email?.addEventListener('input', () => {
       const emailValue = email.value;
-      if (emailPattern.test(emailValue)) {
+      if (emailPattern.test(emailValue) && emailValue.length <= 30) {
         document.querySelector('.email.validate-field.incorrect')?.classList.add('hidden');
         document.querySelector('.email.validate-field.correct')?.classList.remove('hidden');
         if (emailErrorMsg) emailErrorMsg.innerText = '';
@@ -75,7 +79,6 @@ export class ValidateForm extends BaseComponent {
         isValidEmail = false;
       }
     });
-
     const form = document.getElementById('register-form') as HTMLInputElement;
     form?.addEventListener('input', () => {
       if (addUserButton) {
@@ -87,7 +90,6 @@ export class ValidateForm extends BaseComponent {
         }
       }
     });
-
     return this.element;
   }
 }
