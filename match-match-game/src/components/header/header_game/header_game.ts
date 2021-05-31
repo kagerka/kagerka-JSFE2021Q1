@@ -44,6 +44,32 @@ export class HeaderGame extends BaseComponent {
       <div class="game__stop-game_button start-game">START GAME</div>
       <div class="game__user"></div>
     `;
+
+    if (!window.indexedDB) {
+      // console.log('Your browser doesn\'t support IndexedDB');
+    }
+    const request = indexedDB.open('kagerka', 1);
+    request.onerror = () => {
+      // console.error(`Database error: ${event.target}`);
+    };
+
+    function displayData() {
+      const db = request.result;
+      const objectStore = db.transaction('Contacts').objectStore('Contacts');
+      objectStore.openCursor().onsuccess = (event) => {
+        const cursor = (<IDBRequest>event.target).result;
+        const avatarHeader: HTMLElement | null = document.querySelector('.game__user');
+        if (cursor) {
+          avatarHeader?.setAttribute('style', `background: ${cursor.value.avatar}`);
+          cursor.continue();
+        }
+      };
+    }
+
+    request.onsuccess = () => {
+      displayData();
+    };
+
     const stopGameButton = document.querySelector('.game__stop-game_button');
     const main = document.querySelector('.game-field');
 

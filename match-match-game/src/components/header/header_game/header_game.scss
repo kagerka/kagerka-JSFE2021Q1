@@ -24,7 +24,8 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url(../../../../public/images/avatars/user__avatar.png) center / contain no-repeat,
-    #fff;
+    background: url(../../../../public/images/avatars/user__avatar.png);
+    background-size: cover;
+    background-position: center;
   }
 }

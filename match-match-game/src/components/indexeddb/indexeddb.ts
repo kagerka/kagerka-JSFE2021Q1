@@ -17,6 +17,7 @@ export class IndexedDB {
       store.createIndex('firstName', 'firstName', { unique: false });
       store.createIndex('lastName', 'lastName', { unique: false });
       store.createIndex('score', 'score', { unique: false });
+      store.createIndex('avatar', 'avatar', { unique: false });
     };
 
     function insertContact(db: IDBDatabase, contact: unknown) {
@@ -69,21 +70,16 @@ export class IndexedDB {
       const db = (event.target as IDBOpenDBRequest)?.result;
       const addUserBtn = document.querySelector('.add-user');
       const addScoreBtn = document.querySelector('.congrat-btn');
-
       addUserBtn?.addEventListener('click', () => {
-        const email = (
-          document.querySelector('input[name="email"]') as HTMLInputElement
-        )?.value;
-        const firstName = (
-          document.querySelector('input[name="first-name"]') as HTMLInputElement
-        )?.value;
-        const lastName = (
-          document.querySelector('input[name="last-name"]') as HTMLInputElement
-        )?.value;
+        const email = (document.querySelector('input[name="email"]') as HTMLInputElement)?.value;
+        const firstName = (document.querySelector('input[name="first-name"]') as HTMLInputElement)?.value;
+        const lastName = (document.querySelector('input[name="last-name"]') as HTMLInputElement)?.value;
+        const avatar = (document.querySelector('.register-form__avatar_pic') as HTMLInputElement)?.style.background;
         insertContact(db, {
           email,
           firstName,
           lastName,
+          avatar,
           score: 0,
         });
       });

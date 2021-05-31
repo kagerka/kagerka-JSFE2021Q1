@@ -1,5 +1,6 @@
 import './register_form.scss';
 import { BaseComponent } from '../../../base-components';
+import { Avatar } from './avatar';
 
 export class RegisterForm extends BaseComponent {
   constructor(private readonly rootElement: HTMLElement) {
@@ -50,7 +51,10 @@ export class RegisterForm extends BaseComponent {
 
           </div>
           <div class="register-form__avatar">
-            <div class="register-form__avatar_pic"></div>
+            <label>
+              <input type="file" name="avatar" style="display: none;"/>
+              <div class="register-form__avatar_pic"></div>
+            </label>
           </div>
 
         </div>
@@ -68,6 +72,7 @@ export class RegisterForm extends BaseComponent {
       </form>
     </div>
     `;
+    new Avatar().avatar();
     return this.element;
   }
 }

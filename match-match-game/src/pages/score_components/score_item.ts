@@ -26,14 +26,13 @@ export class ScoreItem extends BaseComponent {
       let count = 0;
       objectStore.index('score').openCursor(null, 'prev').onsuccess = (event) => {
         const cursor = (<IDBRequest>event.target).result;
-
         if (cursor && count < 10) {
           count++;
           const listItem = document.createElement('div');
           listItem.classList.add('score__player');
           listItem.innerHTML = `
           <div class="score__player_info">
-            <div class="score__player_pic"></div>
+            <div class="score__player_pic" style='background: ${cursor.value.avatar}'></div>
             <div class="score__player_contacts">
               <div class="score__player_name">${cursor.value.firstName} ${cursor.value.lastName}</div>
               <div class="score__player_email">${cursor.value.email}</div>
