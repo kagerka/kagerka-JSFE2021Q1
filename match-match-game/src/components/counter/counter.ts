@@ -17,11 +17,10 @@ export class Counter extends BaseComponent {
     return this.element;
   }
 
-  countTime() {
+  countTime(): unknown {
     const minutes = document.querySelector('#min');
     const seconds = document.querySelector('#sec');
     let timerTime = 0;
-    let isRunning = false;
     let interval: NodeJS.Timeout;
 
     function pad(num: string | number) {
@@ -41,26 +40,32 @@ export class Counter extends BaseComponent {
       if (seconds) seconds.innerHTML = pad(numOfSeconds) as string;
     }
 
+    const stopButton = document.querySelector('.stop-game');
     function startTimer() {
-      if (isRunning) return;
-      isRunning = true;
       interval = setInterval(incrementTimer, 1000);
     }
     function stopTimer() {
-      const cardFlip = document.querySelectorAll('.flipped');
-      if (cardFlip.length === 0) {
-        if (!isRunning) return;
-        isRunning = false;
-        clearInterval(interval);
-        const main = document.querySelector('main');
-        setTimeout(() => {
-          new Congrat(main as HTMLElement).render();
-          new IndexedDB().render();
-        }, 1500);
-      }
+      clearInterval(interval);
+      new IndexedDB().render();
     }
-    document.addEventListener('click', stopTimer);
+    stopButton?.addEventListener('click', stopTimer);
 
+    const cardField = document.querySelector('.cards-field');
+    cardField?.addEventListener('transitionend', () => {
+      const cardContainer = document.querySelectorAll('.card-container');
+      const cardCorrect = document.querySelectorAll('.card__front.correct');
+      if (
+        cardContainer.length === cardCorrect.length
+        && cardCorrect.length > 0
+      ) {
+        const main = document.querySelector('main');
+        const congrat = document.querySelector('.congrat');
+        if (!congrat) {
+          new Congrat(main as HTMLElement).render();
+          stopTimer();
+        }
+      }
+    });
     startTimer();
     return this.element;
   }
