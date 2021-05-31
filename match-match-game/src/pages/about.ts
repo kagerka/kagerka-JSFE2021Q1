@@ -23,9 +23,21 @@ export class AboutPage extends BaseComponent {
     this.rootElement.appendChild(this.element);
     this.element.appendChild(this.aboutTitle).innerText = 'How to play?';
     this.element.appendChild(this.aboutSteps);
-    new AboutStep(this.aboutSteps).render(1, 'Register new player in game', 'first-step.png');
-    new AboutStep(this.aboutSteps).render(2, 'Configure your game settings', 'second-step.png');
-    new AboutStep(this.aboutSteps).render(3, 'Start you new game! Remember card positions and match it before times up.', 'third-step.png');
+    new AboutStep(this.aboutSteps).render(
+      1,
+      'Register new player in game',
+      'first-step.png',
+    );
+    new AboutStep(this.aboutSteps).render(
+      2,
+      'Configure your game settings',
+      'second-step.png',
+    );
+    new AboutStep(this.aboutSteps).render(
+      3,
+      'Start you new game! Remember card positions and match it before times up.',
+      'third-step.png',
+    );
     return this.about;
   }
 }
