@@ -12,10 +12,8 @@ if (!appElement) throw Error('App root element not found');
 window.onload = () => {
   new Header(appElement).render();
   new App(appElement).render();
-
   const main = document.querySelector('main');
   if (!main) throw Error('App root element not found');
-
   const router = async () => {
     const routes = [
       {
@@ -32,6 +30,9 @@ window.onload = () => {
           if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
+          for (let i = 1; i < 100; i++) {
+            clearTimeout(i);
+          }
         },
       },
       {
@@ -42,6 +43,9 @@ window.onload = () => {
           if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
+          for (let i = 1; i < 100; i++) {
+            clearTimeout(i);
+          }
         },
       },
       {
@@ -52,15 +56,16 @@ window.onload = () => {
           if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
+          for (let i = 1; i < 100; i++) {
+            clearTimeout(i);
+          }
         },
       },
     ];
-
     const potentialMatches = routes.map((route) => ({
       route,
       isMatch: window.location.hash === route.path,
     }));
-
     let match = potentialMatches.find(
       (potentialMatch) => potentialMatch.isMatch,
     );
@@ -72,9 +77,7 @@ window.onload = () => {
     }
     match.route.view();
   };
-
   const menuItems = document.querySelectorAll('.menu__item');
-
   menuItems?.forEach((item) => item.addEventListener('click', () => {
     setTimeout(() => {
       for (let i = 0; i < menuItems.length; i++) {
@@ -86,7 +89,6 @@ window.onload = () => {
       router();
     }, 0);
   }));
-
   window.addEventListener('popstate', router);
   new IndexedDB().render();
 };
