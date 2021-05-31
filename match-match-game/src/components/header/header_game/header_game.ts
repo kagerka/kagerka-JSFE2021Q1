@@ -41,7 +41,7 @@ export class HeaderGame extends BaseComponent {
 
   registered(): HTMLElement {
     this.element.innerHTML = `
-      <div class="game__stop-game_button">START GAME</div>
+      <div class="game__stop-game_button start-game">START GAME</div>
       <div class="game__user"></div>
     `;
     const stopGameButton = document.querySelector('.game__stop-game_button');
@@ -54,11 +54,19 @@ export class HeaderGame extends BaseComponent {
           new ScorePage(main as HTMLElement).render();
           stopGameButton.innerHTML = 'START GAME';
           stopGameButton.classList.add('start-game');
+          stopGameButton.classList.remove('stop-game');
+          document.querySelector('.menu__item_about')?.classList.remove('active');
+          document.querySelector('.menu__item_score')?.classList.remove('active');
+          document.querySelector('.menu__item_settings')?.classList.remove('active');
         } else {
           main.innerHTML = '';
           new GameField(main as HTMLElement).start();
           stopGameButton.innerHTML = 'STOP GAME';
           stopGameButton.classList.remove('start-game');
+          stopGameButton.classList.add('stop-game');
+          document.querySelector('.menu__item_about')?.classList.remove('active');
+          document.querySelector('.menu__item_score')?.classList.remove('active');
+          document.querySelector('.menu__item_settings')?.classList.remove('active');
         }
       }
     });
