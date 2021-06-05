@@ -42,7 +42,7 @@ export class SettingsPage extends BaseComponent {
       countType.value = countTypeLastSelected;
     }
 
-    countType.onchange = () => {
+    countType.onchange = (): void => {
       countTypeLastSelected = countType.options[countType.selectedIndex].value;
       localStorage.setItem('countType', countTypeLastSelected);
     };
@@ -54,7 +54,7 @@ export class SettingsPage extends BaseComponent {
       cardType.value = cardTypeLastSelected;
     }
 
-    cardType.onchange = () => {
+    cardType.onchange = (): void => {
       cardTypeLastSelected = cardType.options[cardType.selectedIndex].value;
       localStorage.setItem('cardType', cardTypeLastSelected);
     };

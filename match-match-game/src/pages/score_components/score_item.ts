@@ -14,19 +14,21 @@ export class ScoreItem extends BaseComponent {
     if (!window.indexedDB) {
       // console.log('Your browser doesn\'t support IndexedDB');
     }
-    const request = indexedDB.open('kagerka', 1);
-    request.onerror = () => {
+    const IDB_VERSION = 1;
+    const request = indexedDB.open('kagerka', IDB_VERSION);
+    request.onerror = (): void => {
       // console.error(`Database error: ${event.target}`);
     };
 
-    function displayData() {
+    function displayData(): void {
       if (scorePlayers) scorePlayers.innerHTML = '';
       const db = request.result;
       const objectStore = db.transaction('Contacts').objectStore('Contacts');
       let count = 0;
-      objectStore.index('score').openCursor(null, 'prev').onsuccess = (event) => {
+      objectStore.index('score').openCursor(null, 'prev').onsuccess = (event): void => {
         const cursor = (<IDBRequest>event.target).result;
-        if (cursor && count < 10) {
+        const TOP_COUNT = 10;
+        if (cursor && count < TOP_COUNT) {
           count++;
           const listItem = document.createElement('div');
           listItem.classList.add('score__player');
@@ -48,7 +50,7 @@ export class ScoreItem extends BaseComponent {
       };
     }
 
-    request.onsuccess = () => {
+    request.onsuccess = (): void => {
       // const db = request.result;
       displayData();
     };

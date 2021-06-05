@@ -17,44 +17,43 @@ export class Counter extends BaseComponent {
     return this.element;
   }
 
-  countTime(): unknown {
+  countTime(): HTMLElement {
     const minutes = document.querySelector('#min');
     const seconds = document.querySelector('#sec');
     let timerTime = 0;
     let interval: NodeJS.Timeout;
-
-    function pad(num: string | number) {
-      if (num < 10) {
-        return `0${num}`;
-      }
-      return num;
+    const UNITS_IN_DOZEN = 10;
+    const SEC_IN_MIN = 60;
+    const COUNT_TIMER_INTERVAL = 1000;
+    function pad(num: number): string {
+      return num < UNITS_IN_DOZEN ? `0${num}` : `${num}`;
     }
 
-    function incrementTimer() {
+    function incrementTimer(): void {
       timerTime++;
 
-      const numOfMinutes = Math.floor(timerTime / 60);
-      const numOfSeconds = timerTime % 60;
+      const numOfMinutes = Math.floor(timerTime / SEC_IN_MIN);
+      const numOfSeconds = timerTime % SEC_IN_MIN;
 
       if (minutes) minutes.innerHTML = pad(numOfMinutes) as string;
       if (seconds) seconds.innerHTML = pad(numOfSeconds) as string;
     }
 
-    function startTimer() {
-      interval = setInterval(incrementTimer, 1000);
+    function startTimer(): void {
+      interval = setInterval(incrementTimer, COUNT_TIMER_INTERVAL);
     }
-    function stopTimer() {
+    function stopTimer(): void {
       clearInterval(interval);
       new IndexedDB().render();
     }
-
+    const MIN_LENGTH = 0;
     const cardField = document.querySelector('.cards-field');
     cardField?.addEventListener('transitionend', () => {
       const cardContainer = document.querySelectorAll('.card-container');
       const cardCorrect = document.querySelectorAll('.card__front.correct');
       if (
         cardContainer.length === cardCorrect.length
-        && cardCorrect.length > 0
+        && cardCorrect.length > MIN_LENGTH
       ) {
         const main = document.querySelector('main');
         const congrat = document.querySelector('.congrat');

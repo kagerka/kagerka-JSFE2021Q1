@@ -10,7 +10,7 @@ export class AboutStep extends BaseComponent {
     this.aboutStep = document.createElement('div');
   }
 
-  render(stepNumber: number, stepText: string, stepPic: string): HTMLElement {
+  render(stepNumber: string, stepText: string, stepPic: string): HTMLElement {
     this.element.innerHTML = `
     <div class="about__text">
       <div class="about__number">${stepNumber}</div>

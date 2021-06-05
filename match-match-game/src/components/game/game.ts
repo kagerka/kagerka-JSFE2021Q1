@@ -20,11 +20,11 @@ export class Game extends BaseComponent {
 
   newGame(images: string[]): void {
     this.cardsField.clear();
-
+    const RANDOM_COEFFICIENT = 0.5;
     const cards = images
       .concat(images)
       .map((url) => new Card(url))
-      .sort(() => Math.random() - 0.5);
+      .sort(() => Math.random() - RANDOM_COEFFICIENT);
     cards.forEach((card) => {
       card.element.addEventListener('click', () => {
         this.cardHandler(card);
@@ -33,7 +33,7 @@ export class Game extends BaseComponent {
     this.cardsField.addCards(cards);
   }
 
-  private async cardHandler(card: Card) {
+  private async cardHandler(card: Card): Promise<void> {
     if (this.isAnimation) return;
     if (!card.isFlipped) return;
     this.isAnimation = true;

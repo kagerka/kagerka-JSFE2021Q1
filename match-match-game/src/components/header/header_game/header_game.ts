@@ -39,15 +39,15 @@ export class HeaderGame extends BaseComponent {
   registered(): HTMLElement {
     this.element.innerHTML = `<div class="game__stop-game_button start-game">START GAME</div>
                               <div class="game__user"></div>`;
-    if (!window.indexedDB) {
-      // console.log('Your browser doesn\'t support IndexedDB');
+    if (!window.indexedDB) { // console.log('Your browser doesn\'t support IndexedDB');
     }
-    const request = indexedDB.open('kagerka', 1);
-    request.onerror = () => {};
-    function displayData() {
+    const IDB_VERSION = 1;
+    const request = indexedDB.open('kagerka', IDB_VERSION);
+    request.onerror = (): void => {};
+    function displayData(): void {
       const db = request.result;
       const objectStore = db.transaction('Contacts').objectStore('Contacts');
-      objectStore.openCursor().onsuccess = (event) => {
+      objectStore.openCursor().onsuccess = (event): void => {
         const cursor = (<IDBRequest>event.target).result;
         const avatarHeader: HTMLElement | null = document.querySelector('.game__user');
         if (cursor) {
@@ -56,7 +56,7 @@ export class HeaderGame extends BaseComponent {
         }
       };
     }
-    request.onsuccess = () => {
+    request.onsuccess = (): void => {
       displayData();
     };
     const stopGameButton = document.querySelector('.game__stop-game_button');
@@ -74,13 +74,15 @@ export class HeaderGame extends BaseComponent {
           document.querySelector('.menu__item_about')?.classList.remove('active');
           document.querySelector('.menu__item_score')?.classList.remove('active');
           document.querySelector('.menu__item_settings')?.classList.remove('active');
-          for (let i = 1; i < 100; i++) { clearTimeout(i); }
+          const COUNT_TIMEOUT = 100;
+          for (let i = 1; i < COUNT_TIMEOUT; i++) { clearTimeout(i); }
         } else {
           isTimerWork = true;
           main.innerHTML = '';
           new GameField(main as HTMLElement).start();
+          const CARD_FLIP_TIME = 30000;
           if (isTimerWork) {
-            setTimeout(() => { new Counter(this.element).countTime(); }, 30000);
+            setTimeout(() => { new Counter(this.element).countTime(); }, CARD_FLIP_TIME);
           }
           stopGameButton.innerHTML = 'STOP GAME';
           stopGameButton.classList.remove('start-game');

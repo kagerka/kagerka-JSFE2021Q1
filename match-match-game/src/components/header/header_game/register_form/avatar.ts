@@ -5,12 +5,12 @@ export class Avatar extends BaseComponent {
     const input: HTMLInputElement | null = document.querySelector('input[name="avatar"]');
 
     if (input) {
-      input.onchange = (event: Event) => {
+      input.onchange = (event: Event): void => {
         const target = event.target as HTMLInputElement;
         const file: File = (target.files as FileList)[0];
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = (readerEvent) => {
+        reader.onload = (readerEvent): void => {
           const content = readerEvent.target?.result;
           const avatarField = document.querySelector('.register-form__avatar_pic') as HTMLElement;
           avatarField.style.background = `url(${content})`;
