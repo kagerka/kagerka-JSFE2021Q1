@@ -7,13 +7,13 @@ import { SettingsPage } from './pages/settings';
 import { IndexedDB } from './components/indexeddb/indexeddb';
 
 const appElement = document.getElementById('app');
-if (!appElement) throw Error('App root element not found');
+if (!appElement) { throw Error('App root element not found'); }
 
 window.onload = (): void => {
   new Header(appElement).render();
   new App(appElement).render();
   const main = document.querySelector('main');
-  if (!main) throw Error('App root element not found');
+  if (!main) { throw Error('App root element not found'); }
   const router = async (): Promise<void> => {
     const routes = [
       {
@@ -27,7 +27,7 @@ window.onload = (): void => {
         view: (): void => {
           new AboutPage(main).render();
           const stopGameButton = document.querySelector('.game__stop-game_button');
-          if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
+          if (stopGameButton) { stopGameButton.innerHTML = 'START GAME'; }
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
         },
@@ -37,7 +37,7 @@ window.onload = (): void => {
         view: (): void => {
           new ScorePage(main).render();
           const stopGameButton = document.querySelector('.game__stop-game_button');
-          if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
+          if (stopGameButton) { stopGameButton.innerHTML = 'START GAME'; }
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
         },
@@ -47,7 +47,7 @@ window.onload = (): void => {
         view: (): void => {
           new SettingsPage(main).render();
           const stopGameButton = document.querySelector('.game__stop-game_button');
-          if (stopGameButton) stopGameButton.innerHTML = 'START GAME';
+          if (stopGameButton) { stopGameButton.innerHTML = 'START GAME'; }
           stopGameButton?.classList.add('start-game');
           stopGameButton?.classList.remove('stop-game');
         },

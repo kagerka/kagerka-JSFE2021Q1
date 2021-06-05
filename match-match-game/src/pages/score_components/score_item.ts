@@ -21,7 +21,7 @@ export class ScoreItem extends BaseComponent {
     };
 
     function displayData(): void {
-      if (scorePlayers) scorePlayers.innerHTML = '';
+      if (scorePlayers) { scorePlayers.innerHTML = ''; }
       const db = request.result;
       const objectStore = db.transaction('Contacts').objectStore('Contacts');
       let count = 0;

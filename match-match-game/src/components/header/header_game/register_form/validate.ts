@@ -28,7 +28,7 @@ export class ValidateForm extends BaseComponent {
       } else if (firstNameValueAll === firstNameValueIncorrect || firstNameValueIncorrect.length === MIN_LENGTH) {
         document.querySelector('.first-name.validate-field.incorrect')?.classList.add('hidden');
         document.querySelector('.first-name.validate-field.correct')?.classList.remove('hidden');
-        if (fNameErrorMsg) fNameErrorMsg.innerText = '';
+        if (fNameErrorMsg) { fNameErrorMsg.innerText = ''; }
         isValidFirstName = true;
       } else {
         document.querySelector('.first-name.validate-field.correct')?.classList.add('hidden');
@@ -50,17 +50,17 @@ export class ValidateForm extends BaseComponent {
         || lastNameValueAll.filter((item) => item.match('[0-9]')).length === lastNameValueAll.length) {
         document.querySelector('.last-name.validate-field.correct')?.classList.add('hidden');
         document.querySelector('.last-name.validate-field.incorrect')?.classList.remove('hidden');
-        if (lNameErrorMsg) lNameErrorMsg.innerText = 'Your last name length should be from 1 to 30 characters and should not include only numbers.';
+        if (lNameErrorMsg) { lNameErrorMsg.innerText = 'Your last name length should be from 1 to 30 characters and should not include only numbers.'; }
         isValidLastName = false;
       } else if (lastNameValueAll === lastNameValueIncorrect || lastNameValueIncorrect.length === MIN_LENGTH) {
         document.querySelector('.last-name.validate-field.incorrect')?.classList.add('hidden');
         document.querySelector('.last-name.validate-field.correct')?.classList.remove('hidden');
-        if (lNameErrorMsg) lNameErrorMsg.innerText = '';
+        if (lNameErrorMsg) { lNameErrorMsg.innerText = ''; }
         isValidLastName = true;
       } else {
         document.querySelector('.last-name.validate-field.correct')?.classList.add('hidden');
         document.querySelector('.last-name.validate-field.incorrect')?.classList.remove('hidden');
-        if (lNameErrorMsg) lNameErrorMsg.innerText = 'Your last name should include only letters, numbers and spaces. No special characters are allowed.';
+        if (lNameErrorMsg) { lNameErrorMsg.innerText = 'Your last name should include only letters, numbers and spaces. No special characters are allowed.'; }
         isValidLastName = false;
       }
     });
@@ -72,12 +72,12 @@ export class ValidateForm extends BaseComponent {
       if (emailPattern.test(emailValue) && emailValue.length <= MAX_LENGTH) {
         document.querySelector('.email.validate-field.incorrect')?.classList.add('hidden');
         document.querySelector('.email.validate-field.correct')?.classList.remove('hidden');
-        if (emailErrorMsg) emailErrorMsg.innerText = '';
+        if (emailErrorMsg) { emailErrorMsg.innerText = ''; }
         isValidEmail = true;
       } else {
         document.querySelector('.email.validate-field.correct')?.classList.add('hidden');
         document.querySelector('.email.validate-field.incorrect')?.classList.remove('hidden');
-        if (emailErrorMsg) emailErrorMsg.innerText = 'Type correct e-mail address.';
+        if (emailErrorMsg) { emailErrorMsg.innerText = 'Type correct e-mail address.'; }
         isValidEmail = false;
       }
     });

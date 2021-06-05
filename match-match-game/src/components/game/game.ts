@@ -34,8 +34,8 @@ export class Game extends BaseComponent {
   }
 
   private async cardHandler(card: Card): Promise<void> {
-    if (this.isAnimation) return;
-    if (!card.isFlipped) return;
+    if (this.isAnimation) { return; }
+    if (!card.isFlipped) { return; }
     this.isAnimation = true;
     await card.flip(false);
 

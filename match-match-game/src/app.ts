@@ -47,9 +47,9 @@ export class App extends BaseComponent {
           const fnameErrorField = document.getElementById('reg-form-fname-error-msg');
           const lnameErrorField = document.getElementById('reg-form-lname-error-msg');
           const emailErrorField = document.getElementById('reg-form-email-error-msg');
-          if (fnameErrorField) fnameErrorField.innerHTML = '';
-          if (lnameErrorField) lnameErrorField.innerHTML = '';
-          if (emailErrorField) emailErrorField.innerHTML = '';
+          if (fnameErrorField) { fnameErrorField.innerHTML = ''; }
+          if (lnameErrorField) { lnameErrorField.innerHTML = ''; }
+          if (emailErrorField) { emailErrorField.innerHTML = ''; }
           registerForm.classList.add('hidden');
         }
         if ((event.target as Element).classList.contains('add-user')) {

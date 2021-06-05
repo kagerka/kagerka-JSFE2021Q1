@@ -54,7 +54,7 @@ export class ClickCount {
       }
       const clickDiff = clickTotal - clickWrong;
       const clickDiffField = document.getElementById('clickDiffField') as HTMLElement | null;
-      if (clickDiffField) clickDiffField.innerHTML = clickDiff.toString();
+      if (clickDiffField) { clickDiffField.innerHTML = clickDiff.toString(); }
     });
     return this;
   }
