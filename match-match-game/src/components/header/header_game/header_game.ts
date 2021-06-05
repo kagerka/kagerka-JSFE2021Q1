@@ -39,8 +39,7 @@ export class HeaderGame extends BaseComponent {
   registered(): HTMLElement {
     this.element.innerHTML = `<div class="game__stop-game_button start-game">START GAME</div>
                               <div class="game__user"></div>`;
-    if (!window.indexedDB) { // console.log('Your browser doesn\'t support IndexedDB');
-    }
+    if (!window.indexedDB) { throw new Error('Your browser doesn\'t support IndexedDB'); }
     const IDB_VERSION = 1;
     const request = indexedDB.open('kagerka', IDB_VERSION);
     request.onerror = (): void => {};

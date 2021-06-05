@@ -1,7 +1,7 @@
 export class IndexedDB {
   render(): IndexedDB {
     if (!window.indexedDB) {
-      // console.log('Your browser doesn\'t support IndexedDB');
+      throw new Error('Your browser doesn\'t support IndexedDB');
     }
     const IDB_VERSION = 1;
     const request = indexedDB.open('kagerka', IDB_VERSION);
