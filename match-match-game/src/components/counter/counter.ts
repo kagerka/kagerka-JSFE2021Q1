@@ -35,8 +35,8 @@ export class Counter extends BaseComponent {
       const numOfMinutes = Math.floor(timerTime / SEC_IN_MIN);
       const numOfSeconds = timerTime % SEC_IN_MIN;
 
-      if (minutes) minutes.innerHTML = pad(numOfMinutes) as string;
-      if (seconds) seconds.innerHTML = pad(numOfSeconds) as string;
+      if (minutes) minutes.innerHTML = pad(numOfMinutes);
+      if (seconds) seconds.innerHTML = pad(numOfSeconds);
     }
 
     function startTimer(): void {
