@@ -18,8 +18,8 @@ export class Counter extends BaseComponent {
   }
 
   countTime(): HTMLElement {
-    const minutes = document.querySelector('#min');
-    const seconds = document.querySelector('#sec');
+    const minutes = document.getElementById('min');
+    const seconds = document.getElementById('sec');
     let timerTime = 0;
     let interval: NodeJS.Timeout;
     const UNITS_IN_DOZEN = 10;

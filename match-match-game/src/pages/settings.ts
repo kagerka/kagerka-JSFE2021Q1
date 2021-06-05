@@ -35,7 +35,7 @@ export class SettingsPage extends BaseComponent {
         </div>
       </div>
     `;
-    const countType = document.querySelector('#count-type') as HTMLSelectElement;
+    const countType = document.getElementById('count-type') as HTMLSelectElement;
     let countTypeLastSelected = localStorage.getItem('countType');
 
     if (countTypeLastSelected) {
@@ -47,7 +47,7 @@ export class SettingsPage extends BaseComponent {
       localStorage.setItem('countType', countTypeLastSelected);
     };
 
-    const cardType = document.querySelector('#card-type') as HTMLSelectElement;
+    const cardType = document.getElementById('card-type') as HTMLSelectElement;
     let cardTypeLastSelected = localStorage.getItem('cardType');
 
     if (cardTypeLastSelected) {
