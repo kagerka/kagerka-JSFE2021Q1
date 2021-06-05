@@ -49,7 +49,6 @@ export class ScoreItem extends BaseComponent {
     }
 
     request.onsuccess = (): void => {
-      // const db = request.result;
       displayData();
     };
 
