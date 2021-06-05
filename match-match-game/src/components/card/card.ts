@@ -17,17 +17,8 @@ export class Card extends BaseComponent {
     `;
   }
 
-  flipToBack(): Promise<void> {
-    this.isFlipped = true;
-    return this.flip(true);
-  }
-
-  flipToFront(): Promise<void> {
-    this.isFlipped = false;
-    return this.flip();
-  }
-
-  private flip(isFront = false): Promise<void> {
+  public flip(isFront = false): Promise<void> {
+    this.isFlipped = isFront;
     return new Promise((resolve) => {
       this.element.classList.toggle(FLIP_CLASS, isFront);
       this.element.addEventListener('transitionend', () => resolve(), {

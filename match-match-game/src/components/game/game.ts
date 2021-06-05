@@ -37,7 +37,7 @@ export class Game extends BaseComponent {
     if (this.isAnimation) return;
     if (!card.isFlipped) return;
     this.isAnimation = true;
-    await card.flipToFront();
+    await card.flip(false);
 
     if (!this.activeCard) {
       this.activeCard = card;
@@ -55,7 +55,7 @@ export class Game extends BaseComponent {
         .getElementsByTagName('div')[0]
         .classList.add('incorrect');
       await delay(FLIP_DELAY);
-      await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
+      await Promise.all([this.activeCard.flip(true), card.flip(true)]);
       this.activeCard.element
         .getElementsByTagName('div')[0]
         .getElementsByTagName('div')[0]

@@ -22,7 +22,7 @@ export class CardsField extends BaseComponent {
     this.cards = cards;
     this.cards.forEach((card) => this.element.appendChild(card.element));
     setTimeout(() => {
-      this.cards.forEach((card) => card.flipToBack());
+      this.cards.forEach((card) => card.flip(true));
       new ClickCount().clickCounter();
     }, SHOW_TIME * SHOW_TIME_SEC);
   }
