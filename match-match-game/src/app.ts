@@ -10,10 +10,6 @@ export class App extends BaseComponent {
     this.main = document.createElement('main');
   }
 
-  clear(): void {
-    this.element.innerHTML = '';
-  }
-
   render(): HTMLElement {
     this.rootElement.appendChild(this.element);
     new AboutPage(this.element).render();
