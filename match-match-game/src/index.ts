@@ -3,7 +3,7 @@ import { App } from './app';
 import { Header } from './components/header/header';
 import { AboutPage } from './pages/about';
 import { ScorePage } from './pages/score';
-import { SettingsPage } from './pages/settings';
+import { SettingsPage } from './pages/settings/settings';
 import { IndexedDB } from './components/indexeddb/indexeddb';
 
 const appElement = document.getElementById('app');

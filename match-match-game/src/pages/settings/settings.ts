@@ -1,40 +1,30 @@
-import { BaseComponent } from '../components/base-components';
+import { BaseComponent } from '../../components/base-components';
+import { SettingsSelectDifficulty } from './select_difficulty';
+import { SettingsSelectType } from './select_type';
 import './settings.scss';
 
 export class SettingsPage extends BaseComponent {
   private readonly settings: HTMLElement;
 
+  private readonly settingsTitle: HTMLElement;
+
+  private readonly settingsMenu: HTMLElement;
+
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['settings']);
     this.settings = document.createElement('div');
+    this.settingsTitle = document.createElement('h1');
+    this.settingsMenu = document.createElement('div');
+    this.settingsMenu.setAttribute('class', 'settings__menu');
   }
 
   render(): void {
     this.rootElement.innerHTML = '';
     this.rootElement.appendChild(this.element);
-    this.element.innerHTML = `
-      <h1>Game settings</h1>
-      <div class="settings__menu">
-        <div class="settings__item">
-          <h2>Game cards</h2>
-          <select id="card-type" onchange="SaveSelectValue(this)">
-            <option value="0">select game cards type</option>
-            <option value="1">Animals</option>
-            <option value="2">Flowers</option>
-          </select>
-        </div>
-        <div class="settings__item">
-          <h2>Difficulty</h2>
-          <select id="count-type" onchange="SaveSelectValue(this)">
-            <option value="0">select game type</option>
-            <option value="1">3 x 4</option>
-            <option value="2">4 x 4</option>
-            <option value="3">4 x 5</option>
-            <option value="4">4 x 6</option>
-          </select>
-        </div>
-      </div>
-    `;
+    this.element.appendChild(this.settingsTitle).innerText = 'Game settings';
+    this.element.appendChild(this.settingsMenu);
+    new SettingsSelectType(this.settingsMenu).render();
+    new SettingsSelectDifficulty(this.settingsMenu).render();
     const countType = document.getElementById('count-type') as HTMLSelectElement;
     let countTypeLastSelected = localStorage.getItem('countType');
 
