@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1 style="font-size: 80px;">Regular expressions</h1>
+				<p>(in JavaScript)</p>
+				<br>
+				<hr>
+				<br>
+				<p style="font-size: 30px; color:darkgrey;">Ekaterina Kotliarenko</p>
+				<p style="font-size: 24px; color:darkgrey;">github: @kagerka</p>
+			</section>
+
+			<section>
+				<div style="display: flex; gap: 50px;">
+					<div style="width: 60%;">
+						<img src="img/comics.jpg" style="width: 100%; height: 100%;" />
+					</div>
+					<div style="width: 40%; text-align: left; font-size: 36px;">
+						<p>Regular expressions are patterns that provide a powerful way to search and replace in text.</p>
+						<p>At first glance RegExp seems too complicated to understand. But it's not. Let's know more about regular expressions.</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2>History</h2>
+				<section class="regular-text-center">
+					<p>The idea finds its way into computer science from neuroscience.<br>
+						In 1943, McCulloch and Pitts developed models describing how the human neverous system works.</p>
+					<div style="display: flex; justify-content: center;">
+						<div class="image-with-caption"><img src="img/warren-mcculloch.jpg" alt="" style="width: 350px;">
+							<div class="image-caption">McCulloch</div>
+						</div>
+						<div class="image-with-caption"><img src="img/walter-pitts.jpg" alt="" style="width: 350px;">
+							<div class="image-caption">
+								Pitts</div>
+						</div>
+					</div>
+				</section>
+
+
+				<section style="font-size: 28px;">
+					<div style="display: flex; gap: 50px; align-items: center;">
+						<p style="width: 60%;">In 1956 Stephen Kleene described these models with an algebra notation that he called
+							regular sets/regular
+							expression.</p>
+						<div class="image-with-caption"><img src="img/stephen-kleene.jpg" alt="" style="width: 350px;">
+							<div class="image-caption">
+								Kleene</div>
+						</div>
+					</div>
+				</section>
+				<section style="font-size: 28px;">
+					<div style="display: flex; gap: 50px; align-items: center;">
+						<p style="width: 60%;">In 1968, Ken Thompson a mathematician and one of the key developers of UNIX
+							implemented regular expression
+							inside the text editor called ed. That is the entry point of regX into computing world.</p>
+						<div class="image-with-caption"><img src="img/thompson.jpg" alt="" style="width: 350px;">
+							<div class="image-caption">
+								Thompson</div>
+						</div>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+				<h2>Usage</h2>
+				<div class="regular-text">
+					<p>Fields of application range from validation to
+						parsing/replacing strings, passing
+						through translating data to
+						other formats and web scraping.</p>
+					<p>One of the most interesting features is that once you’ve
+						learned the syntax, you
+						can actually use this tool
+						in (almost) all programming languages with the slightest distinctions about the support of the most advanced
+						features and syntax versions supported by the engines.
+					</p>
+				</div>
+				<img src="img/prog-lang.jpg" alt="">
+			</section>
+
+			<section>
+				<h2>Basics</h2>
+				<section>
+					<div class="regular-text">
+						<p>In JavaScript there are two ways to create a RegExp object: a
+							literal notation and a
+							constructor.</p>
+						<ul>
+							<li>The literal notation's parameters are enclosed between slashes and do not use quotation marks.</li>
+							<li>The constructor function's parameters are not enclosed between slashes but do use quotation marks.
+							</li>
+						</ul>
+						<p>The following three expressions create the same regular
+							expression object:</p>
+					</div>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							// literal notation
+							let re = /ab+c/i;
+
+							// constructor with string pattern as first argument
+							let re = new RegExp('ab+c', 'i');
+
+							// constructor with regular expression literal as first argument
+							let re = new RegExp(/ab+c/, 'i');
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<p class="regular-text">Slashes <code class="inline-code">/.../</code> tell JavaScript that we are creating a
+						regular
+						expression. They play the same role as quotes for strings.</p>
+					<img src="img/username.jpg" alt="">
+				</section>
+
+				<section>
+					<h4>Word boundary</h4>
+					<p class="regular-text"><code class="inline-code">\b</code> - marks the beginning and the end of the word.</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let str = "Hello, World!";
+							console.log( str.match(/\bHello\b/) ); // Hello
+							console.log( str.match(/\bWorld\b/) );  // World
+							console.log( str.match(/\bHell\b/) );  // null (no match)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<p class="regular-text"><code class="inline-code">.</code> - <b>Match any character</b>.<br>
+						The dot symbol matches any character. If you want to search for the dot symbol, you need to escape it with <code class="inline-code">\.</code>:</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let str = "cat, cut, bat, but, c.t";
+							console.log( str.match(/c.t/g) ); // "cat", "cut"
+							console.log( str.match(/b.t/g) );  // "bat", "but"
+							console.log( str.match(/c\.t/g) );  // "c.t"
+						</code>
+					</pre>
+
+					<p class="regular-text"><code class="inline-code">.*</code> - <b>Match anything</b>.<br>
+						Here <code class="inline-code">.</code> means "any character" and <code class="inline-code">*</code> means "anything before this symbol repeated any number of times". Together <code class="inline-code">(.*)</code> they mean "any symbol any number of times":</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let str = "Look at this right now!";
+							console.log( str.match(/look.*this/ig) ); // "Look at this"
+						</code>
+					</pre>
+
+				</section>
+
+				<section>
+					<p class="regular-text-left"><code class="inline-code">\d</code> - A shorthand for numerals. Matches a single numeric digit.</p>
+					<p class="regular-text-left"><code class="inline-code">\D</code> - A shorthand for non-numeric characters. Anything other than numerals that’ll be matched by <code class="inline-code">\d</code>.</p>
+					<p class="regular-text-left"><code class="inline-code">\s</code> - Shorthand for single white space character such as space, new line or tab.</p>
+					<p class="regular-text-left"><code class="inline-code">\S</code> - Antonym of <code class="inline-code">\s</code>. Anything other than white space.</p>
+					<p class="regular-text-left"><code class="inline-code">\w</code> - Shorthand for alpha-numeric character. Matches <code class="inline-code">a-z</code>, <code class="inline-code">A-Z</code>, <code class="inline-code">0–9</code> and underscore <code class="inline-code">_</code>.</p>
+					<p class="regular-text-left"><code class="inline-code">\W</code> - Antonym of <code class="inline-code">\w</code>.</p>
+				</section>
+			</section>
+
+			<section>
+				<h2>Flags</h2>
+				<div class="regular-text">
+					<p>In JavaScript there are only 6 flags:</p>
+					<div style="font-size: 20px;	display: flex; justify-content: space-between;">
+						<div style="width: 48%;">
+							<div style="display: flex; gap: 30px;">
+								<code class="flags">i</code>
+								<p>Search is case-insensitive: no difference between <code class="inline-code">A</code> and <code class="inline-code">a</code>.</p>
+							</div>
+							<br>
+							<div style="display: flex; gap: 30px;">
+								<code class="flags">g</code>
+								<p>Search looks for all matches, without it – only the first match is returned.</p>
+							</div>
+							<br>
+							<div style="display: flex; gap: 30px;">
+								<code class="flags">m</code>
+								<p>Multiline mode. It only affects the behavior of <code class="inline-code">^</code> and <code class="inline-code">$</code>. In the multiline mode they match not only at the beginning and the end of the string, but also at start/end of line.
+								</p>
+							</div>
+						</div>
+						<div style="width: 48%;">
+							<div style="display: flex; gap: 30px;">
+								<code class="flags">s</code>
+								<p>Enables "dotall" mode, that allows a dot <code class="inline-code">.</code> to match newline
+									character <code class="inline-code">\n</code>.</p>
+							</div>
+							<br>
+							<div style="display: flex; gap: 30px;">
+								<code class="flags">u</code>
+								<p>Enables full Unicode support. The flag enables correct processing of surrogate pairs.</p>
+							</div>
+							<br>
+							<div style="display: flex; gap: 30px;">
+								<code class="flags">y</code>
+								<p>"Sticky" mode: searching at the exact position in the text.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+			<section>
+				<h2>Anchors</h2>
+				<p class="regular-text">The caret <code class="inline-code">^</code> means the start of the string.</p>
+
+				<pre>
+					<code class="js code" data-trim data-noescape>
+						let regex = /^a/;
+						console.log( regex.test("abc") ); // true
+						console.log( regex.test("bca") ); // false
+					</code>
+				</pre>
+
+				<p class="regular-text"><code class="inline-code">$</code> at the end of the pattern directs the test to look for end of string.</p>
+				<pre>
+					<code class="js code" data-trim data-noescape>
+						let regex = /js$/;
+						console.log( regex.test("regex.js") ); // true
+						console.log( regex.test("bca") ); // false
+					</code>
+				</pre>
+				<p class="regular-text">Both anchors together <code class="inline-code">^...$</code> are often used to test whether or not a string fully matches the pattern.</p>
+			</section>
+
+			<section>
+				<h2>Sets and ranges</h2>
+				<section>
+					<div>
+						<p class="regular-text">Several characters inside square brackets is called a set. For example, <code class="inline-code">[asd]</code> means any of the 3 characters: <code class="inline-code">a</code>, <code class="inline-code">s</code>, or <code class="inline-code">d</code>.</p>
+						<pre>
+							<code class="code js" data-trim data-noescape>
+								// find [l or c], and then "amp"
+								let str = "Lamp camp";
+								console.log( str.match(/[lc]amp/gi) ); // "Lamp", "camp"
+							</code>
+						</pre>
+						<p class="regular-text">Square brackets may also contain character ranges. For instance, <code class="inline-code">[a-z]</code> is a character in range from <code class="inline-code">a</code> to <code class="inline-code">z</code>, and <code class="inline-code">[0-5]</code> is a digit from <code class="inline-code">0</code> to <code class="inline-code">5</code>.</p>
+						<pre>
+							<code class="code js" data-trim data-noescape>
+								let str = "Color:#6AF"
+								console.log( str.match(/#[0-9A-F][0-9A-F][0-9A-F]/g) ); // #6AF
+							</code>
+						</pre>
+					</div>
+				</section>
+				<section>
+					<h3>Excluding ranges</h3>
+					<p class="regular-text">If inside square brackets first character is a caret <code class="inline-code">^</code>, so it's called "excluding" range. For example:</p>
+					<p class="regular-text"><code class="inline-code">[^aeyo]</code> – any character except <code class="inline-code">a</code>, <code class="inline-code">e</code>, <code class="inline-code">y</code> or <code class="inline-code">o</code>.</p>
+					<p class="regular-text"><code class="inline-code">[^0-9]</code> – any character except a digit, the same as <code class="inline-code">\D</code>.</p>
+					<p class="regular-text"><code class="inline-code">[^\s]</code> – any non-space character, same as <code class="inline-code">\S</code>.</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let str = "this@world#for.everyone";
+							console.log( str.match(/[^\d\sA-Z]/gi) ); // "@", "#", "."
+						</code>
+					</pre>
+				</section>
+			</section>
+
+			<section>
+				<h2>Quantifiers</h2>
+				<section>
+					<h4>A quantifier <code class="inline-code">{n}</code></h4>
+					<p class="regular-text">Quantifiers indicate numbers of characters or expressions to match.</p>
+					<p class="regular-text">The exact count: <code class="inline-code">{5}</code></p>
+					<p class="regular-text">The range: <code class="inline-code">{3,5}</code></p>
+					<p class="regular-text">We can omit the upper limit: <code class="inline-code">{3,}</code></p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let str = 'cool coooooooool';
+							console.log(str.match(/co{3,}l/g)); // "coooooooool"
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h4>Shorthands</h4>
+					<p class="regular-text"><code class="inline-code">+</code> - Means "one or more", the same as <code class="inline-code">{1,}</code>.</p>
+					<p class="regular-text"><code class="inline-code">?</code> - Means "zero or one", the same as <code class="inline-code">{0,1}</code>.
+						<p class="regular-text"><code class="inline-code">*</code> - Means "zero or more", the same as <code class="inline-code">{0,}</code>.</p>
+					</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let phone = "+7(903)-123-45-67";
+							console.log( phone.match(/\d+/g) ); // 7,903,123,45,67
+
+							let str = "Should I write color or colour?";
+							console.log( str.match(/colou?r/g) ); // color, colour
+
+							let numbers = "100 10 1";
+							console.log( numbers.match(/\d0*/g) ); // 100, 10, 1
+						</code>
+					</pre>
+				</section>
+			</section>
+
+			<section>
+				<h2>Capturing groups</h2>
+				<section>
+					<p class="regular-text">Capturing groups are a way to treat multiple characters as a single unit. They are created by placing the characters to be grouped inside a set of parentheses <code class="inline-code">(...)</code>.</p>
+					<pre>
+						<code class="js code" data-trim data-noescape>
+							let str = 'Gogogo now! Gooooooo!';
+							console.log( str.match(/go+/ig) ); // "Go", "go", "go", "Gooooooo"
+							console.log( str.match(/(go)+/ig) ); // "Gogogo", "Go"
+						</code>
+					</pre>
+				</section>
+			</section>
+
+			<section>
+				<h2>Alternation</h2>
+				<p class="regular-text">With regular expressions, the <code class="inline-code">|</code> metacharacter is similar to logical <code class="inline-code">OR</code>. The regexp will match if any of the expression separated by <code class="inline-code">|</code> is satisfied. Each of these alternations is a full regexp.</p>
+				<p class="regular-text">For instance, we need to find a pet: cat, dog, bird or snake:</p>
+				<pre>
+					<code class="code js" data-trim data-noescape>
+						let regexp = /cat|dog|bird|snake/gi;
+						let str = "Which pet do you have: a cat, a dog, a bird or a snake?";
+						console.log( str.match(regexp) ); // "cat", "dog", "bird", "snake"
+					</code>
+				</pre>
+
+				<p class="regular-text">To apply alternation to a chosen part of the pattern, we can enclose it in parentheses:</p>
+
+				<p class="regular-text"><code class="inline-code">I like cats|dogs</code> matches <code class="inline-code">I like cats</code> or <code class="inline-code">dogs</code>.</p>
+				<p class="regular-text"><code class="inline-code">I like (cats|dogs)</code> matches <code class="inline-code">I like cats</code> or <code class="inline-code">I like dogs</code>.
+				</p>
+			</section>
+
+			<section>
+				<h2>Methods</h2>
+
+				<section>
+					<h3>Searching</h3>
+					<p class="regular-text">To find matches in the string, we use method <code class="inline-code">str.match(regexp)</code>, where <code class="inline-code">str</code> is a string and <code class="inline-code">regexp</code> is a regular expression. If the <code class="inline-code">regexp</code> doesn’t have flag <code class="inline-code">g</code>, then it returns the first match.</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let result = "I'm learning JavaScript".match(/Java(Script)/);
+							console.log( result[0] );     // JavaScript (full match)
+							console.log( result[1] );     // Script (first capturing group)
+							console.log( result.length ); // 2
+						</code>
+					</pre>
+					<p class="regular-text">If the regexp has flag <code class="inline-code">g</code>, then it returns an array of all matches as strings.</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let result = "I'm learning JavaScript".match(/Java(Script)/g);
+							console.log( result[0] ); // JavaScript
+							console.log( result.length ); // 1
+						</code>
+					</pre>
+					<p class="regular-text">If there are no matches, no matter if there’s flag <code class="inline-code">g</code> or not, <code class="inline-code">null</code> is returned.</p>
+
+				</section>
+
+				<section>
+					<h3>Replacing</h3>
+					<p class="regular-text">When we need to replace one found string to another, we should use the method <code class="inline-code">str.replace(regexp, replacement)</code>, where <code class="inline-code">str</code> is a string, <code class="inline-code">regexp</code> is a regular expression and <code class="inline-code">replacement</code> is a string, which will replace a found match.</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							// no flag g
+							console.log( "We will, we will".replace(/we/i, "I") ); // I will, we will
+
+							// with flag g
+							console.log( "We will, we will".replace(/we/ig, "I") ); // I will, I will
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Testing</h3>
+					<p class="regular-text">If we need to know is this regexp is found or not in a string, we use method <code class="inline-code">regexp.test(str)</code>. When match is found, it returns <code class="inline-code">true</code>, otherwise <code class="inline-code">false</code>.</p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let str = "I'm learning JavaScript";
+							let regexp = /LEARNING/i;
+							console.log( regexp.test(str) ); // true
+						</code>
+					</pre>
+				</section>
+			</section>
+
+			<section>
+				<h2>Examples</h2>
+				<section>
+					<p class="regular-text"><b>Validation of email</b></p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let re = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+							console.log( re.test('correct-email@mail.com') ); // true
+							console.log( re.test('CORRECT.email@mail123.com') ); //true
+							console.log( re.test('incorrect-email@mail') ); //false
+						</code>
+					</pre>
+				</section>
+				<section>
+					<p class="regular-text"><b>Validation of phone number</b></p>
+					<pre>
+						<code class="code js" data-trim data-noescape>
+							let re = /^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+							console.log( re.test('(212) 348-2626') ); // true
+							console.log( re.test('+1 832-393-1000') ); // true
+							console.log( re.test('+1 202-456-111') ); // false
+						</code>
+					</pre>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
