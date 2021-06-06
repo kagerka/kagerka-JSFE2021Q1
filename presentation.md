@@ -9,23 +9,20 @@
 
 -----
 ### Table of contents:
-- About RegExp
-  + What is regular expression
-  + Short history
-  + What regexp used for
+- What is regular expression
+- History
+- Usage
 - Basics
-  + Syntax to create a regular expression object
-  + RegExp quick reference
+-- Syntax to create a regular expression object
+-- RegExp quick reference
 - Flags
 - Anchors
 - Sets and ranges
 - Quantifiers
-  + Greedy search
-  + Lazy mode
 - Capturing groups
 - Alternation
 - Methods
-  + Searching
-  + Replacing
-  + Testing
+-- Searching
+-- Replacing
+-- Testing
 - Examples
