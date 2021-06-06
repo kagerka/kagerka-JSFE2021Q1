@@ -8,9 +8,9 @@ export class RegisterErrors extends BaseComponent {
   render(): void {
     this.rootElement.appendChild(this.element);
     this.element.innerHTML = `
-      <div id="reg-form-fname-error-msg"></div>
-      <div id="reg-form-lname-error-msg"></div>
-      <div id="reg-form-email-error-msg"></div>
+      <div id="reg-form-fname-error-msg" class="reg-form-error"></div>
+      <div id="reg-form-lname-error-msg" class="reg-form-error"></div>
+      <div id="reg-form-email-error-msg" class="reg-form-error"></div>
     `;
   }
 }
