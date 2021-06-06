@@ -3,7 +3,7 @@
 
 #### Link to the YouTube video: ------
 
-#### Link to the Reveal presentation's deploy: ------
+#### Link to the Reveal presentation's deploy: https://rolling-scopes-school.github.io/kagerka-JSFE2021Q1/presentation/index.html
 
 #### Link to the transcript: ------
 
