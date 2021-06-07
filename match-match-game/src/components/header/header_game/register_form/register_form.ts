@@ -1,6 +1,5 @@
 import './register_form.scss';
 import { BaseComponent } from '../../../base-components';
-import { Avatar } from './avatar';
 import { RegisterFirstName } from './register_fname';
 import { RegisterLastName } from './register_lname';
 import { RegisterEmail } from './register_email';
@@ -47,7 +46,6 @@ export class RegisterForm extends BaseComponent {
     new RegisterAvatar(this.registerFormWrapper).render();
     new RegisterErrors(this.registerForm).render();
     new RegisterButtons(this.registerForm).render();
-    new Avatar().avatar();
     return this.element;
   }
 }
