@@ -1,4 +1,3 @@
-import { Navigation } from "../navigation";
 import { BaseComponent } from "./../base-components";
 import { WinnerItem } from "./winner-item";
 
