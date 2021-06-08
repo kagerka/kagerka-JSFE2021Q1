@@ -1,11 +1,9 @@
-import { BaseComponent } from "./../base-components";
+import { BaseComponent } from '../base-components';
 
 export class WinnerItem extends BaseComponent {
-
   constructor(private readonly rootElement: HTMLElement) {
     super('tr', ['winners__item']);
     this.rootElement.appendChild(this.element);
-
   }
 
   render(): HTMLElement {

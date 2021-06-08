@@ -1,7 +1,6 @@
-import { BaseComponent } from "./../../base-components";
+import { BaseComponent } from '../../base-components';
 
 export class Car extends BaseComponent {
-
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['car', 'garage__car']);
     this.rootElement.appendChild(this.element);

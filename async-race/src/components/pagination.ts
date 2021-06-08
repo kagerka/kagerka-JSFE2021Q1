@@ -1,7 +1,8 @@
-import { BaseComponent } from "./base-components";
+import { BaseComponent } from './base-components';
 
 export class Pagination extends BaseComponent {
   private readonly prevBtn: HTMLElement;
+
   private readonly nextBtn: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {

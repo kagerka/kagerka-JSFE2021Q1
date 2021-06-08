@@ -1,5 +1,5 @@
-import { BaseComponent } from "./../../base-components";
-import { Car } from "./car";
+import { BaseComponent } from '../../base-components';
+import { Car } from './car';
 
 export class RaceFieldItem extends BaseComponent {
   private readonly btnWrapper: HTMLElement;

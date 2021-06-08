@@ -1,7 +1,8 @@
-import { BaseComponent } from "./base-components";
+import { BaseComponent } from './base-components';
 
 export class Navigation extends BaseComponent {
   public garageBtn: HTMLElement;
+
   public winnersBtn: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {

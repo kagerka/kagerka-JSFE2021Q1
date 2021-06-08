@@ -1,6 +1,6 @@
-import { BaseComponent } from "./../base-components";
-import { RaceFieldItem } from "./race-field/race-field-item";
-import { WinMsg } from "./race-field/win-msg";
+import { BaseComponent } from '../base-components';
+import { RaceFieldItem } from './race-field/race-field-item';
+import { WinMsg } from './race-field/win-msg';
 
 export class Race extends BaseComponent {
   private readonly title: HTMLElement;

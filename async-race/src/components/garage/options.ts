@@ -1,7 +1,7 @@
-import { BaseComponent } from "./../base-components";
-import { CreateOption } from "./options/create";
-import { RaceBtnOption } from "./options/race-buttons";
-import { UpdateOption } from "./options/update";
+import { BaseComponent } from '../base-components';
+import { CreateOption } from './options/create';
+import { RaceBtnOption } from './options/race-buttons';
+import { UpdateOption } from './options/update';
 
 export class GarageOptions extends BaseComponent {
   private readonly form: HTMLElement;

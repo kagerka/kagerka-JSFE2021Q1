@@ -1,8 +1,8 @@
-import { BaseComponent } from "./../../base-components";
+import { BaseComponent } from '../../base-components';
 
 export class RaceBtnOption extends BaseComponent {
   private readonly raceBtn: HTMLElement;
-  
+
   private readonly resetBtn: HTMLElement;
 
   private readonly generateBtn: HTMLElement;

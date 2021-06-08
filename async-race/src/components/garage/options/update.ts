@@ -1,8 +1,8 @@
-import { BaseComponent } from "./../../base-components";
+import { BaseComponent } from '../../base-components';
 
 export class UpdateOption extends BaseComponent {
   private readonly nameInput: HTMLInputElement;
-  
+
   private readonly colorInput: HTMLInputElement;
 
   private readonly createBtn: HTMLElement;

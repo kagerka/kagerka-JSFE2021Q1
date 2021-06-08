@@ -1,12 +1,15 @@
-import { BaseComponent } from "./../base-components";
-import { WinnerItem } from "./winner-item";
+import { BaseComponent } from '../base-components';
+import { WinnerItem } from './winner-item';
 
 export class Winners extends BaseComponent {
   private readonly title: HTMLElement;
 
   private readonly subTitle: HTMLElement;
+
   private readonly table: HTMLElement;
+
   private readonly thead: HTMLElement;
+
   private readonly tbody: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
@@ -27,7 +30,6 @@ export class Winners extends BaseComponent {
 
     this.tbody = document.createElement('tbody');
     this.table.appendChild(this.tbody);
-
   }
 
   render(): HTMLElement {
