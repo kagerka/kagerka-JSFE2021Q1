@@ -28,6 +28,9 @@ export class Race extends BaseComponent {
     this.title.innerHTML = 'Garage (4)';
     this.subTitle.innerHTML = 'Page #1';
     new RaceFieldItem(this.raceField).render();
+    new RaceFieldItem(this.raceField).render();
+    new RaceFieldItem(this.raceField).render();
+    new RaceFieldItem(this.raceField).render();
     new WinMsg(this.element).render();
     return this.element;
   }
