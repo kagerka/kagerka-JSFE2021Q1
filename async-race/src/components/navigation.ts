@@ -9,7 +9,7 @@ export class Navigation extends BaseComponent {
     super('div', ['nav-buttons']);
     this.rootElement.appendChild(this.element);
     this.garageBtn = document.createElement('button');
-    this.garageBtn.setAttribute('class', 'btn main-buttons__garage');
+    this.garageBtn.setAttribute('class', 'btn main-buttons__garage active');
     this.element.appendChild(this.garageBtn);
     this.winnersBtn = document.createElement('button');
     this.winnersBtn.setAttribute('class', 'btn main-buttons__winners');
