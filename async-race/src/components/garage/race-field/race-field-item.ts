@@ -57,7 +57,7 @@ export class RaceFieldItem extends BaseComponent {
     this.element.appendChild(this.carName);
 
     this.flagImg = document.createElement('img');
-    this.flagImg.setAttribute('src', '../flag.svg');
+    this.flagImg.setAttribute('src', './flag.svg');
     this.flagImg.setAttribute('alt', 'flag');
     this.flagImg.setAttribute('class', 'img-flag');
     this.element.appendChild(this.flagImg);
