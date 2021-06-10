@@ -1,4 +1,10 @@
+import { Params, CarType } from '../../../params';
+import { deleteCar } from '../../../rest-api/garage/delete-car';
+import { getCar, getCars, getCarsFn } from '../../../rest-api/garage/get-car';
+import { updateCar } from '../../../rest-api/garage/update-car';
 import { BaseComponent } from '../../base-components';
+import { UpdateOption } from '../options/update';
+import { Race } from '../race-field';
 import { Car } from './car';
 
 export class RaceFieldItem extends BaseComponent {
@@ -20,7 +26,9 @@ export class RaceFieldItem extends BaseComponent {
 
   private readonly flagImg: HTMLElement;
 
-  constructor(private readonly rootElement: HTMLElement) {
+  public static currentCarId: number;
+
+  constructor(private rootElement: HTMLElement) {
     super('div', ['garage__race-item']);
     this.rootElement.appendChild(this.element);
 
@@ -63,13 +71,35 @@ export class RaceFieldItem extends BaseComponent {
     this.element.appendChild(this.flagImg);
   }
 
-  render(): HTMLElement {
+  render(id: number, name: string, color: string): HTMLElement {
     this.selectButton.innerText = 'Select';
     this.removeButton.innerText = 'Remove';
     this.aButton.innerText = 'A';
     this.bButton.innerText = 'B';
-    this.carName.innerHTML = 'Tesla';
-    new Car(this.element).render();
+    this.carName.innerHTML = `${name}`;
+    new Car(this.element).render(`#${color}`);
+    this.selectButton.setAttribute('id', `select-car-${id}`);
+    this.removeButton.setAttribute('id', `remove-car-${id}`);
+    this.raceButtons.addEventListener('click', async (e) => {
+      if (e.target === this.removeButton) {
+        const currentCar = await getCar(id);
+        if (currentCar.id === id) {
+          deleteCar(id);
+          Race.generateCarItems();
+        } else {
+          Race.generateCarItems();
+        }
+      }
+      if (e.target === this.selectButton) {
+        const currentCar = await getCar(id);
+        RaceFieldItem.currentCarId = currentCar.id;
+        if (currentCar.id === id) {
+          UpdateOption.nameInput.removeAttribute('disabled');
+          UpdateOption.colorInput.removeAttribute('disabled');
+          UpdateOption.nameInput.focus();
+        }
+      }
+    });
     return this.element;
   }
 }
