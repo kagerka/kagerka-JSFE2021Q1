@@ -8,6 +8,7 @@ export class Main extends BaseComponent {
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['main']);
     this.rootElement.appendChild(this.element);
+
     this.logo = document.createElement('img');
     this.logo.setAttribute('class', 'logo');
     this.logo.setAttribute('src', './logo.svg');
