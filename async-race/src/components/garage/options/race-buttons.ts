@@ -1,4 +1,9 @@
+import { createCar } from '../../../rest-api/garage/create-car';
 import { BaseComponent } from '../../base-components';
+import { ONE_HUNDRED } from '../../constants';
+import { Pagination } from '../../pagination';
+import { generateCarItems } from '../race-field/generateCarItems';
+import { generateRandomParam } from './generate-random-param';
 
 export class RaceBtnOption extends BaseComponent {
   private readonly raceBtn: HTMLElement;
@@ -25,6 +30,7 @@ export class RaceBtnOption extends BaseComponent {
     this.generateBtn.setAttribute('class', 'btn garage__generate-btn');
     this.generateBtn.setAttribute('id', 'generate-btn');
     this.element.appendChild(this.generateBtn);
+    this.init();
   }
 
   render(): HTMLElement {
@@ -32,5 +38,23 @@ export class RaceBtnOption extends BaseComponent {
     this.resetBtn.innerText = 'Reset';
     this.generateBtn.innerText = 'Generate cars';
     return this.element;
+  }
+
+  init(): void {
+    let name = '';
+    let color = '';
+
+    this.generateBtn.addEventListener('click', async (e) => {
+      for (let i = 0; i < ONE_HUNDRED; i++) {
+        const generatedParams = generateRandomParam();
+        console.log(generatedParams);
+        if (e.target === this.generateBtn) {
+          name = `${generatedParams.carMake} ${generatedParams.carModel}`;
+          color = `${generatedParams.randomColor}`;
+          createCar(`${name}`, `${color}`);
+          generateCarItems(Pagination.pageNum);
+        }
+      }
+    });
   }
 }
