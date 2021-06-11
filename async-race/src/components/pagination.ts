@@ -1,7 +1,6 @@
 import { getCars } from '../rest-api/garage/get-car';
 import { BaseComponent } from './base-components';
 import { FIRST_PAGE } from './constants';
-import { Race } from './garage/race-field';
 
 let pageNum = 1;
 export class Pagination extends BaseComponent {
