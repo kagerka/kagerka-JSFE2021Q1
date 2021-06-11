@@ -3,9 +3,7 @@ import { getCars } from '../../../rest-api/garage/get-car';
 import { CARS_ON_PAGE, ZERO } from '../../constants';
 import { RaceFieldItem } from './race-field-item';
 
-export const generateCarItems = (): void => {
-  const pageNum = 1;
-
+export const generateCarItems = (pageNum: number): void => {
   setTimeout(async () => {
     const items = await getCars(pageNum, CARS_ON_PAGE);
     const itemsItems = items.items;
