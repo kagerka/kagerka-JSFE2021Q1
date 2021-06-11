@@ -1,12 +1,14 @@
-import { getCars } from '../rest-api/garage/get-car';
+import { getCars, getCarsFn } from '../rest-api/garage/get-car';
 import { BaseComponent } from './base-components';
-import { FIRST_PAGE } from './constants';
+import { CARS_ON_PAGE, FIRST_PAGE } from './constants';
+import { generateCarItems } from './garage/race-field/generateCarItems';
 
-let pageNum = 1;
 export class Pagination extends BaseComponent {
   public prevBtn: HTMLElement;
 
   public nextBtn: HTMLElement;
+
+  public static pageNum = FIRST_PAGE;
 
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['pagination-buttons']);
@@ -27,26 +29,20 @@ export class Pagination extends BaseComponent {
   }
 
   init(): void {
-    const listPrev = async (): Promise<void> => {
-      if (pageNum > FIRST_PAGE) {
-        pageNum--;
+    this.element.addEventListener('click', async (e) => {
+      const items = await getCars(Pagination.pageNum, CARS_ON_PAGE);
+      const totalCount = items.count;
+      console.log(totalCount);
+      
+      if (e.target === this.prevBtn && Pagination.pageNum > FIRST_PAGE) {
+        Pagination.pageNum--;
+        generateCarItems(Pagination.pageNum);
       }
-      const CARS_ON_PAGE = 7;
-      const items = await getCars(pageNum, CARS_ON_PAGE);
-    };
-    const listNext = async (): Promise<void> => {
-      const CARS_ON_PAGE = 7;
-      const items = await getCars(pageNum, CARS_ON_PAGE);
-      if (pageNum < Math.floor(items.count / CARS_ON_PAGE)) {
-        pageNum++;
-      }
-    };
-    this.element.addEventListener('click', (e) => {
-      if (e.target === this.prevBtn) {
-        listPrev();
-      }
-      if (e.target === this.nextBtn) {
-        listNext();
+      if (e.target === this.nextBtn
+        && Pagination.pageNum <= Math.floor(items.count / CARS_ON_PAGE)
+        && totalCount > Pagination.pageNum * CARS_ON_PAGE) {
+        Pagination.pageNum++;
+        generateCarItems(Pagination.pageNum);
       }
     });
   }
