@@ -1,6 +1,7 @@
 import { deleteCar } from '../../../rest-api/garage/delete-car';
 import { getCar } from '../../../rest-api/garage/get-car';
 import { BaseComponent } from '../../base-components';
+import { Pagination } from '../../pagination';
 import { Car } from './car';
 import { generateCarItems } from './generateCarItems';
 
@@ -82,9 +83,9 @@ export class RaceFieldItem extends BaseComponent {
         const currentCar = await getCar(id);
         if (currentCar.id === id) {
           deleteCar(id);
-          generateCarItems();
+          generateCarItems(Pagination.pageNum);
         } else {
-          generateCarItems();
+          generateCarItems(Pagination.pageNum);
         }
       }
       if (e.target === this.selectButton) {
