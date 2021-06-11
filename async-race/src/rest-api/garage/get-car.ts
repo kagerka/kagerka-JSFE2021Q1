@@ -1,5 +1,5 @@
 import {
- CarType, CarItem, GetGarage, Params,
+ CarType, GetGarage, Params,
 } from '../../params';
 import { baseUrl, path } from '../path';
 
