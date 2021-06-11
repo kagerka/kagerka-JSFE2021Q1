@@ -3,28 +3,32 @@ import { generateCarItems } from './race-field/generateCarItems';
 import { WinMsg } from './race-field/win-msg';
 
 export class Race extends BaseComponent {
-  public static title: HTMLElement;
+  public title: HTMLElement;
 
-  public static subTitle: HTMLElement;
+  public subTitle: HTMLElement;
 
-  public static raceField: HTMLElement;
+  public raceField: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['garage__race']);
     this.rootElement.appendChild(this.element);
 
-    Race.title = document.createElement('h2');
-    this.element.appendChild(Race.title);
+    this.title = document.createElement('h2');
+    this.title.setAttribute('class', 'garage__race-title');
+    this.element.appendChild(this.title);
 
-    Race.subTitle = document.createElement('h3');
-    this.element.appendChild(Race.subTitle);
+    this.subTitle = document.createElement('h3');
+    this.subTitle.setAttribute('class', 'garage__race-subtitle');
+    this.element.appendChild(this.subTitle);
 
-    Race.raceField = document.createElement('div');
-    Race.raceField.setAttribute('class', 'garage__race-field');
-    this.element.appendChild(Race.raceField);
+    this.raceField = document.createElement('div');
+    this.raceField.setAttribute('class', 'garage__race-field');
+    this.element.appendChild(this.raceField);
   }
 
   render(): HTMLElement {
+    this.title.innerHTML = '';
+    this.subTitle.innerHTML = '';
     new WinMsg(this.element).render();
     generateCarItems();
     return this.element;
