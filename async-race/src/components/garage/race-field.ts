@@ -1,8 +1,5 @@
-import { CarType } from '../../params';
-import { getCar, getCars } from '../../rest-api/garage/get-car';
 import { BaseComponent } from '../base-components';
-import { CARS_ON_PAGE, ZERO } from '../constants';
-import { RaceFieldItem } from './race-field/race-field-item';
+import { generateCarItems } from './race-field/generateCarItems';
 import { WinMsg } from './race-field/win-msg';
 
 export class Race extends BaseComponent {
@@ -29,21 +26,7 @@ export class Race extends BaseComponent {
 
   render(): HTMLElement {
     new WinMsg(this.element).render();
-    Race.generateCarItems();
+    generateCarItems();
     return this.element;
-  }
-
-  public static generateCarItems(): void {
-    let pageNum = 1;
-
-    setTimeout(async () => {
-      const items = await getCars(pageNum, CARS_ON_PAGE);
-      const itemsItems = items.items;
-      const totalCount = items.count;
-      Race.raceField.innerHTML = '';
-      itemsItems.forEach((item: CarType) => new RaceFieldItem(this.raceField).render(item.id, item.name, item.color));
-      Race.title.innerHTML = `Garage (${totalCount})`;
-      this.subTitle.innerHTML = `Page #${pageNum}`;
-    }, ZERO);
   }
 }
