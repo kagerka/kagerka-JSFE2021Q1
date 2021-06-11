@@ -1,4 +1,4 @@
-import { getCars, getCarsFn } from '../rest-api/garage/get-car';
+import { getCars } from '../rest-api/garage/get-car';
 import { BaseComponent } from './base-components';
 import { CARS_ON_PAGE, FIRST_PAGE } from './constants';
 import { generateCarItems } from './garage/race-field/generateCarItems';
@@ -33,7 +33,7 @@ export class Pagination extends BaseComponent {
       const items = await getCars(Pagination.pageNum, CARS_ON_PAGE);
       const totalCount = items.count;
       console.log(totalCount);
-      
+
       if (e.target === this.prevBtn && Pagination.pageNum > FIRST_PAGE) {
         Pagination.pageNum--;
         generateCarItems(Pagination.pageNum);
