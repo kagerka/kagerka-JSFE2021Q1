@@ -127,6 +127,8 @@ h3 {
 
     & .input__text:focus {
       border-radius: 0;
+      outline-color: rgb(255, 102, 0);
+      background-color: rgb(250, 234, 213);
     }
 
     & .input__color {
