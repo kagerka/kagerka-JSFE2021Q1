@@ -33,7 +33,7 @@ export class Winners extends BaseComponent {
   }
 
   render(): HTMLElement {
-    this.title.innerHTML = 'Winners (4)';
+    this.title.innerHTML = 'Winners (1)';
     this.subTitle.innerHTML = 'Page #1';
     this.thead.innerHTML = `
       <th>Number</th>
