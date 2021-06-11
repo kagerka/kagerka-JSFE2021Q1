@@ -2,7 +2,7 @@ import { carModels } from '../../../rest-api/car-models';
 import { createCar } from '../../../rest-api/garage/create-car';
 import { BaseComponent } from '../../base-components';
 import { ONE } from '../../constants';
-import { Race } from '../race-field';
+import { generateCarItems } from '../race-field/generateCarItems';
 
 export class CreateOption extends BaseComponent {
   private readonly nameInput: HTMLInputElement;
@@ -77,7 +77,7 @@ export class CreateOption extends BaseComponent {
         this.colorInput.value = '#e3e3e3';
         name = '';
         color = '';
-        Race.generateCarItems();
+        generateCarItems();
       }
     });
   }
