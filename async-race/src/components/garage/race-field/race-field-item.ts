@@ -1,11 +1,8 @@
-import { Params, CarType } from '../../../params';
 import { deleteCar } from '../../../rest-api/garage/delete-car';
-import { getCar, getCars, getCarsFn } from '../../../rest-api/garage/get-car';
-import { updateCar } from '../../../rest-api/garage/update-car';
+import { getCar } from '../../../rest-api/garage/get-car';
 import { BaseComponent } from '../../base-components';
-import { UpdateOption } from '../options/update';
-import { Race } from '../race-field';
 import { Car } from './car';
+import { generateCarItems } from './generateCarItems';
 
 export class RaceFieldItem extends BaseComponent {
   private readonly btnWrapper: HTMLElement;
@@ -85,18 +82,22 @@ export class RaceFieldItem extends BaseComponent {
         const currentCar = await getCar(id);
         if (currentCar.id === id) {
           deleteCar(id);
-          Race.generateCarItems();
+          generateCarItems();
         } else {
-          Race.generateCarItems();
+          generateCarItems();
         }
       }
       if (e.target === this.selectButton) {
         const currentCar = await getCar(id);
+        const nameInputUpdate = document.getElementById('car-name-update');
+        const colorInputUpdate = document.getElementById('car-color-update');
         RaceFieldItem.currentCarId = currentCar.id;
-        if (currentCar.id === id) {
-          UpdateOption.nameInput.removeAttribute('disabled');
-          UpdateOption.colorInput.removeAttribute('disabled');
-          UpdateOption.nameInput.focus();
+        if (nameInputUpdate && colorInputUpdate) {
+          if (currentCar.id === id) {
+            nameInputUpdate.removeAttribute('disabled');
+            colorInputUpdate.removeAttribute('disabled');
+            nameInputUpdate.focus();
+          }
         }
       }
     });
