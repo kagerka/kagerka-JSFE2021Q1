@@ -26,3 +26,9 @@ export type CarItemName = {
 export type CarItemColor = {
   color: string | number;
 };
+
+export type GenerateRandomParam = {
+  carMake: string;
+  carModel: string;
+  randomColor: string;
+};
