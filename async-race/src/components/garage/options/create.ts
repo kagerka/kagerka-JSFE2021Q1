@@ -1,8 +1,9 @@
-import { carModels } from '../../../rest-api/car-models';
 import { createCar } from '../../../rest-api/garage/create-car';
 import { BaseComponent } from '../../base-components';
 import { ONE } from '../../constants';
+import { Pagination } from '../../pagination';
 import { generateCarItems } from '../race-field/generateCarItems';
+import { generateRandomParam } from './generate-random-param';
 
 export class CreateOption extends BaseComponent {
   private readonly nameInput: HTMLInputElement;
@@ -42,9 +43,6 @@ export class CreateOption extends BaseComponent {
   init(): void {
     let name = '';
     let color = '';
-    const CAR_MAKE_LENGTH = 26;
-    const HEX_COLORS = 16777215;
-    const HEX = 16;
 
     this.element.addEventListener('input', (e) => {
       if (e.target === this.nameInput) {
@@ -55,29 +53,29 @@ export class CreateOption extends BaseComponent {
       }
     });
 
-    this.element.addEventListener('click', (e) => {
-      const randomMakeNum = Math.floor(Math.random() * CAR_MAKE_LENGTH);
-      const carMake = Object.keys(carModels)[randomMakeNum];
-      const carModelLength = Object.values(carModels)[randomMakeNum].length;
-      const randomModelNum = Math.floor(Math.random() * carModelLength);
-      const carModel = Object.values(carModels)[randomMakeNum][randomModelNum];
-      const randomColor = Math.floor(Math.random() * HEX_COLORS).toString(HEX);
-
+    this.element.addEventListener('click', async (e) => {
+      // const randomMakeNum = Math.floor(Math.random() * CAR_MAKE_LENGTH);
+      // const carMake = Object.keys(carModels)[randomMakeNum];
+      // const carModelLength = Object.values(carModels)[randomMakeNum].length;
+      // const randomModelNum = Math.floor(Math.random() * carModelLength);
+      // const carModel = Object.values(carModels)[randomMakeNum][randomModelNum];
+      // const randomColor = Math.floor(Math.random() * HEX_COLORS).toString(HEX);
+      const generatedParams = await generateRandomParam();
       if (e.target === this.createBtn) {
         if (!name && !color) {
-          name = `${carMake} ${carModel}`;
-          color = `${randomColor}`;
+          name = `${generatedParams.carMake} ${generatedParams.carModel}`;
+          color = `${generatedParams.randomColor}`;
         } else if (!name && color) {
-          name = `${carMake} ${carModel}`;
+          name = `${generatedParams.carMake} ${generatedParams.carModel}`;
         } else if (name && !color) {
-          color = `${randomColor}`;
+          color = `${generatedParams.randomColor}`;
         }
         createCar(`${name}`, `${color}`);
         this.nameInput.value = '';
         this.colorInput.value = '#e3e3e3';
         name = '';
         color = '';
-        generateCarItems();
+        generateCarItems(Pagination.pageNum);
       }
     });
   }
