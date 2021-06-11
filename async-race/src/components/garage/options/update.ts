@@ -2,78 +2,78 @@ import { getCar } from '../../../rest-api/garage/get-car';
 import { updateCar } from '../../../rest-api/garage/update-car';
 import { BaseComponent } from '../../base-components';
 import { ONE } from '../../constants';
-import { Race } from '../race-field';
+import { generateCarItems } from '../race-field/generateCarItems';
 import { RaceFieldItem } from '../race-field/race-field-item';
 
 export class UpdateOption extends BaseComponent {
-  public static nameInput: HTMLInputElement;
+  private readonly nameInput: HTMLInputElement;
 
-  public static colorInput: HTMLInputElement;
+  private readonly colorInput: HTMLInputElement;
 
-  private readonly createBtn: HTMLElement;
+  private readonly updateBtn: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['garage__options_wrapper', 'garage__update']);
     this.rootElement.appendChild(this.element);
 
-    UpdateOption.nameInput = document.createElement('input');
-    UpdateOption.nameInput.setAttribute('type', 'text');
-    UpdateOption.nameInput.setAttribute('name', 'car-name-undate');
-    UpdateOption.nameInput.setAttribute('id', 'car-name-update');
-    UpdateOption.nameInput.setAttribute('class', 'input__text');
-    UpdateOption.nameInput.setAttribute('placeholder', 'Enter new car name here for update');
-    UpdateOption.nameInput.setAttribute('disabled', 'disabled');
-    this.element.appendChild(UpdateOption.nameInput);
+    this.nameInput = document.createElement('input');
+    this.nameInput.setAttribute('type', 'text');
+    this.nameInput.setAttribute('name', 'car-name-undate');
+    this.nameInput.setAttribute('id', 'car-name-update');
+    this.nameInput.setAttribute('class', 'input__text');
+    this.nameInput.setAttribute('placeholder', 'Enter new car name here for update');
+    this.nameInput.setAttribute('disabled', 'disabled');
+    this.element.appendChild(this.nameInput);
 
-    UpdateOption.colorInput = document.createElement('input');
-    UpdateOption.colorInput.setAttribute('type', 'color');
-    UpdateOption.colorInput.setAttribute('name', 'car-color-update');
-    UpdateOption.colorInput.setAttribute('id', 'car-color-update');
-    UpdateOption.colorInput.setAttribute('class', 'input__color');
-    UpdateOption.colorInput.setAttribute('disabled', 'disabled');
-    UpdateOption.colorInput.setAttribute('value', '#e3e3e3');
-    this.element.appendChild(UpdateOption.colorInput);
+    this.colorInput = document.createElement('input');
+    this.colorInput.setAttribute('type', 'color');
+    this.colorInput.setAttribute('name', 'car-color-update');
+    this.colorInput.setAttribute('id', 'car-color-update');
+    this.colorInput.setAttribute('class', 'input__color');
+    this.colorInput.setAttribute('disabled', 'disabled');
+    this.colorInput.setAttribute('value', '#e3e3e3');
+    this.element.appendChild(this.colorInput);
 
-    this.createBtn = document.createElement('button');
-    this.createBtn.setAttribute('class', 'btn garage__update-btn disabled');
-    this.createBtn.setAttribute('id', 'update-btn');
-    this.createBtn.setAttribute('type', 'button');
-    this.element.appendChild(this.createBtn);
+    this.updateBtn = document.createElement('button');
+    this.updateBtn.setAttribute('class', 'btn garage__update-btn disabled');
+    this.updateBtn.setAttribute('id', 'update-btn');
+    this.updateBtn.setAttribute('type', 'button');
+    this.element.appendChild(this.updateBtn);
     this.init();
   }
 
   init(): void {
     this.element.addEventListener('input', (e) => {
-      if (e.target === UpdateOption.nameInput || e.target === UpdateOption.colorInput) {
-        if (UpdateOption.nameInput.value || UpdateOption.colorInput.value) {
-          this.createBtn.classList.remove('disabled');
+      if (e.target === this.nameInput || e.target === this.colorInput) {
+        if (this.nameInput.value || this.colorInput.value) {
+          this.updateBtn.classList.remove('disabled');
         }
       }
     });
 
-    this.createBtn.addEventListener('click', async () => {
+    this.updateBtn.addEventListener('click', async () => {
       const currentCar = await getCar(RaceFieldItem.currentCarId);
       const currentName = currentCar.name;
       const currentColor = currentCar.color;
-      const inputColorValue = UpdateOption.colorInput.value.slice(ONE, UpdateOption.colorInput.value.length);
-      if (UpdateOption.nameInput.value === '') {
+      const inputColorValue = this.colorInput.value.slice(ONE, this.colorInput.value.length);
+      if (this.nameInput.value === '') {
         await updateCar(RaceFieldItem.currentCarId, currentName, inputColorValue);
-      } else if (UpdateOption.colorInput.value === '#000000') {
-        await updateCar(RaceFieldItem.currentCarId, UpdateOption.nameInput.value, currentColor);
+      } else if (this.colorInput.value === '#e3e3e3') {
+        await updateCar(RaceFieldItem.currentCarId, this.nameInput.value, currentColor);
       } else {
-        await updateCar(RaceFieldItem.currentCarId, UpdateOption.nameInput.value, inputColorValue);
+        await updateCar(RaceFieldItem.currentCarId, this.nameInput.value, inputColorValue);
       }
-      Race.generateCarItems();
-      UpdateOption.nameInput.value = '';
-      UpdateOption.colorInput.value = '#e3e3e3';
-      this.createBtn.classList.add('disabled');
-      UpdateOption.nameInput.setAttribute('disabled', 'disabled');
-      UpdateOption.colorInput.setAttribute('disabled', 'disabled');
+      generateCarItems();
+      this.nameInput.value = '';
+      this.colorInput.value = '#e3e3e3';
+      this.updateBtn.classList.add('disabled');
+      this.nameInput.setAttribute('disabled', 'disabled');
+      this.colorInput.setAttribute('disabled', 'disabled');
     });
   }
 
   render(): HTMLElement {
-    this.createBtn.innerText = 'Update';
+    this.updateBtn.innerText = 'Update';
     return this.element;
   }
 }
