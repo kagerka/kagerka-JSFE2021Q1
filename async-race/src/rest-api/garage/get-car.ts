@@ -1,5 +1,5 @@
 import {
- CarType, GetGarage, Params,
+ CarType, GetCars, GetGarage, Params,
 } from '../../params';
 import { baseUrl, path } from '../path';
 
@@ -23,7 +23,7 @@ export const getCarFn = async (id: number): Promise<CarType> => {
 };
 
 // получить определенное количество машин
-export const getCars = async (page: number, limit: number): Promise<any> => {
+export const getCars = async (page: number, limit: number): Promise<GetCars> => {
   const response = await fetch(`${baseUrl}${path.garage}?_page=${page}&_limit=${limit}`);
   return {
     items: await response.json(),
