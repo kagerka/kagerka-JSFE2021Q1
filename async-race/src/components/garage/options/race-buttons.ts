@@ -1,8 +1,10 @@
 import { createCar } from '../../../rest-api/garage/create-car';
+import { saveWinner } from '../../../rest-api/winners/winner-func';
 import { BaseComponent } from '../../base-components';
 import { ONE_HUNDRED } from '../../constants';
-import { Pagination } from '../../pagination';
+import { variables } from '../../data';
 import { generateCarItems } from '../race-field/generateCarItems';
+import { raceAll, resetAll, startDriving } from '../race-field/race-functions';
 import { generateRandomParam } from './generate-random-param';
 
 export class RaceBtnOption extends BaseComponent {
@@ -22,7 +24,7 @@ export class RaceBtnOption extends BaseComponent {
     this.element.appendChild(this.raceBtn);
 
     this.resetBtn = document.createElement('button');
-    this.resetBtn.setAttribute('class', 'btn garage__reset-btn');
+    this.resetBtn.setAttribute('class', 'btn garage__reset-btn disabled');
     this.resetBtn.setAttribute('id', 'reset-btn');
     this.element.appendChild(this.resetBtn);
 
@@ -44,16 +46,26 @@ export class RaceBtnOption extends BaseComponent {
     let name = '';
     let color = '';
 
-    this.generateBtn.addEventListener('click', async (e) => {
-      for (let i = 0; i < ONE_HUNDRED; i++) {
-        const generatedParams = generateRandomParam();
-        console.log(generatedParams);
-        if (e.target === this.generateBtn) {
-          name = `${generatedParams.carMake} ${generatedParams.carModel}`;
-          color = `${generatedParams.randomColor}`;
-          createCar(`${name}`, `${color}`);
-          generateCarItems(Pagination.pageNum);
+    this.element.addEventListener('click', async (e) => {
+      if (e.target === this.generateBtn) {
+        for (let i = 0; i < ONE_HUNDRED; i++) {
+          const generatedParams = generateRandomParam();
+          if (e.target === this.generateBtn) {
+            name = `${generatedParams.carMake} ${generatedParams.carModel}`;
+            color = `${generatedParams.randomColor}`;
+            createCar(`${name}`, `${color}`);
+            generateCarItems(variables.pageNum);
+          }
         }
+      }
+      if (e.target === this.raceBtn) {
+        await raceAll();
+        
+        
+        // await saveWinner({id, time});
+      }
+      if (e.target === this.resetBtn) {
+        await resetAll();
       }
     });
   }
