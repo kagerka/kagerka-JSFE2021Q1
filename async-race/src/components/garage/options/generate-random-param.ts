@@ -8,7 +8,7 @@ export const generateRandomParam = (): GenerateRandomParam => {
   const carModelLength = Object.values(carModels)[randomMakeNum].length;
   const randomModelNum = Math.floor(Math.random() * carModelLength);
   const carModel = Object.values(carModels)[randomMakeNum][randomModelNum];
-  const randomColor = Math.floor(Math.random() * HEX_COLORS).toString(HEX);
+  const randomColor = `#${Math.floor(Math.random() * HEX_COLORS).toString(HEX)}`;
   return {
     carMake, carModel, randomColor,
   };
