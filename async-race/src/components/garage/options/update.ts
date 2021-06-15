@@ -2,7 +2,7 @@ import { getCar } from '../../../rest-api/garage/get-car';
 import { updateCar } from '../../../rest-api/garage/update-car';
 import { BaseComponent } from '../../base-components';
 import { ONE } from '../../constants';
-import { Pagination } from '../../pagination';
+import { variables } from '../../data';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { RaceFieldItem } from '../race-field/race-field-item';
 
@@ -64,7 +64,7 @@ export class UpdateOption extends BaseComponent {
       } else {
         await updateCar(RaceFieldItem.currentCarId, this.nameInput.value, inputColorValue);
       }
-      generateCarItems(Pagination.pageNum);
+      generateCarItems(variables.pageNum);
       this.nameInput.value = '';
       this.colorInput.value = '#e3e3e3';
       this.updateBtn.classList.add('disabled');
