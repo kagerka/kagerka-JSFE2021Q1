@@ -1,9 +1,10 @@
 import { deleteCar } from '../../../rest-api/garage/delete-car';
 import { getCar } from '../../../rest-api/garage/get-car';
 import { BaseComponent } from '../../base-components';
-import { Pagination } from '../../pagination';
+import { variables } from '../../data';
 import { Car } from './car';
 import { generateCarItems } from './generateCarItems';
+import { startDriving, stopDriving } from './race-functions';
 
 export class RaceFieldItem extends BaseComponent {
   private readonly btnWrapper: HTMLElement;
@@ -55,7 +56,7 @@ export class RaceFieldItem extends BaseComponent {
     this.raceABButtons.appendChild(this.aButton);
 
     this.bButton = document.createElement('button');
-    this.bButton.setAttribute('class', 'btn garage__race-item_b');
+    this.bButton.setAttribute('class', 'btn garage__race-item_b disabled');
     this.raceABButtons.appendChild(this.bButton);
 
     this.carName = document.createElement('div');
@@ -69,23 +70,37 @@ export class RaceFieldItem extends BaseComponent {
     this.element.appendChild(this.flagImg);
   }
 
+  init(id: number): void {
+    this.raceABButtons.addEventListener('click', (e) => {
+      if (e.target === this.aButton) {
+        startDriving(id);
+      }
+      if (e.target === this.bButton) {
+        stopDriving(id);
+      }
+    });
+  }
+
   render(id: number, name: string, color: string): HTMLElement {
     this.selectButton.innerText = 'Select';
     this.removeButton.innerText = 'Remove';
     this.aButton.innerText = 'A';
     this.bButton.innerText = 'B';
     this.carName.innerHTML = `${name}`;
-    new Car(this.element).render(`#${color}`);
+    new Car(this.element).render(`${color}`, id);
     this.selectButton.setAttribute('id', `select-car-${id}`);
     this.removeButton.setAttribute('id', `remove-car-${id}`);
+    this.aButton.setAttribute('id', `a-button-${id}`);
+    this.bButton.setAttribute('id', `b-button-${id}`);
+    this.flagImg.setAttribute('id', `img-flag-${id}`);
     this.raceButtons.addEventListener('click', async (e) => {
       if (e.target === this.removeButton) {
         const currentCar = await getCar(id);
         if (currentCar.id === id) {
           deleteCar(id);
-          generateCarItems(Pagination.pageNum);
+          generateCarItems(variables.pageNum);
         } else {
-          generateCarItems(Pagination.pageNum);
+          generateCarItems(variables.pageNum);
         }
       }
       if (e.target === this.selectButton) {
@@ -102,6 +117,8 @@ export class RaceFieldItem extends BaseComponent {
         }
       }
     });
+    this.init(id);
     return this.element;
   }
 }
+
