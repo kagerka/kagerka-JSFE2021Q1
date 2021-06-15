@@ -6,7 +6,8 @@ export class Car extends BaseComponent {
     this.rootElement.appendChild(this.element);
   }
 
-  render(color: string): HTMLElement {
+  render(color: string, id: number): HTMLElement {
+    this.element.setAttribute('id', `car-img-${id}`);
     this.element.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" class="car__svg" viewBox="0 0 512 470">
         <g id="glyph">
