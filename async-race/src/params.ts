@@ -32,3 +32,68 @@ export type GenerateRandomParam = {
   carModel: string;
   randomColor: string;
 };
+
+export type Distance = {
+  velocity: number;
+  distance: number;
+};
+
+export type Success = {
+  success: boolean;
+};
+
+export type Position = {
+  x: number;
+  y: number;
+};
+
+export type StartDriveResult = {
+  success: boolean;
+  id: number;
+  time: number
+};
+
+export type GetCars = {
+  items: CarType[];
+  count: string | null;
+};
+
+export type Anim = {
+  car: HTMLElement;
+  htmlDistance: number;
+  time: number;
+};
+
+export type RaceAllCar = {
+  id: number;
+  time: number;
+}
+
+export type Winner = {
+  id: number;
+  wins: number;
+  time: number;
+  car: CarType;
+}
+
+export type GetWinners = {
+  page: number;
+  limit: number;
+  sort: string;
+  order: string;
+}
+export type GetWinCars = {
+  items: Winner[];
+  count: string | null;
+}
+
+export type CreateWinner = {
+  id: number;
+  time: number;
+};
+
+export type SaveWinner = {
+  id: number;
+  wins: number;
+  time: number;
+};
