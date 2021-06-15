@@ -1,5 +1,5 @@
 import { BaseComponent } from '../base-components';
-import { Pagination } from '../pagination';
+import { variables } from '../data';
 import { generateCarItems } from './race-field/generateCarItems';
 import { WinMsg } from './race-field/win-msg';
 
@@ -30,8 +30,8 @@ export class Race extends BaseComponent {
   render(): HTMLElement {
     this.title.innerHTML = '';
     this.subTitle.innerHTML = '';
-    new WinMsg(this.element).render();
-    generateCarItems(Pagination.pageNum);
+    // new WinMsg(this.element).render();
+    generateCarItems(variables.pageNum);
     return this.element;
   }
 }
