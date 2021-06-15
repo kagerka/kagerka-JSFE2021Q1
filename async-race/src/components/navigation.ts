@@ -1,5 +1,4 @@
 import { BaseComponent } from './base-components';
-import { Winners } from './winners/winners';
 
 export class Navigation extends BaseComponent {
   public garageBtn: HTMLElement;
@@ -33,7 +32,6 @@ export class Navigation extends BaseComponent {
           this.garageBtn.classList.remove('active');
           garage.classList.add('hidden');
           winners.classList.remove('hidden');
-          
         }
       }
     });

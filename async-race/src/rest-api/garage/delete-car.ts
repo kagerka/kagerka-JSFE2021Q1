@@ -11,10 +11,9 @@ export const deleteCarFunc = async (id: number): Promise<GetGarage> => {
 };
 
 export const deleteCar = async (id: number): Promise<void> => {
-  const car = await deleteCarFunc(id);
+  await deleteCarFunc(id);
   const winCar = await getWinner(id);
   if (winCar.id) {
     await deleteWinner(id);
   }
-
 };

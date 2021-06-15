@@ -14,8 +14,6 @@ export const generateCarItems = (pageNum: number): void => {
     if (raceField) {
       raceField.innerHTML = '';
       itemsItems.forEach((item: CarType) => new RaceFieldItem(raceField).render(item.id, item.name, item.color));
-      console.log(itemsItems);
-      
     }
     if (raceTitle) {
       raceTitle.innerHTML = `Garage (${totalCount})`;

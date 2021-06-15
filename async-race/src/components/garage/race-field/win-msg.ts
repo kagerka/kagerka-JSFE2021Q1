@@ -1,4 +1,5 @@
 import { BaseComponent } from '../../base-components';
+import { MILLISEC_IN_SEC, TWO } from '../../constants';
 
 export class WinMsg extends BaseComponent {
   private readonly winnerMessage: HTMLElement;
@@ -13,8 +14,10 @@ export class WinMsg extends BaseComponent {
   }
 
   render(name: string, time: number | undefined): HTMLElement {
-    if (time) time = +(time / 1000).toFixed(2);
-    this.winnerMessage.innerHTML = `${name} finished first (${time} sec)!`;
+    if (time) {
+      const timeOfWin = +(time / MILLISEC_IN_SEC).toFixed(TWO);
+      this.winnerMessage.innerHTML = `${name} finished first (${timeOfWin} sec)!`;
+    }
     return this.element;
   }
 

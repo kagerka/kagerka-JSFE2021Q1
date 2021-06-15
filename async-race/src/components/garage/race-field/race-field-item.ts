@@ -121,4 +121,3 @@ export class RaceFieldItem extends BaseComponent {
     return this.element;
   }
 }
-

@@ -1,11 +1,18 @@
 import { BaseComponent } from '../base-components';
+import {
+  MILLISEC_IN_SEC, TWO,
+} from '../constants';
 import { Car } from '../garage/race-field/car';
 
 export class WinnerItem extends BaseComponent {
   private readonly rowNum: HTMLElement;
+
   private readonly carView: HTMLElement;
+
   private readonly winnerName: HTMLElement;
+
   private readonly numOfWins: HTMLElement;
+
   private readonly bestTime: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
@@ -28,22 +35,14 @@ export class WinnerItem extends BaseComponent {
     this.element.appendChild(this.bestTime);
   }
 
-  render(color: string, id: number, rowNum: number, winnerName: string, numOfWins: number, bestTime: number): HTMLElement {
+  render(
+    color: string, id: number, rowNum: number, winnerName: string, numOfWins: number, bestTime: number,
+  ): HTMLElement {
     this.rowNum.innerHTML = `${rowNum}`;
     this.carView.appendChild(new Car(this.carView).render(color, id));
     this.winnerName.innerHTML = `${winnerName}`;
     this.numOfWins.innerHTML = `${numOfWins}`;
-    this.bestTime.innerHTML = `${+(bestTime / 1000).toFixed(2)}`;
-    // this.element.innerHTML = `
-    //   <td>${rowNum}</td>
-    //   <td>
-    //     ${new Car(carView).render(id)}
-    //   </td>
-    //   <td>${winnerName}</td>
-    //   <td>${numOfWins}</td>
-    //   <td>${bestTime}</td>
-    // `;
-
+    this.bestTime.innerHTML = `${+(bestTime / MILLISEC_IN_SEC).toFixed(TWO)}`;
     return this.element;
   }
 }

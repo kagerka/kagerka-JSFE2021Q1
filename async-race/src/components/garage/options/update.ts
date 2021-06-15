@@ -19,7 +19,7 @@ export class UpdateOption extends BaseComponent {
 
     this.nameInput = document.createElement('input');
     this.nameInput.setAttribute('type', 'text');
-    this.nameInput.setAttribute('name', 'car-name-undate');
+    this.nameInput.setAttribute('name', 'car-name-update');
     this.nameInput.setAttribute('id', 'car-name-update');
     this.nameInput.setAttribute('class', 'input__text');
     this.nameInput.setAttribute('placeholder', 'Enter new car name here for update');

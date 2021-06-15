@@ -1,10 +1,9 @@
 import { createCar } from '../../../rest-api/garage/create-car';
-import { saveWinner } from '../../../rest-api/winners/winner-func';
 import { BaseComponent } from '../../base-components';
 import { ONE_HUNDRED } from '../../constants';
 import { variables } from '../../data';
 import { generateCarItems } from '../race-field/generateCarItems';
-import { raceAll, resetAll, startDriving } from '../race-field/race-functions';
+import { raceAll, resetAll } from '../race-field/race-functions';
 import { generateRandomParam } from './generate-random-param';
 
 export class RaceBtnOption extends BaseComponent {
@@ -60,9 +59,6 @@ export class RaceBtnOption extends BaseComponent {
       }
       if (e.target === this.raceBtn) {
         await raceAll();
-        
-        
-        // await saveWinner({id, time});
       }
       if (e.target === this.resetBtn) {
         await resetAll();

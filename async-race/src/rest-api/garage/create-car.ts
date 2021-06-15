@@ -14,9 +14,8 @@ export const createCarFn = async (car: CarItem): Promise<GetGarage> => {
 };
 
 export const createCar = async (name: string, color: string): Promise<void> => {
-  const car = await createCarFn({
+  await createCarFn({
     name,
     color,
   });
-  console.log(car);
 };

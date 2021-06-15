@@ -9,8 +9,6 @@ export class Pagination extends BaseComponent {
 
   public nextBtn: HTMLElement;
 
-  // public static pageNum = FIRST_PAGE;
-
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['pagination-buttons']);
     this.rootElement.appendChild(this.element);
@@ -31,7 +29,6 @@ export class Pagination extends BaseComponent {
 
   init(): void {
     this.element.addEventListener('click', async (e) => {
-      // const items = await getCars(Pagination.pageNum, CARS_ON_PAGE);
       const items = await getCars(variables.pageNum, CARS_ON_PAGE);
       const totalCount = Number(items.count);
       if (e.target === this.prevBtn && variables.pageNum > FIRST_PAGE) {

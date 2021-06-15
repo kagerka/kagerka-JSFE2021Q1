@@ -28,23 +28,20 @@ export const updateCarParamFn = async (id: number, body: CarItemColor | CarItemN
 };
 
 export const updateCar = async (id: number, name: string, color: string): Promise<void> => {
-  const car = await updateCarParamFn(id, {
+  await updateCarParamFn(id, {
     name,
     color,
   });
-  console.log(car);
 };
 
 export const updateCarName = async (id: number, name: string): Promise<void> => {
-  const car = await updateCarParamFn(id, {
+  await updateCarParamFn(id, {
     name,
   });
-  console.log(car);
 };
 
 export const updateCarColor = async (id: number, color: string): Promise<void> => {
-  const car = await updateCarParamFn(id, {
+  await updateCarParamFn(id, {
     color,
   });
-  console.log(car);
 };

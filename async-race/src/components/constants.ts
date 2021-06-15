@@ -1,5 +1,8 @@
 export const CARS_ON_PAGE = 7;
+export const WINNERS_ON_PAGE = 10;
 export const FIRST_PAGE = 1;
+export const TIME_OUT_3000 = 3000;
+export const MILLISEC_IN_SEC = 1000;
 export const ONE_HUNDRED = 100;
 export const TWO_HUNDRED = 200;
 export const PADDING_RIGHT = 40;
@@ -9,3 +12,4 @@ export const TWO = 2;
 export const CAR_MAKE_LENGTH = 26;
 export const HEX_COLORS = 16777215;
 export const HEX = 16;
+export const ERR_404 = 404;

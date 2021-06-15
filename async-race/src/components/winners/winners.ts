@@ -1,4 +1,3 @@
-import { CarType, Winner } from '../../params';
 import { getWinners } from '../../rest-api/winners/winner-func';
 import { BaseComponent } from '../base-components';
 import { WinnerItem } from './winner-item';
@@ -32,11 +31,9 @@ export class Winners extends BaseComponent {
 
     this.tbody = document.createElement('tbody');
     this.table.appendChild(this.tbody);
-    
   }
 
   render(): HTMLElement {
-
     this.title.innerHTML = 'Winners (1)';
     this.subTitle.innerHTML = 'Page #1';
     this.thead.innerHTML = `
@@ -46,22 +43,21 @@ export class Winners extends BaseComponent {
       <th>Wins</th>
       <th>Best time (sec)</th>
     `;
-    renderWinners();
+    this.renderWinners();
     return this.element;
   }
 
-}
-
-export const renderWinners = async (): Promise<void> => {
-  const winners = await getWinners({ page: 1, limit: 10, sort: 'time', order: 'ASD'});
-  let rowNum = 1;
-  const tbody = document.querySelector('tbody');
-  if (tbody) tbody.innerHTML = '';
-  winners.items.forEach((element) => {
-    
-    if (tbody) {
-      new WinnerItem(tbody).render(element.car.color, element.car.id, rowNum, element.car.name, element.wins, element.time);
-    }
-    rowNum++;
-  })
+  renderWinners = async (): Promise<void> => {
+    const winners = await getWinners({
+      page: 1, limit: 10, sort: 'time', order: 'ADS',
+    });
+    let rowNum = 1;
+    this.tbody.innerHTML = '';
+    winners.items.forEach((element) => {
+      new WinnerItem(this.tbody).render(
+        element.car.color, element.car.id, rowNum, element.car.name, element.wins, element.time,
+      );
+      rowNum++;
+    });
+  };
 }

@@ -67,25 +67,26 @@ export type Anim = {
 export type RaceAllCar = {
   id: number;
   time: number;
-}
+};
 
 export type Winner = {
   id: number;
   wins: number;
   time: number;
   car: CarType;
-}
+};
 
 export type GetWinners = {
   page: number;
   limit: number;
   sort: string;
   order: string;
-}
+};
+
 export type GetWinCars = {
   items: Winner[];
   count: string | null;
-}
+};
 
 export type CreateWinner = {
   id: number;
