@@ -12,8 +12,13 @@ export class WinMsg extends BaseComponent {
     this.element.appendChild(this.winnerMessage);
   }
 
-  render(): HTMLElement {
-    this.winnerMessage.innerHTML = 'Lexus finished first (2.54 sec)!';
+  render(name: string, time: number | undefined): HTMLElement {
+    if (time) time = +(time / 1000).toFixed(2);
+    this.winnerMessage.innerHTML = `${name} finished first (${time} sec)!`;
     return this.element;
+  }
+
+  clear(): void {
+    this.element.innerHTML = '';
   }
 }
