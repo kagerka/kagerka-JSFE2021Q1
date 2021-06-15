@@ -1,7 +1,7 @@
 import { createCar } from '../../../rest-api/garage/create-car';
 import { BaseComponent } from '../../base-components';
 import { ONE } from '../../constants';
-import { Pagination } from '../../pagination';
+import { variables } from '../../data';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { generateRandomParam } from './generate-random-param';
 
@@ -54,12 +54,6 @@ export class CreateOption extends BaseComponent {
     });
 
     this.element.addEventListener('click', async (e) => {
-      // const randomMakeNum = Math.floor(Math.random() * CAR_MAKE_LENGTH);
-      // const carMake = Object.keys(carModels)[randomMakeNum];
-      // const carModelLength = Object.values(carModels)[randomMakeNum].length;
-      // const randomModelNum = Math.floor(Math.random() * carModelLength);
-      // const carModel = Object.values(carModels)[randomMakeNum][randomModelNum];
-      // const randomColor = Math.floor(Math.random() * HEX_COLORS).toString(HEX);
       const generatedParams = await generateRandomParam();
       if (e.target === this.createBtn) {
         if (!name && !color) {
@@ -75,7 +69,7 @@ export class CreateOption extends BaseComponent {
         this.colorInput.value = '#e3e3e3';
         name = '';
         color = '';
-        generateCarItems(Pagination.pageNum);
+        generateCarItems(variables.pageNum);
       }
     });
   }
