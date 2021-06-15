@@ -49,7 +49,7 @@ export class CreateOption extends BaseComponent {
         name = this.nameInput.value;
       }
       if (e.target === this.colorInput) {
-        color = this.colorInput.value.slice(ONE, this.colorInput.value.length);
+        color = this.colorInput.value;
       }
     });
 

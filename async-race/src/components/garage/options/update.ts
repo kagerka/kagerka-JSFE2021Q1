@@ -56,7 +56,7 @@ export class UpdateOption extends BaseComponent {
       const currentCar = await getCar(RaceFieldItem.currentCarId);
       const currentName = currentCar.name;
       const currentColor = currentCar.color;
-      const inputColorValue = this.colorInput.value.slice(ONE, this.colorInput.value.length);
+      const inputColorValue = this.colorInput.value;
       if (this.nameInput.value === '') {
         await updateCar(RaceFieldItem.currentCarId, currentName, inputColorValue);
       } else if (this.colorInput.value === '#e3e3e3') {
