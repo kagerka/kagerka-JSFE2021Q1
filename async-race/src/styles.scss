@@ -62,9 +62,11 @@ body {
 .hidden {
   position: absolute;
   clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
+  width: 0;
   margin: -1px;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 .nav-buttons {
@@ -240,6 +242,7 @@ h3 {
     height: 60px;
   }
 }
+
 td .garage__car {
   position: relative;
   left: 0;
@@ -247,10 +250,12 @@ td .garage__car {
   z-index: 0;
   height: 60px;
 }
+
 td .car__svg {
   width: 60px;
   height: 60px;
 }
+
 .car-wheel {
   fill: #535353;
 }
@@ -262,9 +267,11 @@ td .car__svg {
   &.hidden {
     position: absolute;
     clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
+    width: 0;
     margin: -1px;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
   }
 
   th {
