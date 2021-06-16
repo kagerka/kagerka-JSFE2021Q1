@@ -23,7 +23,7 @@ export class RaceBtnOption extends BaseComponent {
     this.element.appendChild(this.raceBtn);
 
     this.resetBtn = document.createElement('button');
-    this.resetBtn.setAttribute('class', 'btn garage__reset-btn disabled');
+    this.resetBtn.setAttribute('class', 'btn garage__reset-btn');
     this.resetBtn.setAttribute('id', 'reset-btn');
     this.element.appendChild(this.resetBtn);
 
