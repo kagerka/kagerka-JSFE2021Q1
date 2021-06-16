@@ -35,7 +35,6 @@ export const updateWinner = async (id: number, body: SaveWinner): Promise<void> 
 
 export const saveWinner = async ({ id, time }: CreateWinner): Promise<void> => {
   const winnerStatus = await getWinnerStatus(id);
-
   if (winnerStatus === ERR_404) {
     await createWinner({
       id,
@@ -56,7 +55,6 @@ export const getSortOrder = (sort: string, order: string): string => {
   if (sort && order) {
     return `&_sort=${sort}&_order=${order}`;
   }
-
   return '';
 };
 
