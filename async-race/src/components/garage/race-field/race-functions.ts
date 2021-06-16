@@ -5,7 +5,7 @@ import { getCars } from '../../../rest-api/garage/get-car';
 import { baseUrl, path } from '../../../rest-api/path';
 import { saveWinner } from '../../../rest-api/winners/winner-func';
 import {
-  CARS_ON_PAGE, ONE_HUNDRED, PADDING_RIGHT, TIME_OUT_3000, TWO, TWO_HUNDRED,
+  CARS_ON_PAGE, MILLISEC_IN_SEC, ONE_HUNDRED, PADDING_RIGHT, TIME_OUT_3000, TWO, TWO_HUNDRED, ZERO,
 } from '../../constants';
 import { variables } from '../../data';
 import { Winners } from '../../winners/winners';
@@ -111,26 +111,26 @@ export const raceAll = async (): Promise<void> => {
     const { id } = element;
     const carWin = await startDriving(id);
     const success = carWin?.success;
-    const time = carWin?.time;
-
-    if (success === true && firstWinner === false && time) {
-      firstWinner = true;
-      const garageField: HTMLElement | null = document.querySelector('.garage__race');
-      if (garageField) new WinMsg(garageField).render(element.name, time);
-      setTimeout(async () => {
-        const winMsg: HTMLElement | null = document.querySelector('.win-message');
-        if (winMsg) winMsg.parentNode?.removeChild(winMsg);
-      }, TIME_OUT_3000);
-      await saveWinner({ id, time });
-      const winPage: HTMLElement | null = document.querySelector('.winners');
-      if (winPage) {
-        new Winners(winPage).render();
+    const timeCar: number | undefined = carWin?.time;
+    if (timeCar) {
+      const time = +(timeCar / MILLISEC_IN_SEC).toFixed(TWO);
+      if (success === true && firstWinner === false && time) {
+        firstWinner = true;
+        const garageField: HTMLElement | null = document.querySelector('.garage__race');
+        if (garageField) new WinMsg(garageField).render(element.name, time);
+        setTimeout(async () => {
+          const winMsg: HTMLElement | null = document.querySelector('.win-message');
+          if (winMsg) winMsg.parentNode?.removeChild(winMsg);
+        }, TIME_OUT_3000);
+        await saveWinner({ id, time });
+        setTimeout(() => {
+          Winners.renderWinners();
+        }, ZERO);
       }
     }
   });
   if (raceBtn instanceof HTMLButtonElement && resetBtn instanceof HTMLButtonElement) {
     raceBtn.classList.toggle('disabled', true);
-    resetBtn.classList.toggle('disabled', false);
   }
 };
 
@@ -144,7 +144,6 @@ export const resetAll = async (): Promise<void> => {
   });
   if (raceBtn instanceof HTMLButtonElement && resetBtn instanceof HTMLButtonElement) {
     raceBtn.classList.toggle('disabled', false);
-    resetBtn.classList.toggle('disabled', true);
   }
   firstWinner = false;
 };
