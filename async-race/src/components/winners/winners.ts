@@ -1,27 +1,45 @@
 import { getWinners } from '../../rest-api/winners/winner-func';
 import { BaseComponent } from '../base-components';
+import { FIRST_PAGE, WINNERS_ON_PAGE } from '../constants';
+import { variables } from '../data';
 import { WinnerItem } from './winner-item';
 
 export class Winners extends BaseComponent {
-  private readonly title: HTMLElement;
+  public static title: HTMLElement;
 
-  private readonly subTitle: HTMLElement;
+  public static subTitle: HTMLElement;
 
   private readonly table: HTMLElement;
 
   private readonly thead: HTMLElement;
 
-  private readonly tbody: HTMLElement;
+  private readonly thNumber: HTMLElement;
+
+  private readonly thCar: HTMLElement;
+
+  private readonly thName: HTMLElement;
+
+  public static thWins: HTMLElement;
+
+  public static thTime: HTMLElement;
+
+  public static tbody: HTMLElement;
+
+  public pageButtons: HTMLElement;
+
+  public prevBtn: HTMLElement;
+
+  public nextBtn: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['winners', 'hidden']);
     this.rootElement.appendChild(this.element);
 
-    this.title = document.createElement('h2');
-    this.element.appendChild(this.title);
+    Winners.title = document.createElement('h2');
+    this.element.appendChild(Winners.title);
 
-    this.subTitle = document.createElement('h3');
-    this.element.appendChild(this.subTitle);
+    Winners.subTitle = document.createElement('h3');
+    this.element.appendChild(Winners.subTitle);
 
     this.table = document.createElement('table');
     this.element.appendChild(this.table);
@@ -29,35 +47,121 @@ export class Winners extends BaseComponent {
     this.thead = document.createElement('thead');
     this.table.appendChild(this.thead);
 
-    this.tbody = document.createElement('tbody');
-    this.table.appendChild(this.tbody);
+    this.thNumber = document.createElement('th');
+    this.thead.appendChild(this.thNumber);
+
+    this.thCar = document.createElement('th');
+    this.thead.appendChild(this.thCar);
+
+    this.thName = document.createElement('th');
+    this.thead.appendChild(this.thName);
+
+    Winners.thWins = document.createElement('th');
+    this.thead.appendChild(Winners.thWins);
+
+    Winners.thTime = document.createElement('th');
+    this.thead.appendChild(Winners.thTime);
+
+    Winners.tbody = document.createElement('tbody');
+    this.table.appendChild(Winners.tbody);
+
+    this.pageButtons = document.createElement('div');
+    this.pageButtons.setAttribute('class', 'pagination-buttons');
+    this.element.appendChild(this.pageButtons);
+
+    this.prevBtn = document.createElement('button');
+    this.prevBtn.setAttribute('class', 'btn pagination-buttons__prev');
+    this.pageButtons.appendChild(this.prevBtn);
+
+    this.nextBtn = document.createElement('button');
+    this.nextBtn.setAttribute('class', 'btn pagination-buttons__next');
+    this.pageButtons.appendChild(this.nextBtn);
+    this.init();
+    Winners.sortOrder();
   }
 
   render(): HTMLElement {
-    this.title.innerHTML = 'Winners (1)';
-    this.subTitle.innerHTML = 'Page #1';
-    this.thead.innerHTML = `
-      <th>Number</th>
-      <th>Car</th>
-      <th>Name</th>
-      <th>Wins</th>
-      <th>Best time (sec)</th>
-    `;
-    this.renderWinners();
+    this.thNumber.innerHTML = 'Number';
+    this.thCar.innerHTML = 'Car';
+    this.thName.innerHTML = 'Name';
+    Winners.thWins.innerHTML = `Wins ${variables.arrowWin}`;
+    Winners.thTime.innerHTML = `Best time (sec) ${variables.arrowTime}`;
+    Winners.thWins.style.cursor = 'pointer';
+    Winners.thTime.style.cursor = 'pointer';
+    Winners.renderWinners();
+    this.prevBtn.innerText = 'Prev';
+    this.nextBtn.innerText = 'Next';
     return this.element;
   }
 
-  renderWinners = async (): Promise<void> => {
+  public static renderWinners = async (): Promise<void> => {
     const winners = await getWinners({
-      page: 1, limit: 10, sort: 'time', order: 'ADS',
+      page: variables.winPageNum, limit: 10, sort: variables.sort, order: variables.order,
     });
+    Winners.title.innerHTML = `Winners (${winners.count})`;
+    Winners.subTitle.innerHTML = `Page #${variables.winPageNum}`;
     let rowNum = 1;
-    this.tbody.innerHTML = '';
+    Winners.tbody.innerHTML = '';
     winners.items.forEach((element) => {
-      new WinnerItem(this.tbody).render(
+      new WinnerItem(Winners.tbody).render(
         element.car.color, element.car.id, rowNum, element.car.name, element.wins, element.time,
       );
       rowNum++;
     });
+    Winners.thWins.innerHTML = `Wins ${variables.arrowWin}`;
+    Winners.thTime.innerHTML = `Best time (sec) ${variables.arrowTime}`;
   };
+
+  init(): void {
+    this.element.addEventListener('click', async (e) => {
+      const winners = await getWinners({
+        page: 1, limit: 10, sort: 'time', order: 'ADS',
+      });
+      if (winners.count) {
+        const winCount = +(winners.count);
+
+        if (e.target === this.prevBtn && variables.winPageNum > FIRST_PAGE) {
+          variables.winPageNum--;
+          Winners.renderWinners();
+        }
+        if (winCount) {
+          if (e.target === this.nextBtn
+            && variables.winPageNum <= Math.floor(winCount / WINNERS_ON_PAGE)
+            && winCount > variables.winPageNum * WINNERS_ON_PAGE) {
+            variables.winPageNum++;
+            Winners.renderWinners();
+          }
+        }
+      }
+    });
+  }
+
+  static sortOrder(): void {
+    Winners.thWins.addEventListener('click', () => {
+      variables.sort = 'wins';
+      if (variables.order === 'ASC') {
+        variables.order = 'DESC';
+        variables.arrowWin = '▲';
+        variables.arrowTime = '';
+      } else {
+        variables.order = 'ASC';
+        variables.arrowWin = '▼';
+        variables.arrowTime = '';
+      }
+      Winners.renderWinners();
+    });
+    Winners.thTime.addEventListener('click', () => {
+      variables.sort = 'time';
+      if (variables.order === 'ASC') {
+        variables.order = 'DESC';
+        variables.arrowTime = '▲';
+        variables.arrowWin = '';
+      } else {
+        variables.order = 'ASC';
+        variables.arrowTime = '▼';
+        variables.arrowWin = '';
+      }
+      Winners.renderWinners();
+    });
+  }
 }
