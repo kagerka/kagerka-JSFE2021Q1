@@ -1,7 +1,4 @@
 import { BaseComponent } from '../base-components';
-import {
-  MILLISEC_IN_SEC, TWO,
-} from '../constants';
 import { Car } from '../garage/race-field/car';
 
 export class WinnerItem extends BaseComponent {
@@ -42,7 +39,7 @@ export class WinnerItem extends BaseComponent {
     this.carView.appendChild(new Car(this.carView).render(color, id));
     this.winnerName.innerHTML = `${winnerName}`;
     this.numOfWins.innerHTML = `${numOfWins}`;
-    this.bestTime.innerHTML = `${+(bestTime / MILLISEC_IN_SEC).toFixed(TWO)}`;
+    this.bestTime.innerHTML = `${bestTime}`;
     return this.element;
   }
 }
