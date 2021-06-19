@@ -1,11 +1,11 @@
 # Task: Presentation
 ## Subject: Regular expression
 
-#### Link to the YouTube video: ------
+#### Link to the YouTube video: https://youtu.be/1Ltd1c0vE7M
 
 #### Link to the Reveal presentation's deploy: https://rolling-scopes-school.github.io/kagerka-JSFE2021Q1/presentation/index.html
 
-#### Link to the transcript: ------
+#### Link to the transcript: https://docs.google.com/document/d/1udDnZ9HzCxtUKinOHIXgdB1G9NyVc1JbqxLwfpI2DrE/edit
 
 -----
 ### Table of contents:
