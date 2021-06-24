@@ -1,6 +1,6 @@
 export type GetGarage = {
   items: string;
-  carNums: number | string | null;
+  carAmount: number;
 };
 
 export interface ICar {
