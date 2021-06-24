@@ -1,6 +1,6 @@
 import {
-  CarItem, CarItemColor, CarItemName, GetGarage,
-} from '../../params';
+  CarItem, GetGarage,
+} from '../../models';
 import { baseUrl, path } from '../path';
 
 export const updateCarFn = async (id: number, body: CarItem): Promise<GetGarage> => {
@@ -15,7 +15,7 @@ export const updateCarFn = async (id: number, body: CarItem): Promise<GetGarage>
   return cars;
 };
 
-export const updateCarParamFn = async (id: number, body: CarItemColor | CarItemName | CarItem): Promise<GetGarage> => {
+export const updateCarParamFn = async (id: number, body: CarItem): Promise<GetGarage> => {
   const response = await fetch(`${baseUrl}${path.garage}/${id}`, {
     method: 'PATCH',
     headers: {
@@ -30,18 +30,6 @@ export const updateCarParamFn = async (id: number, body: CarItemColor | CarItemN
 export const updateCar = async (id: number, name: string, color: string): Promise<void> => {
   await updateCarParamFn(id, {
     name,
-    color,
-  });
-};
-
-export const updateCarName = async (id: number, name: string): Promise<void> => {
-  await updateCarParamFn(id, {
-    name,
-  });
-};
-
-export const updateCarColor = async (id: number, color: string): Promise<void> => {
-  await updateCarParamFn(id, {
     color,
   });
 };
