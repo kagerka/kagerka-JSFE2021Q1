@@ -1,6 +1,6 @@
 import {
   Distance, Position, StartDriveResult, Success,
-} from '../../../params';
+} from '../../../models';
 import { getCars } from '../../../rest-api/garage/get-car';
 import { baseUrl, path } from '../../../rest-api/path';
 import { saveWinner } from '../../../rest-api/winners/winner-func';
