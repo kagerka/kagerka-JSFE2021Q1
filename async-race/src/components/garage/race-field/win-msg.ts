@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../base-components';
+import { BaseComponent } from '../../baseСomponent';
 
 export class WinMsg extends BaseComponent {
   private readonly winnerMessage: HTMLElement;

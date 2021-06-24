@@ -1,5 +1,5 @@
 import { getWinners } from '../../rest-api/winners/winner-func';
-import { BaseComponent } from '../base-components';
+import { BaseComponent } from '../baseСomponent';
 import { FIRST_PAGE, WINNERS_ON_PAGE } from '../constants';
 import { variables } from '../data';
 import { WinnerItem } from './winner-item';

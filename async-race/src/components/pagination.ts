@@ -1,5 +1,5 @@
 import { getCars } from '../rest-api/garage/get-car';
-import { BaseComponent } from './base-components';
+import { BaseComponent } from './baseСomponent';
 import { CARS_ON_PAGE, FIRST_PAGE } from './constants';
 import { variables } from './data';
 import { generateCarItems } from './garage/race-field/generateCarItems';

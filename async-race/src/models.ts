@@ -63,17 +63,17 @@ export type Winner = {
   car: ICar;
 };
 
-export type GetWinners = {
+export interface IWinnersTableParams {
   page: number;
   limit: number;
   sort: string;
   order: string;
-};
+}
 
-export type GetWinCars = {
+export interface IWinners {
   items: Winner[];
   count: string | null;
-};
+}
 
 export type CreateWinner = {
   id: number;

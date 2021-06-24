@@ -2,7 +2,7 @@ import {
   ERR_404, ONE, WINNERS_ON_PAGE,
 } from '../../components/constants';
 import {
-  CreateWinner, GetWinCars, GetWinners, UpdateWinner, Winner,
+  CreateWinner, IWinners, IWinnersTableParams, UpdateWinner, Winner,
 } from '../../models';
 import { getCar } from '../garage/get-car';
 import { baseUrl, path } from '../path';
@@ -10,8 +10,8 @@ import { baseUrl, path } from '../path';
 export const getWinner = async (id: number): Promise<UpdateWinner> => (
   await fetch(`${baseUrl}${path.winners}/${id}`)).json();
 
-export const getWinnerStatus = async (id: number): Promise<number> => (
-  await fetch(`${baseUrl}${path.winners}/${id}`)).status;
+// export const getWinnerStatus = async (id: number): Promise<number> => (
+//   await fetch(`${baseUrl}${path.winners}/${id}`)).status;
 
 export const deleteWinner = async (id: number): Promise<void> => (
   await fetch(`${baseUrl}${path.winners}/${id}`, { method: 'DELETE' })).json();
@@ -34,7 +34,7 @@ export const updateWinner = async (id: number, body: UpdateWinner): Promise<void
   })).json();
 
 export const saveWinner = async ({ id, time }: CreateWinner): Promise<void> => {
-  const winnerStatus = await getWinnerStatus(id);
+  const winnerStatus = (await fetch(`${baseUrl}${path.winners}/${id}`)).status;
   if (winnerStatus === ERR_404) {
     await createWinner({
       id,
@@ -51,16 +51,11 @@ export const saveWinner = async ({ id, time }: CreateWinner): Promise<void> => {
   }
 };
 
-export const getSortOrder = (sort: string, order: string): string => {
-  if (sort && order) {
-    return `&_sort=${sort}&_order=${order}`;
-  }
-  return '';
-};
+export const getSortOrder = (sort: string, order: string): string => `&_sort=${sort}&_order=${order}`;
 
 export const getWinners = async ({
   page, limit = WINNERS_ON_PAGE, sort, order,
-}: GetWinners): Promise<GetWinCars> => {
+}: IWinnersTableParams): Promise<IWinners> => {
   const response = await fetch(`${baseUrl}${path.winners}?_page=${page}&_limit=${limit}${getSortOrder(sort, order)}`);
   const items = await response.json();
 

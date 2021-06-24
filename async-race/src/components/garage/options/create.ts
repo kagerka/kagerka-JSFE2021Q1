@@ -1,5 +1,5 @@
 import { createCar } from '../../../rest-api/garage/create-car';
-import { BaseComponent } from '../../base-components';
+import { BaseComponent } from '../../baseСomponent';
 import { variables } from '../../data';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { generateRandomParam } from './generate-random-param';

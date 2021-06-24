@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../base-components';
+import { BaseComponent } from '../../baseСomponent';
 
 export class Car extends BaseComponent {
   constructor(private readonly rootElement: HTMLElement) {

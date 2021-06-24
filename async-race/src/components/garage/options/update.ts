@@ -1,6 +1,6 @@
 import { getCar } from '../../../rest-api/garage/get-car';
 import { updateCar } from '../../../rest-api/garage/update-car';
-import { BaseComponent } from '../../base-components';
+import { BaseComponent } from '../../baseСomponent';
 import { variables } from '../../data';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { RaceFieldItem } from '../race-field/race-field-item';

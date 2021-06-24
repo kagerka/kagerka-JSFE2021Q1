@@ -1,4 +1,4 @@
-import { BaseComponent } from '../base-components';
+import { BaseComponent } from '../baseСomponent';
 import { Car } from '../garage/race-field/car';
 
 export class WinnerItem extends BaseComponent {

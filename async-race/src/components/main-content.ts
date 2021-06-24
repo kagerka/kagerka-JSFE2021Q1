@@ -1,4 +1,4 @@
-import { BaseComponent } from './base-components';
+import { BaseComponent } from './baseСomponent';
 import { Garage } from './garage/garage';
 import { Winners } from './winners/winners';
 

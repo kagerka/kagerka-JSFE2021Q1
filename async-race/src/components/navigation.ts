@@ -1,4 +1,4 @@
-import { BaseComponent } from './base-components';
+import { BaseComponent } from './baseСomponent';
 import { Winners } from './winners/winners';
 
 export class Navigation extends BaseComponent {

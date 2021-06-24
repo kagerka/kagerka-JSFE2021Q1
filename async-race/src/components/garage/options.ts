@@ -1,4 +1,4 @@
-import { BaseComponent } from '../base-components';
+import { BaseComponent } from '../baseСomponent';
 import { CreateOption } from './options/create';
 import { RaceBtnOption } from './options/race-buttons';
 import { UpdateOption } from './options/update';

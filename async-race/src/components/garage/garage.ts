@@ -1,4 +1,4 @@
-import { BaseComponent } from '../base-components';
+import { BaseComponent } from '../baseСomponent';
 import { Pagination } from '../pagination';
 import { GarageOptions } from './options';
 import { Race } from './race-field';
