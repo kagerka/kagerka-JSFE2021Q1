@@ -1,7 +1,7 @@
 import { createCar } from '../../../rest-api/garage/create-car';
 import { BaseComponent } from '../../baseСomponent';
 import { ONE_HUNDRED } from '../../constants';
-import { variables } from '../../data';
+import { state } from '../../state';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { raceAll, resetAll } from '../race-field/race-functions';
 import { generateRandomParam } from './generate-random-param';
@@ -53,7 +53,7 @@ export class RaceBtnOption extends BaseComponent {
             name = `${generatedParams.carMake} ${generatedParams.carModel}`;
             color = `${generatedParams.randomColor}`;
             createCar(`${name}`, `${color}`);
-            generateCarItems(variables.pageNum);
+            generateCarItems(state.pageNum);
           }
         }
       }

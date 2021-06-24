@@ -7,7 +7,7 @@ import { saveWinner } from '../../../rest-api/winners/winner-func';
 import {
   CARS_ON_PAGE, MILLISEC_IN_SEC, ONE_HUNDRED, PADDING_RIGHT, TIME_OUT_3000, TWO, TWO_HUNDRED, ZERO,
 } from '../../constants';
-import { variables } from '../../data';
+import { state } from '../../state';
 import { Winners } from '../../winners/winners';
 import { WinMsg } from './win-msg';
 
@@ -30,7 +30,7 @@ export function getDistanceBetweenElements(a: HTMLElement, b: HTMLElement): numb
 
 export const animation = (car: HTMLElement, distance: number, animationTime: number): { id: number; } => {
   let start: number | null = null;
-  const state = { id: -1 };
+  const states = { id: -1 };
 
   function step(timestamp: number): void {
     if (!start) start = timestamp;
@@ -40,12 +40,12 @@ export const animation = (car: HTMLElement, distance: number, animationTime: num
       car.style.transform = `translateX(${Math.min(passed, distance - PADDING_RIGHT)}px)`;
 
       if (passed < distance) {
-        state.id = window.requestAnimationFrame(step);
+        states.id = window.requestAnimationFrame(step);
       }
     }
   }
-  state.id = window.requestAnimationFrame(step);
-  return state;
+  states.id = window.requestAnimationFrame(step);
+  return states;
 };
 
 export const startEngine = async (id: number): Promise<Distance> => (
@@ -106,7 +106,7 @@ let firstWinner = false;
 export const raceAll = async (): Promise<void> => {
   const raceBtn: HTMLElement | null = document.getElementById('race-btn');
   const resetBtn: HTMLElement | null = document.getElementById('reset-btn');
-  const carsOnPage = await getCars(variables.pageNum, CARS_ON_PAGE);
+  const carsOnPage = await getCars(state.pageNum, CARS_ON_PAGE);
   carsOnPage.items.forEach(async (element): Promise<void> => {
     const { id } = element;
     const carWin = await startDriving(id);
@@ -137,7 +137,7 @@ export const raceAll = async (): Promise<void> => {
 export const resetAll = async (): Promise<void> => {
   const raceBtn: HTMLElement | null = document.getElementById('race-btn');
   const resetBtn: HTMLElement | null = document.getElementById('reset-btn');
-  const carsOnPage = await getCars(variables.pageNum, CARS_ON_PAGE);
+  const carsOnPage = await getCars(state.pageNum, CARS_ON_PAGE);
   carsOnPage.items.forEach((element) => {
     const { id } = element;
     stopDriving(id);

@@ -1,5 +1,5 @@
 import { BaseComponent } from '../baseСomponent';
-import { variables } from '../data';
+import { state } from '../state';
 import { generateCarItems } from './race-field/generateCarItems';
 
 export class Race extends BaseComponent {
@@ -29,7 +29,7 @@ export class Race extends BaseComponent {
   render(): HTMLElement {
     this.title.innerHTML = '';
     this.subTitle.innerHTML = '';
-    generateCarItems(variables.pageNum);
+    generateCarItems(state.pageNum);
     return this.element;
   }
 }

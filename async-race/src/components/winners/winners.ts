@@ -1,7 +1,7 @@
 import { getWinners } from '../../rest-api/winners/winner-func';
 import { BaseComponent } from '../baseСomponent';
 import { FIRST_PAGE, WINNERS_ON_PAGE } from '../constants';
-import { variables } from '../data';
+import { state } from '../state';
 import { WinnerItem } from './winner-item';
 
 export class Winners extends BaseComponent {
@@ -84,8 +84,8 @@ export class Winners extends BaseComponent {
     this.thNumber.innerHTML = 'Number';
     this.thCar.innerHTML = 'Car';
     this.thName.innerHTML = 'Name';
-    Winners.thWins.innerHTML = `Wins ${variables.arrowWin}`;
-    Winners.thTime.innerHTML = `Best time (sec) ${variables.arrowTime}`;
+    Winners.thWins.innerHTML = `Wins ${state.arrowWin}`;
+    Winners.thTime.innerHTML = `Best time (sec) ${state.arrowTime}`;
     Winners.thWins.style.cursor = 'pointer';
     Winners.thTime.style.cursor = 'pointer';
     Winners.renderWinners();
@@ -96,10 +96,10 @@ export class Winners extends BaseComponent {
 
   public static renderWinners = async (): Promise<void> => {
     const winners = await getWinners({
-      page: variables.winPageNum, limit: 10, sort: variables.sort, order: variables.order,
+      page: state.winPageNum, limit: 10, sort: state.sort, order: state.order,
     });
     Winners.title.innerHTML = `Winners (${winners.count})`;
-    Winners.subTitle.innerHTML = `Page #${variables.winPageNum}`;
+    Winners.subTitle.innerHTML = `Page #${state.winPageNum}`;
     let rowNum = 1;
     Winners.tbody.innerHTML = '';
     winners.items.forEach((element) => {
@@ -108,8 +108,8 @@ export class Winners extends BaseComponent {
       );
       rowNum++;
     });
-    Winners.thWins.innerHTML = `Wins ${variables.arrowWin}`;
-    Winners.thTime.innerHTML = `Best time (sec) ${variables.arrowTime}`;
+    Winners.thWins.innerHTML = `Wins ${state.arrowWin}`;
+    Winners.thTime.innerHTML = `Best time (sec) ${state.arrowTime}`;
   };
 
   init(): void {
@@ -120,15 +120,15 @@ export class Winners extends BaseComponent {
       if (winners.count) {
         const winCount = +(winners.count);
 
-        if (e.target === this.prevBtn && variables.winPageNum > FIRST_PAGE) {
-          variables.winPageNum--;
+        if (e.target === this.prevBtn && state.winPageNum > FIRST_PAGE) {
+          state.winPageNum--;
           Winners.renderWinners();
         }
         if (winCount) {
           if (e.target === this.nextBtn
-            && variables.winPageNum <= Math.floor(winCount / WINNERS_ON_PAGE)
-            && winCount > variables.winPageNum * WINNERS_ON_PAGE) {
-            variables.winPageNum++;
+            && state.winPageNum <= Math.floor(winCount / WINNERS_ON_PAGE)
+            && winCount > state.winPageNum * WINNERS_ON_PAGE) {
+            state.winPageNum++;
             Winners.renderWinners();
           }
         }
@@ -138,28 +138,28 @@ export class Winners extends BaseComponent {
 
   static sortOrder(): void {
     Winners.thWins.addEventListener('click', () => {
-      variables.sort = 'wins';
-      if (variables.order === 'ASC') {
-        variables.order = 'DESC';
-        variables.arrowWin = '▲';
-        variables.arrowTime = '';
+      state.sort = 'wins';
+      if (state.order === 'ASC') {
+        state.order = 'DESC';
+        state.arrowWin = '▲';
+        state.arrowTime = '';
       } else {
-        variables.order = 'ASC';
-        variables.arrowWin = '▼';
-        variables.arrowTime = '';
+        state.order = 'ASC';
+        state.arrowWin = '▼';
+        state.arrowTime = '';
       }
       Winners.renderWinners();
     });
     Winners.thTime.addEventListener('click', () => {
-      variables.sort = 'time';
-      if (variables.order === 'ASC') {
-        variables.order = 'DESC';
-        variables.arrowTime = '▲';
-        variables.arrowWin = '';
+      state.sort = 'time';
+      if (state.order === 'ASC') {
+        state.order = 'DESC';
+        state.arrowTime = '▲';
+        state.arrowWin = '';
       } else {
-        variables.order = 'ASC';
-        variables.arrowTime = '▼';
-        variables.arrowWin = '';
+        state.order = 'ASC';
+        state.arrowTime = '▼';
+        state.arrowWin = '';
       }
       Winners.renderWinners();
     });

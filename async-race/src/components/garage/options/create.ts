@@ -1,6 +1,6 @@
 import { createCar } from '../../../rest-api/garage/create-car';
 import { BaseComponent } from '../../baseСomponent';
-import { variables } from '../../data';
+import { state } from '../../state';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { generateRandomParam } from './generate-random-param';
 
@@ -68,7 +68,7 @@ export class CreateOption extends BaseComponent {
         this.colorInput.value = '#e3e3e3';
         name = '';
         color = '';
-        generateCarItems(variables.pageNum);
+        generateCarItems(state.pageNum);
       }
     });
   }
