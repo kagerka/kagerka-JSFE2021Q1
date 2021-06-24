@@ -1,4 +1,4 @@
-import { GenerateRandomParam } from '../../../params';
+import { GenerateRandomParam } from '../../../models';
 import { carModels } from '../../../rest-api/car-models';
 import { CAR_MAKE_LENGTH, HEX, HEX_COLORS } from '../../constants';
 
