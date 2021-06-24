@@ -2,12 +2,12 @@ import {
   ERR_404, ONE, WINNERS_ON_PAGE,
 } from '../../components/constants';
 import {
-  CreateWinner, GetWinCars, GetWinners, SaveWinner, Winner,
-} from '../../params';
+  CreateWinner, GetWinCars, GetWinners, UpdateWinner, Winner,
+} from '../../models';
 import { getCar } from '../garage/get-car';
 import { baseUrl, path } from '../path';
 
-export const getWinner = async (id: number): Promise<SaveWinner> => (
+export const getWinner = async (id: number): Promise<UpdateWinner> => (
   await fetch(`${baseUrl}${path.winners}/${id}`)).json();
 
 export const getWinnerStatus = async (id: number): Promise<number> => (
@@ -16,7 +16,7 @@ export const getWinnerStatus = async (id: number): Promise<number> => (
 export const deleteWinner = async (id: number): Promise<void> => (
   await fetch(`${baseUrl}${path.winners}/${id}`, { method: 'DELETE' })).json();
 
-export const createWinner = async (body: SaveWinner): Promise<Response> => (await fetch(`${baseUrl}${path.winners}`, {
+export const createWinner = async (body: UpdateWinner): Promise<Response> => (await fetch(`${baseUrl}${path.winners}`, {
   method: 'POST',
   body: JSON.stringify(body),
   headers: {
@@ -24,7 +24,7 @@ export const createWinner = async (body: SaveWinner): Promise<Response> => (awai
   },
 })).json();
 
-export const updateWinner = async (id: number, body: SaveWinner): Promise<void> => (
+export const updateWinner = async (id: number, body: UpdateWinner): Promise<void> => (
   await fetch(`${baseUrl}${path.winners}/${id}`, {
     method: 'PUT',
     body: JSON.stringify(body),
