@@ -1,4 +1,4 @@
-import { GetGarage } from '../../params';
+import { GetGarage } from '../../models';
 import { baseUrl, path } from '../path';
 import { deleteWinner, getWinner } from '../winners/winner-func';
 
