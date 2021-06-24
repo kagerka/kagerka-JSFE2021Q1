@@ -31,8 +31,9 @@
       "props": false
     }],
     "no-magic-numbers": ["error", { "ignoreArrayIndexes": true  }],
-    "max-lines": ["error", {"max": 99, "skipBlankLines": true}],
+    "max-lines": ["error", {"max": 200, "skipBlankLines": true}],
     "@typescript-eslint/explicit-function-return-type": "error",
-    "max-lines-per-function": ["error", {"max": 40, "skipBlankLines": true}]
+    "max-lines-per-function": ["error", {"max": 40, "skipBlankLines": true}],
+    // "import/no-cycle": [0, { "ignoreExternal": true }]
   }
 }
