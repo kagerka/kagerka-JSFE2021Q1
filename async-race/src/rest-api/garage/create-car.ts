@@ -1,4 +1,4 @@
-import { CarItem, GetGarage } from '../../params';
+import { CarItem, GetGarage } from '../../models';
 import { baseUrl, path } from '../path';
 
 export const createCarFn = async (car: CarItem): Promise<GetGarage> => {
@@ -9,8 +9,7 @@ export const createCarFn = async (car: CarItem): Promise<GetGarage> => {
     },
     body: JSON.stringify(car),
   });
-  const cars = await response.json();
-  return cars;
+  return response.json();
 };
 
 export const createCar = async (name: string, color: string): Promise<void> => {
