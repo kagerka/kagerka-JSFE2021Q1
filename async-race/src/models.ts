@@ -1,29 +1,16 @@
-export type Params = {
-  key: string;
-  value: string | number;
-};
-
 export type GetGarage = {
-  items: Array<Params>;
+  items: string;
   carNums: number | string | null;
 };
 
-export type CarType = {
+export interface ICar {
   id: number;
   name: string;
   color: string;
-};
+}
 
 export type CarItem = {
   name: string;
-  color: string | number;
-};
-
-export type CarItemName = {
-  name: string;
-};
-
-export type CarItemColor = {
   color: string | number;
 };
 
@@ -54,7 +41,7 @@ export type StartDriveResult = {
 };
 
 export type GetCars = {
-  items: CarType[];
+  items: ICar[];
   count: string | null;
 };
 
@@ -73,7 +60,7 @@ export type Winner = {
   id: number;
   wins: number;
   time: number;
-  car: CarType;
+  car: ICar;
 };
 
 export type GetWinners = {
@@ -93,7 +80,7 @@ export type CreateWinner = {
   time: number;
 };
 
-export type SaveWinner = {
+export type UpdateWinner = {
   id: number;
   wins: number;
   time: number;
