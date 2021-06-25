@@ -26,10 +26,9 @@ export class Race extends BaseComponent {
     this.element.appendChild(this.raceField);
   }
 
-  render(): HTMLElement {
+  render(): void {
     this.title.innerHTML = '';
     this.subTitle.innerHTML = '';
     generateCarItems(state.pageNum);
-    return this.element;
   }
 }

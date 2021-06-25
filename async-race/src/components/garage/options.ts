@@ -21,10 +21,9 @@ export class GarageOptions extends BaseComponent {
     this.element.appendChild(this.updateForm);
   }
 
-  render(): HTMLElement {
+  render(): void {
     new CreateOption(this.createForm).render();
     new UpdateOption(this.updateForm).render();
     new RaceBtnOption(this.element).render();
-    return this.element;
   }
 }

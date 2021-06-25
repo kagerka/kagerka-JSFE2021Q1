@@ -9,10 +9,9 @@ export class Garage extends BaseComponent {
     this.rootElement.appendChild(this.element);
   }
 
-  render(): HTMLElement {
+  render(): void {
     new GarageOptions(this.element).render();
     new Race(this.element).render();
     new Pagination(this.element).render();
-    return this.element;
   }
 }

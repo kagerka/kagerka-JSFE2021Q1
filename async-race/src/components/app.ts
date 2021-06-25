@@ -2,7 +2,7 @@ import { BaseComponent } from './baseСomponent';
 import { Garage } from './garage/garage';
 import { Winners } from './winners/winners';
 
-export class Main extends BaseComponent {
+export class App extends BaseComponent {
   private readonly logo: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
@@ -15,9 +15,8 @@ export class Main extends BaseComponent {
     this.element.appendChild(this.logo);
   }
 
-  render(): HTMLElement {
+  render(): void {
     new Garage(this.element).render();
     new Winners(this.element).render();
-    return this.element;
   }
 }

@@ -41,10 +41,12 @@ export class RaceFieldItem extends BaseComponent {
 
     this.selectButton = document.createElement('button');
     this.selectButton.setAttribute('class', 'btn garage__race-item_select');
+    this.selectButton.innerText = 'Select';
     this.raceButtons.appendChild(this.selectButton);
 
     this.removeButton = document.createElement('button');
     this.removeButton.setAttribute('class', 'btn garage__race-item_remove');
+    this.removeButton.innerText = 'Remove';
     this.raceButtons.appendChild(this.removeButton);
 
     this.raceABButtons = document.createElement('div');
@@ -53,10 +55,12 @@ export class RaceFieldItem extends BaseComponent {
 
     this.aButton = document.createElement('button');
     this.aButton.setAttribute('class', 'btn garage__race-item_a');
+    this.aButton.innerText = 'A';
     this.raceABButtons.appendChild(this.aButton);
 
     this.bButton = document.createElement('button');
     this.bButton.setAttribute('class', 'btn garage__race-item_b disabled');
+    this.bButton.innerText = 'B';
     this.raceABButtons.appendChild(this.bButton);
 
     this.carName = document.createElement('div');
@@ -71,21 +75,38 @@ export class RaceFieldItem extends BaseComponent {
   }
 
   init(id: number): void {
-    this.raceABButtons.addEventListener('click', (e) => {
-      if (e.target === this.aButton) {
-        startDriving(id);
+    this.aButton.addEventListener('click', () => {
+      startDriving(id);
+    });
+
+    this.bButton.addEventListener('click', () => {
+      stopDriving(id);
+    });
+
+    this.removeButton.addEventListener('click', async () => {
+      const currentCar = await getCar(id);
+      if (currentCar.id === id) {
+        deleteCar(id);
+        generateCarItems(state.pageNum);
+      } else {
+        generateCarItems(state.pageNum);
       }
-      if (e.target === this.bButton) {
-        stopDriving(id);
+    });
+
+    this.selectButton.addEventListener('click', async () => {
+      const currentCar = await getCar(id);
+      const nameInputUpdate = document.getElementById('car-name-update');
+      const colorInputUpdate = document.getElementById('car-color-update');
+      RaceFieldItem.currentCarId = currentCar.id;
+      if (nameInputUpdate && colorInputUpdate && currentCar.id === id) {
+        nameInputUpdate.removeAttribute('disabled');
+        colorInputUpdate.removeAttribute('disabled');
+        nameInputUpdate.focus();
       }
     });
   }
 
   render(id: number, name: string, color: string): HTMLElement {
-    this.selectButton.innerText = 'Select';
-    this.removeButton.innerText = 'Remove';
-    this.aButton.innerText = 'A';
-    this.bButton.innerText = 'B';
     this.carName.innerHTML = `${name}`;
     new Car(this.element).render(`${color}`, id);
     this.selectButton.setAttribute('id', `select-car-${id}`);
@@ -93,30 +114,7 @@ export class RaceFieldItem extends BaseComponent {
     this.aButton.setAttribute('id', `a-button-${id}`);
     this.bButton.setAttribute('id', `b-button-${id}`);
     this.flagImg.setAttribute('id', `img-flag-${id}`);
-    this.raceButtons.addEventListener('click', async (e) => {
-      if (e.target === this.removeButton) {
-        const currentCar = await getCar(id);
-        if (currentCar.id === id) {
-          deleteCar(id);
-          generateCarItems(state.pageNum);
-        } else {
-          generateCarItems(state.pageNum);
-        }
-      }
-      if (e.target === this.selectButton) {
-        const currentCar = await getCar(id);
-        const nameInputUpdate = document.getElementById('car-name-update');
-        const colorInputUpdate = document.getElementById('car-color-update');
-        RaceFieldItem.currentCarId = currentCar.id;
-        if (nameInputUpdate && colorInputUpdate) {
-          if (currentCar.id === id) {
-            nameInputUpdate.removeAttribute('disabled');
-            colorInputUpdate.removeAttribute('disabled');
-            nameInputUpdate.focus();
-          }
-        }
-      }
-    });
+
     this.init(id);
     return this.element;
   }

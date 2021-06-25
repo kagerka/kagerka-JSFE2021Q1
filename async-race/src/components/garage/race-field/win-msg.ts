@@ -12,12 +12,10 @@ export class WinMsg extends BaseComponent {
     this.element.appendChild(this.winnerMessage);
   }
 
-  render(name: string, time: number | undefined): HTMLElement {
+  render(name: string, time: number | undefined): void {
     if (time) {
-      const timeOfWin = time;
-      this.winnerMessage.innerHTML = `${name} finished first (${timeOfWin} sec)!`;
+      this.winnerMessage.innerHTML = `${name} finished first (${time} sec)!`;
     }
-    return this.element;
   }
 
   clear(): void {

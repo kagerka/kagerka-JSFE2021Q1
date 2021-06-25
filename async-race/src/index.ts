@@ -1,4 +1,4 @@
-import { Main } from './components/main-content';
+import { App } from './components/app';
 import { Navigation } from './components/navigation';
 import './styles.scss';
 
@@ -9,5 +9,5 @@ window.onload = (): void => {
   }
 
   new Navigation(appElement).render();
-  new Main(appElement).render();
+  new App(appElement).render();
 };

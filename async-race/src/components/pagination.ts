@@ -14,20 +14,15 @@ export class Pagination extends BaseComponent {
     this.rootElement.appendChild(this.element);
     this.prevBtn = document.createElement('button');
     this.prevBtn.setAttribute('class', 'btn pagination-buttons__prev');
+    this.prevBtn.innerText = 'Prev';
     this.element.appendChild(this.prevBtn);
     this.nextBtn = document.createElement('button');
     this.nextBtn.setAttribute('class', 'btn pagination-buttons__next');
-    this.element.appendChild(this.nextBtn);
-    this.init();
-  }
-
-  render(): HTMLElement {
-    this.prevBtn.innerText = 'Prev';
     this.nextBtn.innerText = 'Next';
-    return this.element;
+    this.element.appendChild(this.nextBtn);
   }
 
-  init(): void {
+  render(): void {
     this.element.addEventListener('click', async (e) => {
       const items = await getCars(state.pageNum, CARS_ON_PAGE);
       const totalCount = Number(items.count);
@@ -35,11 +30,12 @@ export class Pagination extends BaseComponent {
         state.pageNum--;
         generateCarItems(state.pageNum);
       }
-      if (totalCount && totalCount) {
+      if (totalCount) {
+        const isLastPage = Math.floor(totalCount / CARS_ON_PAGE);
         if (e.target === this.nextBtn
-          && state.pageNum <= Math.floor(totalCount / CARS_ON_PAGE)
+          && state.pageNum <= isLastPage
           && totalCount > state.pageNum * CARS_ON_PAGE) {
-            state.pageNum++;
+          state.pageNum++;
           generateCarItems(state.pageNum);
         }
       }

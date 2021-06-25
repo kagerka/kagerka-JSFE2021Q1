@@ -9,4 +9,5 @@ export const state = {
   order: 'ASC',
   arrowWin: '',
   arrowTime: '',
+  firstWinner: false,
 };

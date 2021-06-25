@@ -1,8 +1,8 @@
 import { GenerateRandomParam } from '../../../models';
-import { carModels } from '../../../rest-api/car-models';
+import { carModels } from '../../car-models';
 import { CAR_MAKE_LENGTH, HEX, HEX_COLORS } from '../../constants';
 
-export const generateRandomParam = (): GenerateRandomParam => {
+export const generateRandomCar = (): GenerateRandomParam => {
   const randomMakeNum = Math.floor(Math.random() * CAR_MAKE_LENGTH);
   const carMake = Object.keys(carModels)[randomMakeNum];
   const carModelLength = Object.values(carModels)[randomMakeNum].length;

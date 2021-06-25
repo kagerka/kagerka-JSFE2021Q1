@@ -11,7 +11,7 @@ export class Winners extends BaseComponent {
 
   private readonly table: HTMLElement;
 
-  private readonly thead: HTMLElement;
+  public static thead: HTMLElement;
 
   private readonly thNumber: HTMLElement;
 
@@ -44,40 +44,45 @@ export class Winners extends BaseComponent {
     this.table = document.createElement('table');
     this.element.appendChild(this.table);
 
-    this.thead = document.createElement('thead');
-    this.table.appendChild(this.thead);
+    Winners.thead = document.createElement('thead');
+    this.table.appendChild(Winners.thead);
 
     this.thNumber = document.createElement('th');
-    this.thead.appendChild(this.thNumber);
+    Winners.thead.appendChild(this.thNumber);
 
     this.thCar = document.createElement('th');
-    this.thead.appendChild(this.thCar);
+    Winners.thead.appendChild(this.thCar);
 
     this.thName = document.createElement('th');
-    this.thead.appendChild(this.thName);
+    Winners.thead.appendChild(this.thName);
 
     Winners.thWins = document.createElement('th');
-    this.thead.appendChild(Winners.thWins);
+    Winners.thead.appendChild(Winners.thWins);
 
     Winners.thTime = document.createElement('th');
-    this.thead.appendChild(Winners.thTime);
+    Winners.thead.appendChild(Winners.thTime);
 
     Winners.tbody = document.createElement('tbody');
     this.table.appendChild(Winners.tbody);
 
     this.pageButtons = document.createElement('div');
+    this.prevBtn = document.createElement('button');
+    this.nextBtn = document.createElement('button');
+
+    this.init();
+    this.getPagination();
+    Winners.sortOrder();
+  }
+
+  getPagination(): void {
     this.pageButtons.setAttribute('class', 'pagination-buttons');
     this.element.appendChild(this.pageButtons);
 
-    this.prevBtn = document.createElement('button');
     this.prevBtn.setAttribute('class', 'btn pagination-buttons__prev');
     this.pageButtons.appendChild(this.prevBtn);
 
-    this.nextBtn = document.createElement('button');
     this.nextBtn.setAttribute('class', 'btn pagination-buttons__next');
     this.pageButtons.appendChild(this.nextBtn);
-    this.init();
-    Winners.sortOrder();
   }
 
   render(): HTMLElement {
@@ -88,13 +93,13 @@ export class Winners extends BaseComponent {
     Winners.thTime.innerHTML = `Best time (sec) ${state.arrowTime}`;
     Winners.thWins.style.cursor = 'pointer';
     Winners.thTime.style.cursor = 'pointer';
-    Winners.renderWinners();
+    Winners.updateWinners();
     this.prevBtn.innerText = 'Prev';
     this.nextBtn.innerText = 'Next';
     return this.element;
   }
 
-  public static renderWinners = async (): Promise<void> => {
+  public static updateWinners = async (): Promise<void> => {
     const winners = await getWinners({
       page: state.winPageNum, limit: 10, sort: state.sort, order: state.order,
     });
@@ -122,14 +127,15 @@ export class Winners extends BaseComponent {
 
         if (e.target === this.prevBtn && state.winPageNum > FIRST_PAGE) {
           state.winPageNum--;
-          Winners.renderWinners();
+          Winners.updateWinners();
         }
         if (winCount) {
+          const isLastPage = Math.floor(winCount / WINNERS_ON_PAGE);
           if (e.target === this.nextBtn
-            && state.winPageNum <= Math.floor(winCount / WINNERS_ON_PAGE)
+            && state.winPageNum <= isLastPage
             && winCount > state.winPageNum * WINNERS_ON_PAGE) {
             state.winPageNum++;
-            Winners.renderWinners();
+            Winners.updateWinners();
           }
         }
       }
@@ -137,31 +143,33 @@ export class Winners extends BaseComponent {
   }
 
   static sortOrder(): void {
-    Winners.thWins.addEventListener('click', () => {
-      state.sort = 'wins';
-      if (state.order === 'ASC') {
-        state.order = 'DESC';
-        state.arrowWin = '▲';
-        state.arrowTime = '';
-      } else {
-        state.order = 'ASC';
-        state.arrowWin = '▼';
-        state.arrowTime = '';
+    Winners.thead.addEventListener('click', (e) => {
+      if (e.target === Winners.thWins) {
+        state.sort = 'wins';
+        if (state.order === 'ASC') {
+          state.order = 'DESC';
+          state.arrowWin = '▲';
+          state.arrowTime = '';
+        } else {
+          state.order = 'ASC';
+          state.arrowWin = '▼';
+          state.arrowTime = '';
+        }
       }
-      Winners.renderWinners();
-    });
-    Winners.thTime.addEventListener('click', () => {
-      state.sort = 'time';
-      if (state.order === 'ASC') {
-        state.order = 'DESC';
-        state.arrowTime = '▲';
-        state.arrowWin = '';
-      } else {
-        state.order = 'ASC';
-        state.arrowTime = '▼';
-        state.arrowWin = '';
+      if (e.target === Winners.thTime) {
+        state.sort = 'time';
+        if (state.order === 'ASC') {
+          state.order = 'DESC';
+          state.arrowTime = '▲';
+          state.arrowWin = '';
+        } else {
+          state.order = 'ASC';
+          state.arrowTime = '▼';
+          state.arrowWin = '';
+        }
       }
-      Winners.renderWinners();
+
+      Winners.updateWinners();
     });
   }
 }

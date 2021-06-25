@@ -33,7 +33,7 @@ export const animation = (car: HTMLElement, distance: number, animationTime: num
   const states = { id: -1 };
 
   function step(timestamp: number): void {
-    if (!start) start = timestamp;
+    if (!start) { start = timestamp; }
     if (start) {
       const time = timestamp - start;
       const passed = Math.round(time * (distance / animationTime));
@@ -71,14 +71,13 @@ export const startDriving = async (id: number): Promise<StartDriveResult | undef
   const time = Math.round(distance / velocity);
   const car: HTMLElement | null = document.getElementById(`car-img-${id}`);
   const flag: HTMLElement | null = document.getElementById(`img-flag-${id}`);
-  let htmlDistance;
   let anim;
   if (car && flag) {
-    htmlDistance = Math.floor(getDistanceBetweenElements(car, flag)) + ONE_HUNDRED;
+     const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag)) + ONE_HUNDRED;
     anim = animation(car, htmlDistance, time);
   }
   const { success } = await drive(id);
-  if (!success && anim) window.cancelAnimationFrame(anim.id);
+  if (!success && anim) { window.cancelAnimationFrame(anim.id); }
   return { success, id, time };
 };
 
@@ -93,16 +92,10 @@ export const stopDriving = async (id: number): Promise<void> => {
   const car = document.getElementById(`car-img-${id}`);
   await stopEngine(id);
   window.cancelAnimationFrame(id);
-  if (car) car.style.transform = 'translateX(0)';
+  if (car) { car.style.transform = 'translateX(0)'; }
 };
 
-export const startEngineAll = async (page: number, limit: number): Promise<Distance> => (
-  await fetch(`${baseUrl}${path.engine}?_page=${page}&_limit=${limit}&status=started`)).json();
-
-export const stopEngineAll = async (page: number, limit: number): Promise<void> => (
-  await fetch(`${baseUrl}${path.engine}?_page=${page}&_limit=${limit}&status=stopped`)).json();
-
-let firstWinner = false;
+state.firstWinner = false;
 export const raceAll = async (): Promise<void> => {
   const raceBtn: HTMLElement | null = document.getElementById('race-btn');
   const resetBtn: HTMLElement | null = document.getElementById('reset-btn');
@@ -114,22 +107,22 @@ export const raceAll = async (): Promise<void> => {
     const timeCar: number | undefined = carWin?.time;
     if (timeCar) {
       const time = +(timeCar / MILLISEC_IN_SEC).toFixed(TWO);
-      if (success === true && firstWinner === false && time) {
-        firstWinner = true;
+      if (success && !state.firstWinner && time) {
+        state.firstWinner = true;
         const garageField: HTMLElement | null = document.querySelector('.garage__race');
-        if (garageField) new WinMsg(garageField).render(element.name, time);
+        if (garageField) { new WinMsg(garageField).render(element.name, time); }
         setTimeout(async () => {
           const winMsg: HTMLElement | null = document.querySelector('.win-message');
-          if (winMsg) winMsg.parentNode?.removeChild(winMsg);
+          winMsg?.parentNode?.removeChild(winMsg);
         }, TIME_OUT_3000);
         await saveWinner({ id, time });
         setTimeout(() => {
-          Winners.renderWinners();
+          Winners.updateWinners();
         }, ZERO);
       }
     }
   });
-  if (raceBtn instanceof HTMLButtonElement && resetBtn instanceof HTMLButtonElement) {
+  if (raceBtn instanceof HTMLButtonElement) {
     raceBtn.classList.toggle('disabled', true);
   }
 };
@@ -139,11 +132,10 @@ export const resetAll = async (): Promise<void> => {
   const resetBtn: HTMLElement | null = document.getElementById('reset-btn');
   const carsOnPage = await getCars(state.pageNum, CARS_ON_PAGE);
   carsOnPage.items.forEach((element) => {
-    const { id } = element;
-    stopDriving(id);
+    stopDriving(element.id);
   });
-  if (raceBtn instanceof HTMLButtonElement && resetBtn instanceof HTMLButtonElement) {
+  if (raceBtn instanceof HTMLButtonElement) {
     raceBtn.classList.toggle('disabled', false);
   }
-  firstWinner = false;
+  state.firstWinner = false;
 };
