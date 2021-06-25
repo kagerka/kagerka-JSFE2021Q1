@@ -87,7 +87,6 @@ export const stopDriving = async (id: number): Promise<void> => {
 state.firstWinner = false;
 export const raceAll = async (): Promise<void> => {
   const raceBtn: HTMLElement | null = document.getElementById('race-btn');
-  const resetBtn: HTMLElement | null = document.getElementById('reset-btn');
   const carsOnPage = await getCars(state.pageNum, CARS_ON_PAGE);
   carsOnPage.items.forEach(async (element): Promise<void> => {
     const { id } = element;
@@ -118,7 +117,6 @@ export const raceAll = async (): Promise<void> => {
 
 export const resetAll = async (): Promise<void> => {
   const raceBtn: HTMLElement | null = document.getElementById('race-btn');
-  const resetBtn: HTMLElement | null = document.getElementById('reset-btn');
   const carsOnPage = await getCars(state.pageNum, CARS_ON_PAGE);
   carsOnPage.items.forEach((element) => {
     stopDriving(element.id);

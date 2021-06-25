@@ -1,5 +1,5 @@
 import {
-  GetCars, GetGarage, ICar,
+  GetCars, ICar,
 } from '../../models';
 import { baseUrl, path } from '../path';
 

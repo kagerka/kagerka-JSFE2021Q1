@@ -4,6 +4,10 @@ import { state } from '../../state';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { generateRandomCar } from './generate-random-param';
 
+// const attributes = [
+//   { tag: 'button', class: 'btn garage__create-btn', id: 'create-btn', type: 'button' },
+//   { tag: 'input', class: 'input__color', id: 'car-color-create', type: 'color', name: 'car-color-create', value: '#e3e3e3' },
+// ];
 export class CreateOption extends BaseComponent {
   private readonly nameInput: HTMLInputElement;
 
@@ -50,7 +54,7 @@ export class CreateOption extends BaseComponent {
       }
     });
 
-    this.createBtn.addEventListener('click', (e) => {
+    this.createBtn.addEventListener('click', () => {
       const generatedParams = generateRandomCar();
       if (!name && !color) {
         name = `${generatedParams.carMake} ${generatedParams.carModel}`;
