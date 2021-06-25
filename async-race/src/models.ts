@@ -56,12 +56,12 @@ export type RaceAllCar = {
   time: number;
 };
 
-export type Winner = {
+export interface IWinner {
   id: number;
   wins: number;
   time: number;
   car: ICar;
-};
+}
 
 export interface IWinnersTableParams {
   page: number;
@@ -71,17 +71,10 @@ export interface IWinnersTableParams {
 }
 
 export interface IWinners {
-  items: Winner[];
+  items: IWinner[];
   count: string | null;
 }
 
-export type CreateWinner = {
-  id: number;
-  time: number;
-};
+export type CreateWinner = Omit<IWinner, 'wins' | 'car'>;
 
-export type UpdateWinner = {
-  id: number;
-  wins: number;
-  time: number;
-};
+export type UpdateWinner = Omit<IWinner, 'car'>;

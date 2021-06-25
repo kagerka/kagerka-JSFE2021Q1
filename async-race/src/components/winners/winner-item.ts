@@ -37,7 +37,7 @@ export class WinnerItem extends BaseComponent {
   ): HTMLElement {
     this.rowNum.innerHTML = `${rowNum}`;
     this.carView.appendChild(new Car(this.carView).render(color, id));
-    this.winnerName.innerHTML = `${winnerName}`;
+    this.winnerName.innerHTML = winnerName;
     this.numOfWins.innerHTML = `${numOfWins}`;
     this.bestTime.innerHTML = `${bestTime}`;
     return this.element;

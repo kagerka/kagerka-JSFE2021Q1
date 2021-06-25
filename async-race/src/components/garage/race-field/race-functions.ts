@@ -1,11 +1,11 @@
 import {
-  Distance, Position, StartDriveResult, Success,
+  Position, StartDriveResult,
 } from '../../../models';
+import { drive, startEngine, stopEngine } from '../../../rest-api/garage/drive-car';
 import { getCars } from '../../../rest-api/garage/get-car';
-import { baseUrl, path } from '../../../rest-api/path';
 import { saveWinner } from '../../../rest-api/winners/winner-func';
 import {
-  CARS_ON_PAGE, MILLISEC_IN_SEC, ONE_HUNDRED, PADDING_RIGHT, TIME_OUT_3000, TWO, TWO_HUNDRED, ZERO,
+  CARS_ON_PAGE, MILLISEC_IN_SEC, ONE_HUNDRED, PADDING_RIGHT, TIME_OUT_3000, TWO, ZERO,
 } from '../../constants';
 import { state } from '../../state';
 import { Winners } from '../../winners/winners';
@@ -48,17 +48,6 @@ export const animation = (car: HTMLElement, distance: number, animationTime: num
   return states;
 };
 
-export const startEngine = async (id: number): Promise<Distance> => (
-  await fetch(`${baseUrl}${path.engine}?id=${id}&status=started`)).json();
-
-export const stopEngine = async (id: number): Promise<void> => (
-  await fetch(`${baseUrl}${path.engine}?id=${id}&status=stopped`)).json();
-
-export const drive = async (id: number): Promise<Success> => {
-  const res = await fetch(`${baseUrl}${path.engine}?id=${id}&status=drive`).catch();
-  return res.status !== TWO_HUNDRED ? { success: false } : { ...(await res.json()) };
-};
-
 export const startDriving = async (id: number): Promise<StartDriveResult | undefined> => {
   const startButton: HTMLElement | null = document.getElementById(`a-button-${id}`);
   const stopButton: HTMLElement | null = document.getElementById(`b-button-${id}`);
@@ -73,7 +62,7 @@ export const startDriving = async (id: number): Promise<StartDriveResult | undef
   const flag: HTMLElement | null = document.getElementById(`img-flag-${id}`);
   let anim;
   if (car && flag) {
-     const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag)) + ONE_HUNDRED;
+    const htmlDistance = Math.floor(getDistanceBetweenElements(car, flag)) + ONE_HUNDRED;
     anim = animation(car, htmlDistance, time);
   }
   const { success } = await drive(id);

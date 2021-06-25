@@ -2,16 +2,13 @@ import {
   ERR_404, ONE, WINNERS_ON_PAGE,
 } from '../../components/constants';
 import {
-  CreateWinner, IWinners, IWinnersTableParams, UpdateWinner, Winner,
+  CreateWinner, IWinners, IWinnersTableParams, UpdateWinner, IWinner,
 } from '../../models';
 import { getCar } from '../garage/get-car';
 import { baseUrl, path } from '../path';
 
 export const getWinner = async (id: number): Promise<UpdateWinner> => (
   await fetch(`${baseUrl}${path.winners}/${id}`)).json();
-
-// export const getWinnerStatus = async (id: number): Promise<number> => (
-//   await fetch(`${baseUrl}${path.winners}/${id}`)).status;
 
 export const deleteWinner = async (id: number): Promise<void> => (
   await fetch(`${baseUrl}${path.winners}/${id}`, { method: 'DELETE' })).json();
@@ -60,7 +57,7 @@ export const getWinners = async ({
   const items = await response.json();
 
   return {
-    items: await Promise.all(items.map(async (winner: Winner) => ({ ...winner, car: await getCar(winner.id) }))),
+    items: await Promise.all(items.map(async (winner: IWinner) => ({ ...winner, car: await getCar(winner.id) }))),
     count: response.headers.get('X-Total-Count'),
   };
 };
