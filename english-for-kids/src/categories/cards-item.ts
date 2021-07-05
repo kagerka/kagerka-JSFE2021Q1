@@ -1,4 +1,5 @@
 import { BaseComponent } from '../baseComponent';
+import { store } from '../redux';
 
 export class CardsItem extends BaseComponent {
   constructor(private readonly rootElement: HTMLElement) {
@@ -9,36 +10,57 @@ export class CardsItem extends BaseComponent {
 
   init(): void {
     this.element.addEventListener('click', (e) => {
-      const cards = document.querySelectorAll('.words');
-      cards.forEach((item) => item.classList.remove('flipped'));
       if ((e.target as HTMLElement).classList.contains('rotate-btn')) {
-        cards.forEach((item) => item.classList.remove('flipped'));
         this.element.classList.add('flipped');
-      } else {
-        cards.forEach((item) => item.classList.remove('flipped'));
       }
     });
-    document.addEventListener('click', (e) => {
-      const cards = document.querySelectorAll('.words');
-      if (!(e.target as HTMLElement).classList.contains('rotate-btn')) {
-        cards.forEach((item) => item.classList.remove('flipped'));
-      }
+
+    this.element.addEventListener('mouseleave', () => {
+      this.element.classList.remove('flipped');
     });
   }
 
   render(word: string, picture: string, audio: string, translate: string): void {
-    this.element.innerHTML = `
-      <div class="face front">
-        <div class="cards__card_picture" style="background: url('${picture}') center / cover no-repeat"
-        onclick="new Audio('${audio}').play()"></div>
-        <div class="word"><span>${word}</span><img class="rotate-btn" src="./icon/rotate.svg"></div>
-      </div>
-      <div class="face back">
-        <div class="cards__card_picture" style="background: url('${picture}') center / cover no-repeat"
-        onclick="new Audio('${audio}').play()"></div>
-        <div class="word"><span>${translate}</span></div>
-      </div>
-    `;
-    this.element.classList.add(word);
+    const cardTrain = (): void => {
+      this.element.innerHTML = `
+        <div class="face front">
+          <div class="cards__card_picture" data-word="${word}"
+          style="background: url('${picture}') center / cover no-repeat"
+          onclick="new Audio('${audio}').play()"></div>
+          <div class="word"><span onclick="new Audio('${audio}').play()">${word}</span>
+          <img class="rotate-btn" src="./icon/rotate.svg"></div>
+        </div>
+        <div class="face back">
+          <div class="cards__card_picture" data-word="${word}"
+          style="background: url('${picture}') center / cover no-repeat"></div>
+          <div class="word"><span>${translate}</span></div>
+        </div>
+      `;
+    };
+
+    const cardPlay = (): void => {
+      this.element.innerHTML = `
+        <div class="face front play data-word="${word}"">
+          <div class="cards__card_picture play" data-word="${word}"
+          style="background: url('${picture}') center / cover no-repeat"></div>
+        </div>
+      `;
+    };
+
+    if (store.getState().gameMode.value === 'train') {
+      cardTrain();
+      this.element.classList.add(word);
+    } else if (store.getState().gameMode.value === 'play') {
+      cardPlay();
+    }
+
+    document.addEventListener('change', () => {
+      if (store.getState().gameMode.value === 'train') {
+        cardTrain();
+        this.element.classList.add(word);
+      } else if (store.getState().gameMode.value === 'play') {
+        cardPlay();
+      }
+    });
   }
 }
