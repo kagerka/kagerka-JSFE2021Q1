@@ -33,6 +33,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
     "js-redux": "^2.0.0",
-    "redux": "^4.1.0"
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0"
   }
 }
