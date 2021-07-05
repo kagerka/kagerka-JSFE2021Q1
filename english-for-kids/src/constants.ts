@@ -1,0 +1,12 @@
+export const ZERO = 0;
+export const ZERO_DOT_FIVE = 0.5;
+export const ONE = 1;
+export const ONE_SEC = 1000;
+export const TWO = 2;
+export const THREE = 3;
+export const FOUR = 4;
+export const FIVE = 5;
+export const SIX = 6;
+export const SEVEN = 7;
+export const EIGHT = 8;
+export const RELOAD_PAGE_TIME = 2500;
