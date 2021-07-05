@@ -1,5 +1,6 @@
 import { BaseComponent } from '../baseComponent';
 import { categories } from '../categories/categories';
+import { play, store, train } from '../redux';
 import { MenuItem } from './menuItem';
 
 export class Navigation extends BaseComponent {
@@ -66,34 +67,65 @@ export class Navigation extends BaseComponent {
     this.bg.setAttribute('class', 'bg');
     this.toggle.appendChild(this.bg);
     this.init();
+    this.checkboxListener();
   }
 
   init(): void {
-    this.burgerMenu.addEventListener('click', () => {
-      this.navMenu.classList.add('active');
-      this.burgerMenu.classList.add('hidden');
+    document.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement)?.classList.contains('burger-menu')) {
+        this.navMenu.classList.add('active');
+        this.burgerMenu.classList.add('hidden');
+      }
     });
+
     this.closeBtn.addEventListener('click', () => {
       this.navMenu.classList.remove('active');
       this.burgerMenu.classList.remove('hidden');
     });
+
+    document.addEventListener('change', () => {
+      if (store.getState().gameMode.value === 'play') {
+        this.navMenu.classList.add('play');
+      } else {
+        this.navMenu.classList.remove('play');
+      }
+    });
+
+    this.navMenu.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement)?.classList.contains('nav-link') || (e.target as HTMLElement) !== this.navMenu) {
+        this.navMenu.classList.remove('active');
+        this.burgerMenu.classList.remove('hidden');
+      }
+    });
+
+    document.body.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement) !== this.navMenu && (e.target as HTMLElement) !== this.burgerMenu) {
+        this.navMenu.classList.remove('active');
+        this.burgerMenu.classList.remove('hidden');
+      }
+    });
+  }
+
+  checkboxListener(): void {
     this.checkbox.addEventListener('click', () => {
       const cards = document.querySelectorAll('.cards__card');
       if (this.checkbox.checked) {
         cards.forEach((item) => item.classList.add('train'));
         cards.forEach((item) => item.classList.remove('play'));
+        store.dispatch(train());
       } else {
         cards.forEach((item) => item.classList.add('play'));
         cards.forEach((item) => item.classList.remove('train'));
+        store.dispatch(play());
       }
     });
   }
 
   render(): void {
     this.burgerMenu.innerHTML = `
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="burger-menu"></span>
+      <span class="burger-menu"></span>
+      <span class="burger-menu"></span>
     `;
     this.closeBtn.innerHTML = `
       <img src="./icon/close.svg" alt="">
