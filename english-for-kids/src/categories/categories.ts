@@ -5,6 +5,6 @@ export const categories = [
   { categoryName: 'Adjective', categoryClass: 'adjective' },
   { categoryName: 'Animal (set A)', categoryClass: 'animalSetA' },
   { categoryName: 'Animal (set B)', categoryClass: 'animalSetB' },
-  { categoryName: 'Clothes', categoryClass: 'clothes' },
-  { categoryName: 'Emotion', categoryClass: 'emotion' },
+  { categoryName: 'Fruits', categoryClass: 'fruits' },
+  { categoryName: 'Vegetables', categoryClass: 'vegetables' },
 ];
