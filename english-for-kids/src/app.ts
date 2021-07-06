@@ -137,7 +137,7 @@ export class App extends BaseComponent {
         setTimeout(() => {
           const audio = new Audio(`./audio/${App.wordArr[0]}.mp3`);
           audio.play();
-          console.log(`./audio/${App.wordArr[0]}.mp3`);
+          // console.log(`./audio/${App.wordArr[0]}.mp3`);
         }, ONE_SEC);
       } catch { // console.log('no such file');
       }
