@@ -66,32 +66,34 @@ export class App extends BaseComponent {
     this.game();
   }
 
-  game(): void {
-    const startGame = (): void => {
-      if (store.getState().gameMode.value === 'play' && !this.playButton.classList.contains('active')) {
-        store.dispatch(correct());
-        store.dispatch(noStart());
-        store.dispatch(noError());
-        App.starArr = [];
-        App.wordArr = [];
-        this.categoryNameSwitch();
-        App.wordArr.sort(() => Math.random() - ZERO_DOT_FIVE);
-        store.dispatch(start());
-        this.gameProcess();
-      } else if (store.getState().gameMode.value === 'play'
-        && this.playButton.classList.contains('active')
-        && App.wordArr.length !== ZERO) {
-        new Audio(`./audio/${App.wordArr[0]}.mp3`).play();
-      }
-    };
+  startGame = (): void => {
+    if (store.getState().gameMode.value === 'play' && !this.playButton.classList.contains('active')) {
+      store.dispatch(correct());
+      store.dispatch(noStart());
+      store.dispatch(noError());
+      App.starArr = [];
+      App.wordArr = [];
+      this.categoryNameSwitch();
+      App.wordArr.sort(() => Math.random() - ZERO_DOT_FIVE);
+      store.dispatch(start());
+      this.gameProcess();
+    } else if (store.getState().gameMode.value === 'play'
+      && this.playButton.classList.contains('active')
+      && App.wordArr.length !== ZERO) {
+      new Audio(`./audio/${App.wordArr[0]}.mp3`).play();
+    }
+  };
 
-    this.playButton.addEventListener('click', startGame);
+  game(): void {
+    this.playButton.addEventListener('click', this.startGame);
 
     document.addEventListener('click', (e) => {
-      if ((e.target as HTMLElement)?.classList.contains('nav-link')) {
+      if ((e.target as HTMLElement)?.classList.contains('nav-link')
+        || store.getState().restoreGame.value === 'noStart') {
         this.playButton.classList.remove('active');
         App.wordArr = [];
         App.starArr = [];
+        this.starField.innerHTML = '';
         store.dispatch(noStart());
       }
     });
@@ -135,10 +137,9 @@ export class App extends BaseComponent {
         setTimeout(() => {
           const audio = new Audio(`./audio/${App.wordArr[0]}.mp3`);
           audio.play();
-          // console.log(`./audio/${App.wordArr[0]}.mp3`);
+          console.log(`./audio/${App.wordArr[0]}.mp3`);
         }, ONE_SEC);
-      } catch {
-        // console.log('no such file');
+      } catch { // console.log('no such file');
       }
     }
 
@@ -171,38 +172,39 @@ export class App extends BaseComponent {
     if (App.wordArr.length === EIGHT) {
       this.gameProcessFunc();
     }
-    const chooseCard = (): void => {
-      switch (App.wordArr.length) {
-        case SEVEN: this.gameProcessFunc();
-          break;
-        case SIX: this.gameProcessFunc();
-          break;
-        case FIVE: this.gameProcessFunc();
-          break;
-        case FOUR: this.gameProcessFunc();
-          break;
-        case THREE: this.gameProcessFunc();
-          break;
-        case TWO: this.gameProcessFunc();
-          break;
-        case ONE: this.gameProcessFunc();
-          break;
-        case ZERO:
-          if (store.getState().failure.value !== 'error' && store.getState().restoreGame.value === 'start') {
-            new Audio('./audio/success.mp3').play();
-            this.finish();
-          } else if (store.getState().failure.value === 'error' && store.getState().restoreGame.value === 'start') {
-            new Audio('./audio/failure.mp3').play();
-            this.finish();
-          }
-          this.cards.removeEventListener('click', chooseCard);
-          break;
-        default:
-          break;
-      }
-    };
-    this.cards.addEventListener('click', chooseCard);
+    this.chooseCard();
+    this.cards.addEventListener('click', this.chooseCard);
   }
+
+  chooseCard = (): void => {
+    switch (App.wordArr.length) {
+      case SEVEN: this.gameProcessFunc();
+        break;
+      case SIX: this.gameProcessFunc();
+        break;
+      case FIVE: this.gameProcessFunc();
+        break;
+      case FOUR: this.gameProcessFunc();
+        break;
+      case THREE: this.gameProcessFunc();
+        break;
+      case TWO: this.gameProcessFunc();
+        break;
+      case ONE: this.gameProcessFunc();
+        break;
+      case ZERO:
+        if (store.getState().failure.value !== 'error' && store.getState().restoreGame.value === 'start') {
+          new Audio('./audio/success.mp3').play();
+          this.finish();
+        } else if (store.getState().failure.value === 'error' && store.getState().restoreGame.value === 'start') {
+          new Audio('./audio/failure.mp3').play();
+          this.finish();
+        }
+        this.cards.removeEventListener('click', this.chooseCard);
+        break;
+      default: break;
+    }
+  };
 
   finish(): void {
     const updatePage = (): void => {
