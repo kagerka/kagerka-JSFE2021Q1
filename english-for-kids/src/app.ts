@@ -82,7 +82,9 @@ export class App extends BaseComponent {
     } else if (store.getState().gameMode.value === 'play'
       && this.playButton.classList.contains('active')
       && App.wordArr.length !== ZERO) {
-      new Audio(`./audio/${App.wordArr[0]}.mp3`).play();
+      try {
+        new Audio(`./audio/${App.wordArr[0]}.mp3`).play();
+      } catch { /* console.log('no file'); */ }
     }
   };
 
@@ -135,14 +137,13 @@ export class App extends BaseComponent {
 
   gameProcessFunc(): void {
     if (store.getState().playGame.value === 'correct' && store.getState().gameMode.value === 'play') {
-      try {
-        setTimeout(() => {
+      setTimeout(() => {
+        try {
           const audio = new Audio(`./audio/${App.wordArr[0]}.mp3`);
           audio.play();
           // console.log(`./audio/${App.wordArr[0]}.mp3`);
-        }, ONE_SEC);
-      } catch { // console.log('no such file');
-      }
+        } catch { /* console.log('no such file'); */ }
+      }, ONE_SEC);
     }
 
     this.cards.onclick = (e): void => {
@@ -151,7 +152,7 @@ export class App extends BaseComponent {
           if ((e.target as HTMLElement)?.dataset.word === App.wordArr[0]) {
             App.wordArr.shift();
             if (!(e.target as HTMLElement).classList.contains('checked')) {
-              new Audio('./audio/correct.mp3').play();
+              try { new Audio('./audio/correct.mp3').play(); } catch { /* console.log('no file'); */ }
               App.starArr.push('<img src="./icon/star-win.svg" class="star star-correct" />');
             }
             store.dispatch(correct());
@@ -160,7 +161,7 @@ export class App extends BaseComponent {
             this.starField.innerHTML = App.starArr.join('');
           } else {
             if (!(e.target as HTMLElement).classList.contains('checked')) {
-              new Audio('./audio/error.mp3').play();
+              try { new Audio('./audio/error.mp3').play(); } catch { /* console.log('no file'); */ }
               App.starArr.push('<img src="./icon/star.svg" class="star star-error" />');
             }
             store.dispatch(error());
@@ -198,10 +199,10 @@ export class App extends BaseComponent {
         break;
       case ZERO:
         if (store.getState().failure.value !== 'error' && store.getState().restoreGame.value === 'start') {
-          new Audio('./audio/success.mp3').play();
+          try { new Audio('./audio/success.mp3').play(); } catch { /* console.log('no file'); */ }
           this.finish();
         } else if (store.getState().failure.value === 'error' && store.getState().restoreGame.value === 'start') {
-          new Audio('./audio/failure.mp3').play();
+          try { new Audio('./audio/failure.mp3').play(); } catch { /* console.log('no file'); */ }
           this.finish();
         }
         this.cards.removeEventListener('click', this.chooseCard);
@@ -246,7 +247,7 @@ export class App extends BaseComponent {
   mode(): void {
     document.addEventListener('click', () => {
       if (store.getState().categoryName.value !== 'main' && store.getState().gameMode.value === 'play'
-      && store.getState().isWinPage.value !== 'winPage') {
+        && store.getState().isWinPage.value !== 'winPage') {
         this.element.appendChild(this.playButton);
         this.cards.before(this.starField);
       } else if (store.getState().gameMode.value === 'train' && store.getState().categoryName.value === 'main') {
