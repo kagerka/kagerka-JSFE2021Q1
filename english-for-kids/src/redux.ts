@@ -96,7 +96,23 @@ export const restoreGame = createSlice({
   },
 });
 
+export const isWinPage = createSlice({
+  name: 'winPage',
+  initialState: {
+    value: 'noWinPage',
+  },
+  reducers: {
+    winPage: (state) => {
+      state.value = 'winPage';
+    },
+    noWinPage: (state) => {
+      state.value = 'noWinPage';
+    },
+  },
+});
+
 export const { train, play } = gameMode.actions;
+export const { winPage, noWinPage } = isWinPage.actions;
 export const { correct, incorrect } = playGame.actions;
 export const { error, noError } = failure.actions;
 export const { start, noStart } = restoreGame.actions;
@@ -119,6 +135,7 @@ export const store = configureStore({
     playGame: playGame.reducer,
     failure: failure.reducer,
     restoreGame: restoreGame.reducer,
+    isWinPage: isWinPage.reducer,
   },
 });
 
