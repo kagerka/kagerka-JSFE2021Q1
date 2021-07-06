@@ -1,6 +1,8 @@
 import { BaseComponent } from '../baseComponent';
 import { categories } from '../categories/categories';
-import { play, store, train } from '../redux';
+import {
+  noStart, play, store, train,
+} from '../redux';
 import { MenuItem } from './menuItem';
 
 export class Navigation extends BaseComponent {
@@ -108,6 +110,7 @@ export class Navigation extends BaseComponent {
 
   checkboxListener(): void {
     this.checkbox.addEventListener('click', () => {
+      store.dispatch(noStart());
       const cards = document.querySelectorAll('.cards__card');
       if (this.checkbox.checked) {
         cards.forEach((item) => item.classList.add('train'));
