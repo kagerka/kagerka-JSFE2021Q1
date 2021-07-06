@@ -30,6 +30,8 @@ import {
   noError,
   start,
   noStart,
+  winPage,
+  noWinPage,
 } from './redux';
 import { CategoryCard } from './types';
 
@@ -144,25 +146,27 @@ export class App extends BaseComponent {
     }
 
     this.cards.onclick = (e): void => {
-      if (store.getState().restoreGame.value === 'start' && store.getState().gameMode.value === 'play') {
-        if ((e.target as HTMLElement)?.dataset.word === App.wordArr[0]) {
-          App.wordArr.shift();
-          if (!(e.target as HTMLElement).classList.contains('checked')) {
-            new Audio('./audio/correct.mp3').play();
-            App.starArr.push('<img src="./icon/star-win.svg" class="star star-correct" />');
+      if ((e.target as HTMLElement)?.classList.contains('cards__card_picture')) {
+        if (store.getState().restoreGame.value === 'start' && store.getState().gameMode.value === 'play') {
+          if ((e.target as HTMLElement)?.dataset.word === App.wordArr[0]) {
+            App.wordArr.shift();
+            if (!(e.target as HTMLElement).classList.contains('checked')) {
+              new Audio('./audio/correct.mp3').play();
+              App.starArr.push('<img src="./icon/star-win.svg" class="star star-correct" />');
+            }
+            store.dispatch(correct());
+            (e.target as HTMLElement).classList.add('checked');
+            // console.log(App.wordArr);
+            this.starField.innerHTML = App.starArr.join('');
+          } else {
+            if (!(e.target as HTMLElement).classList.contains('checked')) {
+              new Audio('./audio/error.mp3').play();
+              App.starArr.push('<img src="./icon/star.svg" class="star star-error" />');
+            }
+            store.dispatch(error());
+            store.dispatch(incorrect());
+            this.starField.innerHTML = App.starArr.join('');
           }
-          store.dispatch(correct());
-          (e.target as HTMLElement).classList.add('checked');
-          // console.log(App.wordArr);
-          this.starField.innerHTML = App.starArr.join('');
-        } else {
-          if (!(e.target as HTMLElement).classList.contains('checked')) {
-            new Audio('./audio/error.mp3').play();
-            App.starArr.push('<img src="./icon/star.svg" class="star star-error" />');
-          }
-          store.dispatch(error());
-          store.dispatch(incorrect());
-          this.starField.innerHTML = App.starArr.join('');
         }
       }
     };
@@ -224,17 +228,25 @@ export class App extends BaseComponent {
       }, RELOAD_PAGE_TIME);
     };
     if (store.getState().failure.value !== 'error' && store.getState().restoreGame.value === 'start') {
+      store.dispatch(noStart());
+      store.dispatch(winPage());
       this.cards.innerHTML = '<img src="./img/success.jpg" class="" />';
       updatePage();
     } else if (store.getState().failure.value === 'error' && store.getState().restoreGame.value === 'start') {
-      this.cards.innerHTML = '<img src="./img/failure.jpg" class="" />';
+      store.dispatch(noStart());
+      store.dispatch(winPage());
+      const errors = App.starArr.filter((item) => item === '<img src="./icon/star.svg" class="star star-error" />');
+      this.cards.classList.remove('cards');
+      this.cards.innerHTML = `<img src="./img/failure.jpg" class="" />
+      <p class="error-msg">You have ${errors.length} errors</p>`;
       updatePage();
     }
   }
 
   mode(): void {
     document.addEventListener('click', () => {
-      if (store.getState().categoryName.value !== 'main' && store.getState().gameMode.value === 'play') {
+      if (store.getState().categoryName.value !== 'main' && store.getState().gameMode.value === 'play'
+      && store.getState().isWinPage.value !== 'winPage') {
         this.element.appendChild(this.playButton);
         this.cards.before(this.starField);
       } else if (store.getState().gameMode.value === 'train' && store.getState().categoryName.value === 'main') {
@@ -245,6 +257,13 @@ export class App extends BaseComponent {
           // const err = 'error';
         }
       } else if (store.getState().gameMode.value === 'play' && store.getState().categoryName.value === 'main') {
+        try {
+          this.element.removeChild(this.playButton);
+          this.element.removeChild(this.starField);
+        } catch (e) {
+          // const err = 'error';
+        }
+      } else if (store.getState().restoreGame.value === 'noStart' && store.getState().isWinPage.value === 'winPage') {
         try {
           this.element.removeChild(this.playButton);
           this.element.removeChild(this.starField);
@@ -318,6 +337,7 @@ export class App extends BaseComponent {
 
   render(): void {
     store.dispatch(noStart());
+    store.dispatch(noWinPage());
     categories.forEach((item) => new CategoryItem(this.cards).render(item.categoryName, item.categoryClass));
     this.cards.setAttribute('class', 'cards categories');
     store.dispatch(categoryMain());
