@@ -1,0 +1,7 @@
+{
+  "verbose": false,
+  "ignore": ["node_modules"],
+  "watch": ["server"],
+  "exec": "npx ts-node ./server/serverApp.ts",
+  "ext": "ts, js"
+}
