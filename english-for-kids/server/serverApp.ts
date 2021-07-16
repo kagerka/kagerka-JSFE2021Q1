@@ -3,9 +3,7 @@ import path from 'path';
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
-
-const PORT_8080 = 8080;
-const ERROR_403 = 403;
+import { ERROR_403, PORT_8080 } from './serverConstants';
 
 export const serverApp = express();
 serverApp.use(express.urlencoded({ extended: false }));
