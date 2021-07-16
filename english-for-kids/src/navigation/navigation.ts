@@ -1,3 +1,4 @@
+import { AuthPopup } from '../admin-panel/authPopup';
 import { BaseComponent } from '../baseComponent';
 import { categories } from '../categories/categories';
 import {
@@ -26,6 +27,8 @@ export class Navigation extends BaseComponent {
 
   private readonly closeBtn: HTMLElement;
 
+  private readonly loginBtn: HTMLElement;
+
   constructor(private readonly rootElement: HTMLElement) {
     super('header', ['header']);
     this.rootElement.appendChild(this.element);
@@ -39,6 +42,10 @@ export class Navigation extends BaseComponent {
     this.navMenu = document.createElement('ul');
     this.navMenu.setAttribute('class', 'nav');
     this.nav.appendChild(this.navMenu);
+
+    this.loginBtn = document.createElement('a');
+    this.loginBtn.setAttribute('class', 'login-btn');
+    this.navMenu.appendChild(this.loginBtn);
 
     this.closeBtn = document.createElement('div');
     this.closeBtn.setAttribute('class', 'close');
@@ -83,6 +90,10 @@ export class Navigation extends BaseComponent {
     this.closeBtn.addEventListener('click', () => {
       this.navMenu.classList.remove('active');
       this.burgerMenu.classList.remove('hidden');
+    });
+
+    this.loginBtn.addEventListener('click', () => {
+      new AuthPopup(this.element).render();
     });
 
     document.addEventListener('change', () => {
@@ -133,6 +144,7 @@ export class Navigation extends BaseComponent {
     this.closeBtn.innerHTML = `
       <img src="./icon/close.svg" alt="">
     `;
+    this.loginBtn.innerHTML = 'Login';
     new MenuItem(this.navMenu).init();
     categories.forEach((item) => {
       new MenuItem(this.navMenu).render(item.categoryName, item.categoryClass);
