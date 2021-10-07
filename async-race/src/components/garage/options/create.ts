@@ -1,9 +1,13 @@
 import { createCar } from '../../../rest-api/garage/create-car';
-import { BaseComponent } from '../../base-components';
-import { variables } from '../../data';
+import { BaseComponent } from '../../baseСomponent';
+import { state } from '../../state';
 import { generateCarItems } from '../race-field/generateCarItems';
-import { generateRandomParam } from './generate-random-param';
+import { generateRandomCar } from './generate-random-param';
 
+// const attributes = [
+//   { tag: 'button', class: 'btn garage__create-btn', id: 'create-btn', type: 'button' },
+//   { tag: 'input', class: 'input__color', id: 'car-color-create', type: 'color', name: 'car-color-create', value: '#e3e3e3' },
+// ];
 export class CreateOption extends BaseComponent {
   private readonly nameInput: HTMLInputElement;
 
@@ -21,7 +25,6 @@ export class CreateOption extends BaseComponent {
     this.nameInput.setAttribute('id', 'car-name-create');
     this.nameInput.setAttribute('class', 'input__text');
     this.nameInput.setAttribute('placeholder', 'Enter car name here');
-    this.element.appendChild(this.nameInput);
 
     this.colorInput = document.createElement('input');
     this.colorInput.setAttribute('type', 'color');
@@ -29,13 +32,12 @@ export class CreateOption extends BaseComponent {
     this.colorInput.setAttribute('id', 'car-color-create');
     this.colorInput.setAttribute('class', 'input__color');
     this.colorInput.setAttribute('value', '#e3e3e3');
-    this.element.appendChild(this.colorInput);
 
     this.createBtn = document.createElement('button');
     this.createBtn.setAttribute('class', 'btn garage__create-btn');
     this.createBtn.setAttribute('id', 'create-btn');
     this.createBtn.setAttribute('type', 'button');
-    this.element.appendChild(this.createBtn);
+    this.createBtn.innerText = 'Create';
     this.init();
   }
 
@@ -52,29 +54,28 @@ export class CreateOption extends BaseComponent {
       }
     });
 
-    this.element.addEventListener('click', async (e) => {
-      const generatedParams = await generateRandomParam();
-      if (e.target === this.createBtn) {
-        if (!name && !color) {
-          name = `${generatedParams.carMake} ${generatedParams.carModel}`;
-          color = `${generatedParams.randomColor}`;
-        } else if (!name && color) {
-          name = `${generatedParams.carMake} ${generatedParams.carModel}`;
-        } else if (name && !color) {
-          color = `${generatedParams.randomColor}`;
-        }
-        createCar(`${name}`, `${color}`);
-        this.nameInput.value = '';
-        this.colorInput.value = '#e3e3e3';
-        name = '';
-        color = '';
-        generateCarItems(variables.pageNum);
+    this.createBtn.addEventListener('click', () => {
+      const generatedParams = generateRandomCar();
+      if (!name && !color) {
+        name = `${generatedParams.carMake} ${generatedParams.carModel}`;
+        color = `${generatedParams.randomColor}`;
+      } else if (!name && color) {
+        name = `${generatedParams.carMake} ${generatedParams.carModel}`;
+      } else if (name && !color) {
+        color = `${generatedParams.randomColor}`;
       }
+      createCar(`${name}`, `${color}`);
+      this.nameInput.value = '';
+      this.colorInput.value = '#e3e3e3';
+      name = '';
+      color = '';
+      generateCarItems(state.pageNum);
     });
   }
 
-  render(): HTMLElement {
-    this.createBtn.innerText = 'Create';
-    return this.element;
+  render(): void {
+    this.element.appendChild(this.nameInput);
+    this.element.appendChild(this.colorInput);
+    this.element.appendChild(this.createBtn);
   }
 }

@@ -1,29 +1,16 @@
-export type Params = {
-  key: string;
-  value: string | number;
-};
-
 export type GetGarage = {
-  items: Array<Params>;
-  carNums: number | string | null;
+  items: string;
+  carAmount: number;
 };
 
-export type CarType = {
+export interface ICar {
   id: number;
   name: string;
   color: string;
-};
+}
 
 export type CarItem = {
   name: string;
-  color: string | number;
-};
-
-export type CarItemName = {
-  name: string;
-};
-
-export type CarItemColor = {
   color: string | number;
 };
 
@@ -54,7 +41,7 @@ export type StartDriveResult = {
 };
 
 export type GetCars = {
-  items: CarType[];
+  items: ICar[];
   count: string | null;
 };
 
@@ -69,32 +56,25 @@ export type RaceAllCar = {
   time: number;
 };
 
-export type Winner = {
+export interface IWinner {
   id: number;
   wins: number;
   time: number;
-  car: CarType;
-};
+  car: ICar;
+}
 
-export type GetWinners = {
+export interface IWinnersTableParams {
   page: number;
   limit: number;
   sort: string;
   order: string;
-};
+}
 
-export type GetWinCars = {
-  items: Winner[];
+export interface IWinners {
+  items: IWinner[];
   count: string | null;
-};
+}
 
-export type CreateWinner = {
-  id: number;
-  time: number;
-};
+export type CreateWinner = Omit<IWinner, 'wins' | 'car'>;
 
-export type SaveWinner = {
-  id: number;
-  wins: number;
-  time: number;
-};
+export type UpdateWinner = Omit<IWinner, 'car'>;

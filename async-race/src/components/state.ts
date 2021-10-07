@@ -1,4 +1,4 @@
-export const variables = {
+export const state = {
   id: 0,
   animation: {},
   pageNum: 1,
@@ -9,4 +9,5 @@ export const variables = {
   order: 'ASC',
   arrowWin: '',
   arrowTime: '',
+  firstWinner: false,
 };

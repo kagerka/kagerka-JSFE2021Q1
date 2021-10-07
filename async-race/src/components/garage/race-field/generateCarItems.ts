@@ -1,4 +1,4 @@
-import { CarType } from '../../../params';
+import { ICar } from '../../../models';
 import { getCars } from '../../../rest-api/garage/get-car';
 import { CARS_ON_PAGE, ZERO } from '../../constants';
 import { RaceFieldItem } from './race-field-item';
@@ -13,7 +13,7 @@ export const generateCarItems = (pageNum: number): void => {
     const raceSubTitle: HTMLElement | null = document.querySelector('.garage__race-subtitle');
     if (raceField) {
       raceField.innerHTML = '';
-      itemsItems.forEach((item: CarType) => new RaceFieldItem(raceField).render(item.id, item.name, item.color));
+      itemsItems.forEach((item: ICar) => new RaceFieldItem(raceField).render(item.id, item.name, item.color));
     }
     if (raceTitle) {
       raceTitle.innerHTML = `Garage (${totalCount})`;

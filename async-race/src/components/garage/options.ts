@@ -1,4 +1,4 @@
-import { BaseComponent } from '../base-components';
+import { BaseComponent } from '../baseСomponent';
 import { CreateOption } from './options/create';
 import { RaceBtnOption } from './options/race-buttons';
 import { UpdateOption } from './options/update';
@@ -21,10 +21,9 @@ export class GarageOptions extends BaseComponent {
     this.element.appendChild(this.updateForm);
   }
 
-  render(): HTMLElement {
+  render(): void {
     new CreateOption(this.createForm).render();
     new UpdateOption(this.updateForm).render();
     new RaceBtnOption(this.element).render();
-    return this.element;
   }
 }

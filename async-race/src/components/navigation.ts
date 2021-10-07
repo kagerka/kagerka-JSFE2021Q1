@@ -1,4 +1,4 @@
-import { BaseComponent } from './base-components';
+import { BaseComponent } from './baseСomponent';
 import { Winners } from './winners/winners';
 
 export class Navigation extends BaseComponent {
@@ -33,15 +33,14 @@ export class Navigation extends BaseComponent {
           this.garageBtn.classList.remove('active');
           garage.classList.add('hidden');
           winners.classList.remove('hidden');
-          Winners.renderWinners();
+          Winners.updateWinners();
         }
       }
     });
   }
 
-  render(): HTMLElement {
+  render(): void {
     this.garageBtn.innerText = 'Garage';
     this.winnersBtn.innerText = 'Winners';
-    return this.element;
   }
 }

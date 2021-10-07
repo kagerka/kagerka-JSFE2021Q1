@@ -1,7 +1,7 @@
 import { getCar } from '../../../rest-api/garage/get-car';
 import { updateCar } from '../../../rest-api/garage/update-car';
-import { BaseComponent } from '../../base-components';
-import { variables } from '../../data';
+import { BaseComponent } from '../../baseСomponent';
+import { state } from '../../state';
 import { generateCarItems } from '../race-field/generateCarItems';
 import { RaceFieldItem } from '../race-field/race-field-item';
 
@@ -23,7 +23,6 @@ export class UpdateOption extends BaseComponent {
     this.nameInput.setAttribute('class', 'input__text');
     this.nameInput.setAttribute('placeholder', 'Enter new car name here for update');
     this.nameInput.setAttribute('disabled', 'disabled');
-    this.element.appendChild(this.nameInput);
 
     this.colorInput = document.createElement('input');
     this.colorInput.setAttribute('type', 'color');
@@ -32,13 +31,12 @@ export class UpdateOption extends BaseComponent {
     this.colorInput.setAttribute('class', 'input__color');
     this.colorInput.setAttribute('disabled', 'disabled');
     this.colorInput.setAttribute('value', '#e3e3e3');
-    this.element.appendChild(this.colorInput);
 
     this.updateBtn = document.createElement('button');
     this.updateBtn.setAttribute('class', 'btn garage__update-btn disabled');
     this.updateBtn.setAttribute('id', 'update-btn');
     this.updateBtn.setAttribute('type', 'button');
-    this.element.appendChild(this.updateBtn);
+    this.updateBtn.innerText = 'Update';
     this.init();
   }
 
@@ -58,12 +56,12 @@ export class UpdateOption extends BaseComponent {
       const inputColorValue = this.colorInput.value;
       if (this.nameInput.value === '') {
         await updateCar(RaceFieldItem.currentCarId, currentName, inputColorValue);
-      } else if (this.colorInput.value === '#e3e3e3') {
+      } else if (inputColorValue === '#e3e3e3') {
         await updateCar(RaceFieldItem.currentCarId, this.nameInput.value, currentColor);
       } else {
         await updateCar(RaceFieldItem.currentCarId, this.nameInput.value, inputColorValue);
       }
-      generateCarItems(variables.pageNum);
+      generateCarItems(state.pageNum);
       this.nameInput.value = '';
       this.colorInput.value = '#e3e3e3';
       this.updateBtn.classList.add('disabled');
@@ -72,8 +70,9 @@ export class UpdateOption extends BaseComponent {
     });
   }
 
-  render(): HTMLElement {
-    this.updateBtn.innerText = 'Update';
-    return this.element;
+  render(): void {
+    this.element.appendChild(this.nameInput);
+    this.element.appendChild(this.colorInput);
+    this.element.appendChild(this.updateBtn);
   }
 }

@@ -1,4 +1,4 @@
-import { BaseComponent } from '../base-components';
+import { BaseComponent } from '../baseСomponent';
 import { Car } from '../garage/race-field/car';
 
 export class WinnerItem extends BaseComponent {
@@ -37,7 +37,7 @@ export class WinnerItem extends BaseComponent {
   ): HTMLElement {
     this.rowNum.innerHTML = `${rowNum}`;
     this.carView.appendChild(new Car(this.carView).render(color, id));
-    this.winnerName.innerHTML = `${winnerName}`;
+    this.winnerName.innerHTML = winnerName;
     this.numOfWins.innerHTML = `${numOfWins}`;
     this.bestTime.innerHTML = `${bestTime}`;
     return this.element;
