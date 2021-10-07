@@ -4,6 +4,7 @@ import { Card } from '../card/card';
 import { ClickCount } from '../game/click_count';
 
 const SHOW_TIME = 1;
+const SHOW_TIME_SEC = 30000;
 
 export class CardsField extends BaseComponent {
   private cards: Card[] = [];
@@ -21,8 +22,8 @@ export class CardsField extends BaseComponent {
     this.cards = cards;
     this.cards.forEach((card) => this.element.appendChild(card.element));
     setTimeout(() => {
-      this.cards.forEach((card) => card.flipToBack());
+      this.cards.forEach((card) => card.flip(true));
       new ClickCount().clickCounter();
-    }, SHOW_TIME * 30000);
+    }, SHOW_TIME * SHOW_TIME_SEC);
   }
 }

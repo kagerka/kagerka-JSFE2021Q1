@@ -28,6 +28,9 @@
     "import/prefer-default-export": "off",
     "no-param-reassign": ["error", {
       "props": false
-    }]
+    }],
+    "no-magic-numbers": ["error", { "ignoreArrayIndexes": true  }],
+    "max-lines": ["error", 99],
+    "@typescript-eslint/explicit-function-return-type": "error"
   }
 }

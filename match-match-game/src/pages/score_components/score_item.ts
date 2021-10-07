@@ -12,21 +12,23 @@ export class ScoreItem extends BaseComponent {
   render(): HTMLElement {
     const scorePlayers = document.querySelector('.score__players');
     if (!window.indexedDB) {
-      // console.log('Your browser doesn\'t support IndexedDB');
+      throw new Error('Your browser doesn\'t support IndexedDB');
     }
-    const request = indexedDB.open('kagerka', 1);
-    request.onerror = () => {
-      // console.error(`Database error: ${event.target}`);
+    const IDB_VERSION = 1;
+    const request = indexedDB.open('kagerka', IDB_VERSION);
+    request.onerror = (event): void => {
+      throw new Error(`Database error: ${event.target}`);
     };
 
-    function displayData() {
-      if (scorePlayers) scorePlayers.innerHTML = '';
+    function displayData(): void {
+      if (scorePlayers) { scorePlayers.innerHTML = ''; }
       const db = request.result;
       const objectStore = db.transaction('Contacts').objectStore('Contacts');
       let count = 0;
-      objectStore.index('score').openCursor(null, 'prev').onsuccess = (event) => {
+      objectStore.index('score').openCursor(null, 'prev').onsuccess = (event): void => {
         const cursor = (<IDBRequest>event.target).result;
-        if (cursor && count < 10) {
+        const TOP_COUNT = 10;
+        if (cursor && count < TOP_COUNT) {
           count++;
           const listItem = document.createElement('div');
           listItem.classList.add('score__player');
@@ -42,14 +44,11 @@ export class ScoreItem extends BaseComponent {
         `;
           scorePlayers?.appendChild(listItem);
           cursor.continue();
-        } else {
-          // console.log('all data displayed');
         }
       };
     }
 
-    request.onsuccess = () => {
-      // const db = request.result;
+    request.onsuccess = (): void => {
       displayData();
     };
 

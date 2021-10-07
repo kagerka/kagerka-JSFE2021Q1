@@ -18,7 +18,7 @@ export class Congrat extends BaseComponent {
       </div>`;
     this.element.addEventListener('click', () => {
       const main = document.querySelector('main');
-      if (main) main.innerHTML = '';
+      if (main) { main.innerHTML = ''; }
       new ScorePage(main as HTMLElement).render();
       const stopGameButton = document.querySelector('.game__stop-game_button');
       if (stopGameButton) {

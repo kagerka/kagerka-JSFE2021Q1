@@ -1,78 +1,51 @@
 import './register_form.scss';
 import { BaseComponent } from '../../../base-components';
-import { Avatar } from './avatar';
+import { RegisterFirstName } from './register_fname';
+import { RegisterLastName } from './register_lname';
+import { RegisterEmail } from './register_email';
+import { RegisterAvatar } from './register_avatar';
+import { RegisterErrors } from './register_errors';
+import { RegisterButtons } from './register_buttons';
 
 export class RegisterForm extends BaseComponent {
+  private readonly register: HTMLElement;
+
+  private readonly registerTitle: HTMLElement;
+
+  private readonly registerForm: HTMLElement;
+
+  private readonly registerFormWrapper: HTMLElement;
+
+  private readonly registerFormItems: HTMLElement;
+
   constructor(private readonly rootElement: HTMLElement) {
     super('div', ['overlay', 'hidden']);
-    this.rootElement.appendChild(this.element);
+    this.register = document.createElement('div');
+    this.register.setAttribute('class', 'register-form');
+    this.register.setAttribute('id', 'register-form');
+    this.registerTitle = document.createElement('h1');
+    this.registerForm = document.createElement('form');
+    this.registerForm.setAttribute('id', 'regform');
+    this.registerFormWrapper = document.createElement('div');
+    this.registerFormWrapper.setAttribute('class', 'register-form__wrapper');
+    this.registerFormItems = document.createElement('div');
+    this.registerFormItems.setAttribute('class', 'register-form__items-field');
   }
 
   render(): HTMLElement {
-    this.element.innerHTML = `
-    <div class="register-form" id="register-form">
-      <h1>Register new Player</h1>
-      <form id="regform">
-        <div class="register-form__wrapper">
-
-          <div class="register-form__items-field">
-            <div class="register-form__item">
-              <label for="first-name">First Name</label>
-              <input type="text" placeholder="Enter your name here" name="first-name" required>
-              <div class="first-name validate-field correct hidden">
-                <div class="validate-field__yes">✓</div>
-              </div>
-              <div class="first-name validate-field incorrect">
-                <div class="validate-field__no ">!</div>
-              </div>
-            </div>
-
-            <div class="register-form__item">
-              <label for="last-name">Last Name</label>
-              <input type="text" placeholder="Enter your last name here" name="last-name" required>
-              <div class="last-name validate-field correct hidden">
-                <div class="validate-field__yes">✓</div>
-              </div>
-              <div class="last-name validate-field incorrect">
-                <div class="validate-field__no ">!</div>
-              </div>
-            </div>
-
-            <div class="register-form__item">
-              <label for="email">E-mail</label>
-              <input type="email" placeholder="Enter your e-mail here" name="email" required>
-              <div class="email validate-field correct hidden">
-                <div class="validate-field__yes">✓</div>
-              </div>
-              <div class="email validate-field incorrect">
-                <div class="validate-field__no ">!</div>
-              </div>
-            </div>
-
-          </div>
-          <div class="register-form__avatar">
-            <label>
-              <input type="file" name="avatar" style="display: none;"/>
-              <div class="register-form__avatar_pic"></div>
-            </label>
-          </div>
-
-        </div>
-        <div id="reg-form-error-msg">
-          <div id="reg-form-fname-error-msg"></div>
-          <div id="reg-form-lname-error-msg"></div>
-          <div id="reg-form-email-error-msg"></div>
-        </div>
-        <div class="register-form__buttons">
-
-          <button type="button" class="btn add-user">ADD USER</button>
-          <button type="button" class="btn cancel">CANCEL</button>
-
-        </div>
-      </form>
-    </div>
-    `;
-    new Avatar().avatar();
+    this.rootElement.appendChild(this.element);
+    this.element.appendChild(this.register);
+    this.register.appendChild(this.registerTitle);
+    this.register.appendChild(this.registerTitle).innerText = 'Register new Player';
+    this.register.appendChild(this.registerForm);
+    this.registerForm.appendChild(this.registerFormWrapper);
+    this.registerFormWrapper.appendChild(this.registerFormItems);
+    new RegisterFirstName(this.registerFormItems).render();
+    new RegisterLastName(this.registerFormItems).render();
+    new RegisterEmail(this.registerFormItems).render();
+    new RegisterAvatar(this.registerFormWrapper).render();
+    new RegisterErrors(this.registerForm).render();
+    new RegisterButtons(this.registerForm).render();
     return this.element;
   }
 }

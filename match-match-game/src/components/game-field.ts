@@ -15,71 +15,79 @@ export class GameField {
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
     let [, cat] = categories;
+    const ZERO_TIMEOUT = 0;
+    const cardType = localStorage.getItem('cardType');
+    const countType = localStorage.getItem('countType');
 
-    if (localStorage.getItem('cardType') === '1' && localStorage.getItem('countType') === '1') {
-      [cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '25%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '1' && localStorage.getItem('countType') === '2') {
-      [, cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '25%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '1' && localStorage.getItem('countType') === '3') {
-      [, , cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '20%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '1' && localStorage.getItem('countType') === '4') {
-      [, , , cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '16%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '2' && localStorage.getItem('countType') === '1') {
-      [, , , , cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '25%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '2' && localStorage.getItem('countType') === '2') {
-      [, , , , , cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '25%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '2' && localStorage.getItem('countType') === '3') {
-      [, , , , , , cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '20%';
-        }
-      }, 0);
-    } else if (localStorage.getItem('cardType') === '2' && localStorage.getItem('countType') === '4') {
-      [, , , , , , , cat] = categories;
-      setTimeout(() => {
-        const cardContainer = document.querySelectorAll('.card-container');
-        for (let i = 0; i < cardContainer.length; i++) {
-          (cardContainer[i] as HTMLElement).style.width = '16%';
-        }
-      }, 0);
+    function cardContainerWidth(width: number): void {
+      const cardContainer = document.querySelectorAll('.card-container');
+      cardContainer.forEach((item) => {
+        (item as HTMLElement).style.width = `${width}%`;
+      });
+    }
+
+    const CARD_WIDTH_25 = 25;
+    const CARD_WIDTH_20 = 20;
+    const CARD_WIDTH_16 = 16;
+
+    if (cardType === '1') {
+      switch (countType) {
+        case '1':
+          [cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_25);
+          }, ZERO_TIMEOUT);
+          break;
+        case '2':
+          [, cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_25);
+          }, ZERO_TIMEOUT);
+          break;
+        case '3':
+          [, , cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_20);
+          }, ZERO_TIMEOUT);
+          break;
+        case '4':
+          [, , , cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_16);
+          }, ZERO_TIMEOUT);
+          break;
+        default:
+          break;
+      }
+    } else if (cardType === '2') {
+      switch (countType) {
+        case '1':
+          [, , , , cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_25);
+          }, ZERO_TIMEOUT);
+          break;
+        case '2':
+          [, , , , , cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_25);
+          }, ZERO_TIMEOUT);
+          break;
+        case '3':
+          [, , , , , , cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_20);
+          }, ZERO_TIMEOUT);
+          break;
+        case '4':
+          [, , , , , , , cat] = categories;
+          setTimeout(() => {
+            cardContainerWidth(CARD_WIDTH_16);
+          }, ZERO_TIMEOUT);
+          break;
+        default:
+          break;
+      }
     }
     const images = cat.images.map((name) => `${cat.category}/${name}`);
     this.game.newGame(images);

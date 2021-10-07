@@ -1,16 +1,16 @@
 export class IndexedDB {
-  render(): unknown {
+  render(): IndexedDB {
     if (!window.indexedDB) {
-      // console.log('Your browser doesn\'t support IndexedDB');
+      throw new Error('Your browser doesn\'t support IndexedDB');
     }
-
-    const request = indexedDB.open('kagerka', 1);
-    request.onerror = () => {
+    const IDB_VERSION = 1;
+    const request = indexedDB.open('kagerka', IDB_VERSION);
+    request.onerror = (): void => {
     };
 
-    request.onsuccess = () => {};
+    request.onsuccess = (): void => { };
 
-    request.onupgradeneeded = (event) => {
+    request.onupgradeneeded = (event): void => {
       const db = (event.target as IDBOpenDBRequest)?.result;
       const store = db.createObjectStore('Contacts', { autoIncrement: true });
       store.createIndex('email', 'email', { unique: true });
@@ -20,44 +20,49 @@ export class IndexedDB {
       store.createIndex('avatar', 'avatar', { unique: false });
     };
 
-    function insertContact(db: IDBDatabase, contact: unknown) {
+    function insertContact(db: IDBDatabase, contact: {
+      email: string; firstName: string; lastName: string; score: number; avatar: string }): void {
       const txn = db.transaction('Contacts', 'readwrite');
       const store = txn.objectStore('Contacts');
       const query = store.put(contact);
-      query.onsuccess = () => {
+      query.onsuccess = (): void => {
       };
-      query.onerror = () => {
+      query.onerror = (): void => {
       };
-      txn.oncomplete = () => {
+      txn.oncomplete = (): void => {
         db.close();
       };
     }
 
-    function updateScore(db: IDBDatabase) {
+    function updateScore(db: IDBDatabase): void {
       const transaction = db.transaction('Contacts', 'readwrite');
       const objectStore = transaction.objectStore('Contacts');
       const mins = document.getElementById('min')?.innerText;
       const sec = document.getElementById('sec')?.innerText;
       const clickDiff = document.getElementById('clickDiffField')?.innerText;
       let score = 0;
+      const SEC_IN_MIN = 60;
+      const DIFF_COEFFICIENT = 100;
+      const TIME_COEFFICIENT = 10;
+      const SCORE_ZERO = 0;
       if (mins && sec && clickDiff) {
-        score = +clickDiff * 100 - (+mins * 60 + +sec) * 10;
-        if (score < 0) {
-          score = 0;
+        score = +clickDiff * DIFF_COEFFICIENT - (+mins * SEC_IN_MIN + +sec) * TIME_COEFFICIENT;
+        if (score < SCORE_ZERO) {
+          score = SCORE_ZERO;
         }
       }
-      objectStore.openCursor().onsuccess = (event) => {
+      objectStore.openCursor().onsuccess = (event): void => {
         const cursor = (<IDBRequest>event.target).result;
         const count = objectStore.count();
         let countNum = 0;
-        count.onsuccess = () => {
+        count.onsuccess = (): void => {
           countNum = count.result;
           if (cursor) {
             if (cursor.key === countNum) {
               const updateData = cursor.value;
               updateData.score = score;
               const requestUpd = cursor.update(updateData);
-              requestUpd.onsuccess = () => {
+              requestUpd.onsuccess = (): void => {
               };
             }
             cursor.continue();
@@ -66,7 +71,7 @@ export class IndexedDB {
       };
     }
 
-    request.onsuccess = (event) => {
+    request.onsuccess = (event): void => {
       const db = (event.target as IDBOpenDBRequest)?.result;
       const addUserBtn = document.querySelector('.add-user');
       const addScoreBtn = document.querySelector('.congrat-btn');

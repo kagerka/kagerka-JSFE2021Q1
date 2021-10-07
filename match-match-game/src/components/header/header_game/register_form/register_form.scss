@@ -155,7 +155,7 @@
     color: rgba(0, 0, 0, 0.87);
   }
 
-  #reg-form-error-msg {
+  .reg-form-error-msg {
     height: 90px;
     font-family: Roboto;
     font-style: normal;
@@ -164,7 +164,7 @@
     color: #ff4343;
   }
 
-  #reg-form-error-msg * {
+  .reg-form-error-msg * {
     min-height: 14px;
     margin-bottom: 10px;
   }
