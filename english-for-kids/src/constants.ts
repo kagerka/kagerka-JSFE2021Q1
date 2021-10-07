@@ -9,4 +9,5 @@ export const FIVE = 5;
 export const SIX = 6;
 export const SEVEN = 7;
 export const EIGHT = 8;
+export const STATUS_200 = 200;
 export const RELOAD_PAGE_TIME = 2500;
