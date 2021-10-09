@@ -1,0 +1,314 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+  height: 290px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 900px) {
+  .logo {
+    display: none;
+  }
+}
+
+.btn {
+  text-transform: uppercase;
+  border: none;
+  color: white;
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+  min-width: 110px;
+}
+
+.btn:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.btn.disabled {
+  background-color: white;
+  border: 2px solid #999999;
+  color: #999999;
+  pointer-events: none;
+}
+
+.btn.disabled:hover {
+  background-color: white;
+  border: 2px solid #999999;
+  color: #999999;
+  cursor: default;
+  pointer-events: none;
+}
+
+.hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 0;
+  margin: -1px;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.nav-buttons {
+  display: flex;
+  margin-bottom: 40px;
+
+  & .btn {
+    background-color: #d4f5d5;
+    color: black;
+    border: 2px solid #4CAF50;
+    min-width: 140px;
+  }
+
+  & .btn:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  & .btn.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  & * {
+    margin-right: 10px;
+  }
+}
+
+.main {
+  margin-bottom: 40px;
+  height: fit-content;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: #007da7;
+  border-left: 10px solid #007da7;
+  padding-left: 10px;
+}
+
+h3 {
+  text-transform: uppercase;
+  color: #999999;
+  border-left: 10px solid #999999;
+  padding-left: 10px;
+}
+
+.garage {
+
+  &__options {
+    margin-bottom: 40px;
+
+    & .input__text {
+      width: 296px;
+      height: 30px;
+      border: 2px solid #7c7c7c;
+      padding: 0 10px;
+      font-size: 16px;
+    }
+
+    & .input__text:focus {
+      border-radius: 0;
+      outline-color: rgb(255, 102, 0);
+      background-color: rgb(250, 234, 213);
+    }
+
+    & .input__color {
+      width: 44px;
+      height: 30px;
+      background: #fff;
+      border: 2px solid #7c7c7c;
+      cursor: pointer;
+    }
+  }
+
+  &__options_wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: fit-content;
+  }
+
+  &__options_wrapper * {
+    margin-right: 10px;
+  }
+
+  &__race-btn,
+  &__reset-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    min-width: 140px;
+  }
+
+  &__race-btn:hover,
+  &__reset-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  &__race {
+    width: 100%;
+    position: relative;
+
+    &-item {
+      border-bottom: 2px dashed #535353;
+      display: flex;
+      position: relative;
+      margin-bottom: 20px;
+
+      &_buttons * {
+        padding: 2px 10px;
+        min-width: 80px;
+      }
+
+      &_ab * {
+        text-transform: uppercase;
+        border: none;
+        color: white;
+        padding: 0 0;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 2px solid #fc9918;
+        min-width: 30px;
+        width: 22px;
+        height: 22px;
+      }
+
+      &_ab *:hover {
+        background-color: #fc9918;
+        color: white;
+        width: 22px;
+      }
+
+      &_car-name {
+        font-size: 20px;
+        padding: 2px 20px;
+        font-weight: bold;
+        color: #4CAF50;
+      }
+
+      & .img-flag {
+        position: absolute;
+        right: 80px;
+        height: 50px;
+        bottom: 0px;
+      }
+    }
+
+  }
+
+  &__generate-btn {
+    width: 166px;
+  }
+
+  &__car {
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+    z-index: -1;
+    height: 44px;
+  }
+
+  & .car__svg {
+    // fill: rgb(10, 153, 53);
+    width: 60px;
+    height: 60px;
+  }
+}
+
+td .garage__car {
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  height: 60px;
+}
+
+td .car__svg {
+  width: 60px;
+  height: 60px;
+}
+
+.car-wheel {
+  fill: #535353;
+}
+
+.winners {
+  opacity: 1;
+  position: relative;
+
+  &.hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 0;
+    margin: -1px;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+
+  th {
+    background-color: #008CBA;
+    color: white;
+    padding: 4px 10px;
+    min-width: 100px;
+  }
+
+  td {
+    padding: 4px 10px;
+    text-align: center;
+  }
+}
+
+
+.pagination-buttons {
+  display: flex;
+  margin-top: 40px;
+
+  & * {
+    margin-right: 10px;
+    background-color: #caebf7;
+  }
+}
+
+.win-message {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fc9918;
+  font-size: 40px;
+  font-weight: bold;
+  transition-duration: 0.4s;
+  // display: none;
+}
