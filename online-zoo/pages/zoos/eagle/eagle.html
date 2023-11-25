@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetStory online</title>
+  <link rel="stylesheet" href="../../../normalize/normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+</head>
+
+<body class="page">
+  <h1 class="hidden">PetStory Online</h1>
+  <header class="header">
+    <div class="wrapper">
+      <div class="header__wrapper">
+
+        <div class="header__logo">
+          <a href="../../main/index.html" class="header__logo-link"><img src="../../../assets/icons/logo.svg"
+              alt="PetStory online logo" class="header__logo-pic"></a>
+        </div>
+        <nav class="header__nav">
+          <a href="../../main/index.html" class="header__logo-link header__logo-link_burger"><img
+              src="../../../assets/icons/logo1.svg" alt="PetStory online logo" class="header__logo-pic_burger-menu"></a>
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="../../main/index.html" class="header__link">About</a>
+            </li>
+            <li class="header__item">
+              <a href="../../map/map.html" class="header__link">Map</a>
+            </li>
+            <li class="header__item">
+              <a href="../panda/panda.html" class="header__link header__link_active">Zoos</ф>
+            </li>
+            <li class="header__item">
+              <a href="#!" class="header__link">Contact us</a>
+            </li>
+            <li class="header__item header__item_hidden">
+              <a href="../../donate/donate.html" class="header__link">Donate</a>
+            </li>
+            <li class="header__item">
+              <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank"
+                class="header__link">Designed by ©</a>
+            </li>
+          </ul>
+          <div class="header__nav-close">
+            <span class="header__nav-close-line"></span>
+            <span class="header__nav-close-line"></span>
+          </div>
+        </nav>
+        <div class="header__burger burger">
+          <span class="burger__line burger__line-first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="zoos-wrapper">
+      <section class="camera">
+        <div class="camera__wrapper wrapper">
+          <div class="aside-wrapper">
+            <aside class="zoos-sidebar">
+              <div class="zoos-sidebar__tooltip">
+                <a href="../gorilla/gorilla.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Gorilla</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__gorilla">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-gorilla"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../alligator/alligator.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Alligator</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__alligator">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-alligator"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../panda/panda.html">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Panda</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__panda zoos-sidebar__active">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-panda"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="../eagle/eagle.html">
+                  <div class="zoos-sidebar__animal zoos-sidebar__active">
+                    <span class="zoos-sidebar__tooltip-text">Eagle</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__eagle">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-eagle"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Sloth</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__sloth">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-sloth"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__tooltip">
+                <a href="#!">
+                  <div class="zoos-sidebar__animal">
+                    <span class="zoos-sidebar__tooltip-text">Penguin</span>
+                    <svg class="zoos-sidebar__animal_svg zoos-sidebar__penguin">
+                      <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-penguin"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <div class="zoos-sidebar__animal">
+                <svg class="zoos-sidebar__animal_svg zoos-sidebar__arrow">
+                  <use xlink:href="../../../assets/icons/zoos-animals.svg#zoos-arrow"></use>
+                </svg>
+              </div>
+            </aside>
+          </div>
+          <h2 class="camera__heading">Eagle camera</h2>
+
+          <div class="camera__video">
+            <iframe class="camera__item" src="https://www.youtube.com/embed/eTAsANPVqB8" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="camera__carousel">
+
+            <div class="camera__carousel_arrows-wrapper">
+              <div>
+                <a href="#!" class="camera__carousel_left-arrow"><img src="../../../assets/icons/arrow-left.svg"
+                    alt=""></a>
+              </div>
+              <div>
+                <a href="#!" class="camera__carousel_right-arrow"><img src="../../../assets/icons/arrow-right.svg"
+                    alt=""></a>
+              </div>
+            </div>
+
+            <div class="camera__carousel_wrapper">
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <div class="camera__carousel_item">
+                <div class="camera__carousel_transparent-block"><span class="camera__carousel_live">Live</span></div>
+                <iframe class="camera__carousel_video" src="https://www.youtube.com/embed/eTAsANPVqB8?controls=2"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="animal-info">
+        <div class="wrapper animal-info__wrapper">
+          <h2 class="animal-info__heading">Eagle</h2>
+
+          <div class="animal-info__info-card">
+            <div class="animal-info__pic">
+              <img src="../../../assets/images/eagle.jpg" alt="" class="animal-info__img">
+            </div>
+            <div class="animal-info__content">
+              <p class="animal-info__text">There are about <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">40 species</a> of these birds in the world. The largest eagle is the <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">Golden Eagle</a>. It reaches a length of 95 cm and a wingspan of over two meters. Its plumage ranges from golden to t. brown. They nest exclusively in mountainous areas. They hunt in pairs and mainly during daylight hours. They feed on birds, squirrels, martens, hares and even larger animals.</p>
+              <a href="../../donate/donate.html" class="btn animal-info__button">Feed a friend now</a>
+            </div>
+          </div>
+
+          <div class="animal-info__complete-info">
+            <div class="animal-info__short-info">
+              <p class="animal-info__short-info_text animal-info__short-info_diet"><span
+                  class="animal-info__short-info_title animal-info__short-info_diet-title">Diet:</span> <span
+                  class="animal-info__short-info_diet-text">Carnivore (Fish, lizards, snakes, mice)</span></p>
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Range:</span> Eurasia and Africa <a href="../../map/map.html"
+                class="text-link">[VIEW MAP]</a></p>
+              <p class="animal-info__short-info_text"><span class="animal-info__short-info_title">Habitat:</span>
+                Mountainous or semi-open landscapes (Simulation of the natural environment)</p>
+            </div>
+            <h3 class="animal-info__complete-info_title">General Information:</h3>
+            <p class="animal-info__complete-info_text">Eagles choose a mate for life. They <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">build large</a> and strong nests, using branches. They lay two eggs each. While the female incubates them, the male takes care of her feeding. The hatched offspring can be seen immediately, and are covered with down. The nature of the predator forces the chicks from a young age to fight for their survival. Often one can observe the larger chick trying to push the younger brother out of the nest. Sometimes it may even kill it by fighting for food. In cases where there is enough food, several chicks grow in the nests.</p>
+            <h3 class="animal-info__complete-info_title">Physical features and characteristics:</h3>
+            <p class="animal-info__complete-info_text">The eagle is a bird of prey in the hawk family. It is one of the largest birds. The body length of an adult bird varies from 73 to 89 cm, with long wings up to 2.5 m in wingspan, a short tail and strong paws. The massive beak and sharp claws are the main weapons of this raptor.</p>
+            <p class="animal-info__complete-info_text">Excellent vision allows the eagle to spot a mouse, snake, or lizard from a great height. The eyeball is large and occupies a lot of space in the skull, so eye mobility is low, but the well-developed neck makes up for this <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">disadvantage</a>. Eagles use their hearing more for communication than for hunting. The sense of smell is poorly developed.</p>
+            <h3 class="animal-info__complete-info_title">Lifestyle and reproduction:</h3>
+            <p class="animal-info__complete-info_text">Eagles choose a mate for life. They build large and strong nests, using branches. They lay two eggs each. While the female incubates them, the male takes care of her feeding. The hatched offspring can be seen immediately, and are covered with down. The nature of the predator forces the chicks from a young age to fight for their survival. Often one can observe the larger chick trying to push the younger brother out of the nest. Sometimes it may even kill it by fighting for food. In cases where there is enough food, several chicks grow in the nests.</p>
+            
+            <h3 class="animal-info__complete-info_title">Habitat:</h3>
+            <p class="animal-info__complete-info_text">They can be found in the forests, tundras, steppes, and even deserts of <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">Eurasia</a>, <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">North America</a>, and <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">Africa</a>.</p>
+            <h3 class="animal-info__complete-info_title">Diet:</h3>
+            <p class="animal-info__complete-info_text">They usually hunt alone. The eagle may hover for a long time at a high altitude, looking for prey, or sit on an elevated position and observe the surroundings in search of prey. As a rule, only killed prey goes as food, carrion rarely makes it into their <a href="https://en.wikipedia.org/wiki/Eagle" target="_blank" class="text-link">diet</a>. It all depends on the type of bird. It can be both insects and large mammals. At the moment of attack, the eagle sharply lowers down, grabs the victim with its paws and strikes it with its beak. The stunned creature is no longer able to resist.</p>
+          </div>
+          <button type="submit" class="animal-info__read-less_button">Read More</button>
+
+        </div>
+      </section>
+
+      <div class="zoos-animal zoos-animal__eagle">
+        <a href="../../donate/donate.html" class="btn zoos-animal__donate-button">Donate</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+
+
+      <div class="footer__logo">
+        <a href="../../main/index.html" class="footer__logo-link">
+          <img src="../../../assets/icons/logo.svg" alt="PetStory online logo" class="footer__logo-pic">
+          <img src="../../../assets/icons/logo2.svg" alt="PetStory online logo" class="footer__logo-pic_mobile">
+        </a>
+      </div>
+
+      <a href="../../donate/donate.html" class="btn footer__button">Donate for volunteers</a>
+
+      <div class="footer__socials socials">
+        <ul class="socials__list">
+          <li class="socials__item">
+            <a href="https://www.facebook.com/" target="_blank" class="socials__link"><svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#facebook"></use>
+              </svg><span class="socials__social-text">Facebook</span></a>
+          </li>
+          <li class="socials__item"><a href="https://twitter.com/" target="_blank" class="socials__link">
+              <svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#twitter"></use>
+              </svg><span class="socials__social-text">Twitter</span></a>
+          </li>
+          <li class="socials__item"><a href="https://www.instagram.com/" target="_blank" class="socials__link">
+              <svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#instagram"></use>
+              </svg><span class="socials__social-text">Instagram</span></a>
+          </li>
+          <li class="socials__item"><a href="https://www.youtube.com/" target="_blank" class="socials__link">
+              <svg class="socials__pic">
+                <use xlink:href="../../../assets/icons/socials.svg#youtube"></use>
+              </svg><span class="socials__social-text">YouTube</span></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__menu">
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="../../main/index.html" class="footer__link">About</a>
+          </li>
+          <li class="footer__item"><a href="../../map/map.html" class="footer__link">Map</a></li>
+          <li class="footer__item">
+            <a href="../panda/panda.html" class="footer__link footer__link_active">Zoos</a>
+          </li>
+          <li class="footer__item"><a href="#!" class="footer__link">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__subscribe subscribe">
+        <h3 class="subscribe__title">Subscribe to our news</h3>
+        <form class="subscribe__form">
+          <input type="email" placeholder="Enter your email" class="subscribe__input">
+          <button type="submit" class="subscribe__submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="footer__copyright">
+        <div class="footer__designer">Designed by Alisa Samborskaya</div>
+        <div class="footer__company">©RSSchool & ©Yem Digital 2021</div>
+      </div>
+
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
